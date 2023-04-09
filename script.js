@@ -10,8 +10,10 @@ const proteins = [
 const produce = [
     { name: 'Bell Pepper', qty: .5, unit: '', aisle: 'produce'},
     { name: 'Yellow Onion', qty: .5, unit: '', aisle: 'produce' },
+    { name: 'Red Onion', qty: .5, unit: '', aisle: 'produce' },
     { name: 'Cilantro', qty: .125, unit: 'oz', aisle: 'produce' },
     { name: 'Lime', qty: .5, unit: '', aisle: 'produce' },
+    { name: 'Carrots', qty: .5, unit: 'oz', aisle: 'produce' },
     { name: 'Shredded Carrots', qty: 2, unit: 'oz', aisle: 'produce' },
     { name: 'Chili Pepper', qty: .5, unit: '', aisle: 'produce' },
     { name: 'Poblano Pepper', qty: .5, unit: '', aisle: 'produce' },
@@ -21,6 +23,11 @@ const produce = [
     { name: 'Shallot', qty: .5, unit: '', aisle: 'produce' },
     { name: 'Ginger', qty: .5, unit: 'Thumb', aisle: 'produce' },
     { name: 'Basil', qty: .5, unit: 'oz', aisle: 'produce' },
+    { name: 'Scallions', qty: .5, unit: 'oz', aisle: 'produce' },
+    { name: 'Zucchini', qty: .5, unit: '', aisle: 'produce' },
+    { name: 'Kiwi', qty: .5, unit: '', aisle: 'produce' },
+    { name: 'Long Green Pepper', qty: .5, unit: '', aisle: 'produce' },
+        
 ]   
 
 const grain = [
@@ -29,18 +36,23 @@ const grain = [
 const sauce = [
     { name: 'Sweet Soy Glaze', qty: 2, unit: 'TBSP', aisle: '' },
     { name: 'Sweet Thai Chili Sauce', qty: .5, unit: 'oz', aisle: '' },
-    { name: 'Mayonnaise', qty: 1, unit: 'TBSP', aisle: '' },
+    { name: 'Mayonnaise', qty: 1, unit: 'TBSP', aisle: 'condiment' },
     { name: 'Sriracha', qty: 1, unit: 'tsp', aisle: '' },
     { name: 'Sesame Dressing', qty: .75, unit: 'oz', aisle: '' },
     { name: 'Chicken Stock Concentrate', qty: 1, unit: 'TBSP', aisle: '' },
     { name: 'Mushroom Stock Concentrate', qty: 1, unit: 'TBSP', aisle: '' },
     { name: 'Ponzu Sauce', qty: 24, unit: 'ml', aisle: '' },
+    { name: 'White Wine Vinegar', qty: 2.5, unit: 'tsp', aisle: '' },
+    { name: 'Sesame Oil', qty: .5, unit: 'TBSP', aisle: '' },
+    { name: 'Soy Sauce', qty: 1, unit: 'TBSP', aisle: '' },
+    { name: 'Gochujang Sauce', qty: .5, unit: 'oz', aisle: '' },
+    { name: 'Teriyaki Sauce', qty: .5, unit: '', aisle: '' },
 ]
 const necessities = [
-    { name: 'Butter', qty: 0, unit: '', aisle: '' },
+    { name: 'Butter', qty: 0, unit: '', aisle: 'dairy' },
     { name: 'Olive oil', qty: 0, unit: '', aisle: '' },
-    { name: 'Sugar', qty: 0, unit: '', aisle: '' },
-    { name: 'Black Pepper', qty: 0, unit: '', aisle: '' },
+    { name: 'Sugar', qty: 0, unit: '', aisle: 'baking' },
+    { name: 'Black Pepper', qty: 0, unit: '', aisle: 'seasoning' },
     { name: 'Salt', qty: 0, unit: '', aisle: '' },
     
     
@@ -50,8 +62,11 @@ const driedGoods = [
     { name: 'Crispy Fried Onion', qty: .25, unit: 'cup', aisle: '' },
 ]
 const seasoning = [
-  { name: 'Cumin', qty: .5, unit: 'tsp', aisle: '' },
-  { name: 'Tumeric', qty: .5, unit: 'tsp', aisle: '' },
+  { name: 'Cumin', qty: .5, unit: 'tsp', aisle: 'seasoning' },
+  { name: 'Tumeric', qty: .5, unit: 'tsp', aisle: 'seasoning' },
+]
+const dairy = [
+  { name: 'Sour Cream', qty: 1, unit: 'TBSP', aisle: 'dairy' },
 ]
 
 //Recipie ingredient lists
@@ -84,7 +99,18 @@ const sweetChiliPorkBowlIngredients = [
     ...driedGoods.filter(item => item.name === "Peanuts"),
     ...grain.filter(item => item.name === "Jasmine Rice")
   ]
-
+const porkAndZucchiniBibimbapIngredients = [
+  ...proteins.filter(item => item.name === "Ground Pork"),
+  ...produce.filter(item => item.name === "Scallions" || item.name === "Carrots" || item.name === "Zucchini" || item.name === "Ginger" || item.name === "Garlic"),
+  ...sauce.filter(item => item.name === "White Wine Vinegar" || item.name === "Sesame Oil" || item.name === "Soy Sauce" || item.name === "Gonchujang Sauce"), 
+  ...grain.filter(item => item.name === "Jasmine Rice")
+]
+const teriyakiPorkLuauBowlIngredients = [
+  ...proteins.filter(item => item.name === "Ground Pork"),
+  ...produce.filter(item => item.name === "Long Green Pepper" || item.name === "Red Onion" || item.name === "Roma Tomato" || item.name === "Lime" || item.name === "Garlic"),
+  ...sauce.filter(item => item.name === "Teriyaki Sauce"),    
+  ...grain.filter(item => item.name === "Jasmine Rice")
+]
 
 // Recipies
 const recipies = [
@@ -146,6 +172,48 @@ info: [
 ]
 },
 
+{ name: 'Pok and Zucchini Bibimbap',
+ingredients: porkAndZucchiniBibimbapIngredients,
+instructions: [
+  '1 Cook Rice. In a small pot, combine rice, 1¼ cups water (2¼ cups for 4 servings), and a big pinch of salt. Bring to a boil, then cover and reduce to a low simmer. Cook until rice is tender, 15-18 minutes. Keep covered off heat until ready to serve.',
+  '2 Prep. Meanwhile, wash and dry all produce. Trim and thinly slice scallions, separating whites from greens. Trim and peel carrots. Using a peeler, shave carrots lengthwise into ribbons, rotating as you go. Trim and halve zucchini lengthwise; thinly slice crosswise into half-moons. Peel and mince ginger. Mince garlic.',
+  '3 Make Pickles and Sauce. In a small bowl, combine scallion whites, vinegar, and a pinch of salt. Set aside to marinate, stirring occasionally, until ready to serve. In a separate small bowl, combine sesame oil, half the soy sauce (you will use the rest later), 1 TBSP sugar (2 TBSP for 4 servings), and up to half the sriracha to taste. Stir until sugar has dissolved.',
+  '4 Cook Veggies. Heat a drizzle of oil in a large, preferably nonstick, pan over mediumhigh heat. Add carrots; season with salt and pepper. Cook, stirring, until slightly softened, 3-4 minutes. Remove from pan and set aside. Add another drizzle of oil to pan. Add zucchini; season with salt and pepper. Cook until browned and tender, 3-5 minutes per side. Remove from pan and set aside with carrots.',
+  '5 Cook Pork. Heat another drizzle of oil in same pan over medium-high heat. Add pork, ginger, and garlic. Cook, breaking up meat into pieces, until pork is browned and cooked through, 4-6 minutes. Add remaining soy sauce and cook, stirring, until liquid has mostly evaporated, 1-2 minutes. Season with salt and pepper.',
+  '6 Finish and Serve. Fluff rice with a fork and season with salt and pepper; divide between bowls. Arrange pork and veggies on top. Top with pickled scallion whites (and pickling liquid). Drizzle with sauce and remaining sriracha to taste. Sprinkle with scallion greens and serve.'
+],
+info: [
+  {prep: '10 min', time: '30 min', calories: '820'}
+]
+},
+{ name: 'Teriyaki Pork Luau Bowls',
+ingredients: teriyakiPorkLuauBowlIngredients,
+instructions: [
+  '1 Prep. Wash and dry all produce. • Peel and dice kiwi. Dice tomato. Halve, peel, and thinly slice onion; finely dice a few slices until you have 2 TBSP. Zest and quarter lime. Peel and mince garlic. Halve, core, and thinly slice green pepper crosswise into strips.',
+  '2 Cook Rice. Melt 1 TBSP butter (2 TBSP for 4 servings) in a small pot over medium high heat. Add rice and stir to coat. Stir in ¾ cup water (1½ cups for 4) and a big pinch of salt. Bring to a boil, then cover and reduce to a low simmer. Cook until rice is tender, 15-18 minutes. Keep covered off heat until ready to serve.',
+  '3 Make Salsa and Crema. Meanwhile, in a medium bowl, combine kiwi, tomato, diced onion, and a squeeze of lime juice. Season with salt and pepper. • In a small bowl, combine sour cream, half the lime zest, and a pinch of garlic to taste. Stir in water 1 tsp at a time until mixture reaches a drizzling consistency. Season with salt and pepper.',
+  '4 Cook Veggies. Heat a drizzle of oil in a large pan over medium-high heat. Add green pepper and sliced onion; season with salt and pepper. Cook, stirring, until tender and lightly browned, 6-7 minutes. • Add remaining garlic and cook, stirring, until fragrant, 30 seconds. Transfer veggies to a plate.',
+  '5 Cook Pork. Heat another drizzle of oil in pan used for veggies over medium-high heat. Add pork*; season with salt and pepper. Using a spatula, press into an even layer. Cook, without stirring, until browned on bottom, 3-4 minutes. Break up meat into pieces and continue cooking until pork is cooked through, 1-2 minutes more. • Return cooked veggies to pan. Stir in teriyaki sauce, 1 tsp sugar (1½ tsp for 4 servings), and 1 TBSP butter (2 TBSP for 4). Cook until thickened, 1-2 minutes.',
+  '6 Finish and Serve. Fluff rice with a fork; stir in remaining lime zest and season with salt. • Divide rice between bowls and top with pork mixture, kiwi salsa, and garlic lime crema. Serve with remaining lime wedges on the side.'
+],
+info: [
+  {prep: '15 min', time: '35 min', calories: '830'}
+]
+},
+{ name: '',
+ingredients: '',
+instructions: [
+  '',
+  '',
+  '',
+  '',
+  '',
+  ''
+],
+info: [
+  {prep: '5 min', time: '20 min', calories: '1060'}
+]
+},
 { name: '',
 ingredients: '',
 instructions: [
@@ -174,7 +242,6 @@ info: [
   {prep: '5 min', time: '20 min', calories: '1060'}
 ]
 },
-
 ]
 
 let groceryList = [
@@ -194,7 +261,8 @@ addRecipieToList(sesameSoyPorkBowlIngredients)
 addRecipieToList(sweetChiliPorkBowlIngredients)
 addRecipieToList(chimiChickenAndYellowRiceBowlIngredients)
 addRecipieToList(thaiBasilBeefBowlIngredients)
-
+addRecipieToList(porkAndZucchiniBibimbapIngredients)
+addRecipieToList(teriyakiPorkLuauBowlIngredients)
 // groceryList.push(sesameSoyPorkBowlIngredients)
 console.log(groceryList)
 
