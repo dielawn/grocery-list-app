@@ -1,76 +1,151 @@
 //all units are single serving
 
 const proteins = [
-    { name: 'Ground Pork', qty: 5, unit: 'oz', aisle: 'butcher' },
-    { name: 'Chicken Breast Strips', qty: 5, unit: 'oz', aisle: 'butcher' },
-    { name: 'Ground Beef', qty: 5, unit: 'oz', aisle: 'butcher' },
+  { name: 'Bacon', qty: 4, unit: 'oz', aisle: 'butcher' },
+
+  { name: 'Chicken Breast Strips', qty: 5, unit: 'oz', aisle: 'butcher' },
+  
+  { name: 'Ground Beef', qty: 5, unit: 'oz', aisle: 'butcher' },
+  { name: 'Ground Pork', qty: 5, unit: 'oz', aisle: 'butcher' },
   
 ];
 
 const produce = [
-    { name: 'Bell Pepper', qty: .5, unit: '', aisle: 'produce'},
-    { name: 'Yellow Onion', qty: .5, unit: '', aisle: 'produce' },
-    { name: 'Red Onion', qty: .5, unit: '', aisle: 'produce' },
-    { name: 'Cilantro', qty: .125, unit: 'oz', aisle: 'produce' },
-    { name: 'Lime', qty: .5, unit: '', aisle: 'produce' },
-    { name: 'Carrots', qty: .5, unit: 'oz', aisle: 'produce' },
-    { name: 'Shredded Carrots', qty: 2, unit: 'oz', aisle: 'produce' },
-    { name: 'Chili Pepper', qty: .5, unit: '', aisle: 'produce' },
-    { name: 'Poblano Pepper', qty: .5, unit: '', aisle: 'produce' },
-    { name: 'Roma Tomato', qty: .5, unit: '', aisle: 'produce' },
-    { name: 'Garlic', qty: 1, unit: 'Clove', aisle: 'produce' },
-    { name: 'Lemon', qty: .5, unit: '', aisle: 'produce' },
-    { name: 'Shallot', qty: .5, unit: '', aisle: 'produce' },
-    { name: 'Ginger', qty: .5, unit: 'Thumb', aisle: 'produce' },
-    { name: 'Basil', qty: .5, unit: 'oz', aisle: 'produce' },
-    { name: 'Scallions', qty: .5, unit: 'oz', aisle: 'produce' },
-    { name: 'Zucchini', qty: .5, unit: '', aisle: 'produce' },
-    { name: 'Kiwi', qty: .5, unit: '', aisle: 'produce' },
-    { name: 'Long Green Pepper', qty: .5, unit: '', aisle: 'produce' },
-    { name: 'Yukon Gold Potatoes', qty: 6, unit: 'oz', aisle: 'produce' },
+  { name: 'Banana', qty: .5, unit: 'bunch', aisle: 'produce' },
+  { name: 'Basil', qty: .5, unit: 'oz', aisle: 'produce' },
+  { name: 'Bell Pepper', qty: .5, unit: '', aisle: 'produce'},
+
+  { name: 'Carrots', qty: .5, unit: 'oz', aisle: 'produce' },
+  { name: 'Chili Pepper', qty: .5, unit: '', aisle: 'produce' },
+  { name: 'Cilantro', qty: .125, unit: 'oz', aisle: 'produce' },
+
+  { name: 'Garlic', qty: 1, unit: 'Clove', aisle: 'produce' },
+  { name: 'Ginger', qty: .5, unit: 'Thumb', aisle: 'produce' },
+
+  { name: 'Kiwi', qty: .5, unit: '', aisle: 'produce' },
+
+  { name: 'Lemon', qty: .5, unit: '', aisle: 'produce' },
+  { name: 'Lime', qty: .5, unit: '', aisle: 'produce' },
+  { name: 'Long Green Pepper', qty: .5, unit: '', aisle: 'produce' },
+
+  { name: 'Poblano Pepper', qty: .5, unit: '', aisle: 'produce' },
+ 
+  { name: 'Red Onion', qty: .5, unit: '', aisle: 'produce' },  
+  { name: 'Roma Tomato', qty: .5, unit: '', aisle: 'produce' },
+ 
+  { name: 'Scallions', qty: .5, unit: 'oz', aisle: 'produce' },
+  { name: 'Shallot', qty: .5, unit: '', aisle: 'produce' },
+  { name: 'Shredded Carrots', qty: 2, unit: 'oz', aisle: 'produce' },
+  
+  { name: 'Yellow Onion', qty: .5, unit: '', aisle: 'produce' },
+  { name: 'Yukon Gold Potatoes', qty: 6, unit: 'oz', aisle: 'produce' },
+ 
+  { name: 'Zucchini', qty: .5, unit: '', aisle: 'produce' },
         
 ]   
 
 const grain = [
-    { name: 'Jasmine Rice', qty: .5, unit: 'cup', aisle: '' },
-    { name: 'Potato Buns', qty: 1, unit: 'Bun', aisle: 'bakery'},
+  { name: 'Brioche Buns', qty: 1, unit: 'Bun', aisle: 'bakery'},
+  
+  { name: 'Everything Bagel', qty: 1, unit: 'pack', aisle: 'bakery' },
+  
+  { name: 'Jasmine Rice', qty: .5, unit: 'cup', aisle: 'ethnic' },
+  
+  { name: 'Potato Buns', qty: 1, unit: 'Bun', aisle: 'bakery'},
+    
 ]
+
 const sauce = [
-    { name: 'Sweet Soy Glaze', qty: 2, unit: 'TBSP', aisle: '' },
-    { name: 'Sweet Thai Chili Sauce', qty: .5, unit: 'oz', aisle: '' },
-    { name: 'Mayonnaise', qty: 1, unit: 'TBSP', aisle: 'condiment' },
-    { name: 'Sriracha', qty: 1, unit: 'tsp', aisle: '' },
-    { name: 'Sesame Dressing', qty: .75, unit: 'oz', aisle: '' },
-    { name: 'Chicken Stock Concentrate', qty: 1, unit: 'TBSP', aisle: '' },
-    { name: 'Mushroom Stock Concentrate', qty: 1, unit: 'TBSP', aisle: '' },
-    { name: 'Ponzu Sauce', qty: 24, unit: 'ml', aisle: '' },
-    { name: 'White Wine Vinegar', qty: 2.5, unit: 'tsp', aisle: '' },
-    { name: 'Sesame Oil', qty: .5, unit: 'TBSP', aisle: '' },
-    { name: 'Soy Sauce', qty: 1, unit: 'TBSP', aisle: '' },
-    { name: 'Gochujang Sauce', qty: .5, unit: 'oz', aisle: '' },
-    { name: 'Teriyaki Sauce', qty: .5, unit: '', aisle: '' },
+  { name: "Balsamic Vinegar", qty: .25, unit: 'oz', aisle: 'condiment' },
+  { name: "BBQ Sauce", qty: 2, unit: 'TBSP', aisle: 'condiment' },
+  { name: 'Beef Stock Concentrate', qty: 1, unit: 'TBSP', aisle: 'canned' },
+  
+  { name: 'Chicken Stock Concentrate', qty: 1, unit: 'TBSP', aisle: 'canned' },
+
+  { name: "Frank's Hot Sauce", qty: .25, unit: 'oz', aisle: 'condiment' },
+
+  { name: 'Gochujang Sauce', qty: .5, unit: 'oz', aisle: 'ethnic' },
+
+  { name: "Ketchup", qty: .25, unit: 'oz', aisle: 'condiment' },
+
+  { name: 'Mayonnaise', qty: 1, unit: 'TBSP', aisle: 'condiment' },
+  { name: 'Mushroom Stock Concentrate', qty: 1, unit: 'TBSP', aisle: 'canned' },
+
+  { name: 'Ponzu Sauce', qty: 24, unit: 'ml', aisle: 'ethnic' },
+
+  { name: 'Ranch Dressing', qty: .75, unit: 'oz', aisle: 'condiment' },
+
+  { name: 'Sesame Dressing', qty: .75, unit: 'oz', aisle: 'condiment' },
+  { name: 'Sesame Oil', qty: .5, unit: 'TBSP', aisle: 'ethnic' },
+  { name: 'Soy Sauce', qty: 1, unit: 'TBSP', aisle: 'ethnic' },
+  { name: 'Sriracha', qty: 1, unit: 'tsp', aisle: 'ethnic' },
+  { name: 'Sweet Soy Glaze', qty: 2, unit: 'TBSP', aisle: 'ethnic' },
+  { name: 'Sweet Thai Chili Sauce', qty: .5, unit: 'oz', aisle: 'ethnic' },    
+  
+  { name: 'Teriyaki Sauce', qty: .5, unit: '', aisle: 'ethnic' },
+    
+  { name: 'White Wine Vinegar', qty: 2.5, unit: 'tsp', aisle: 'condiment' },
+  
 ]
+
 const necessities = [
-    { name: 'Butter', qty: 0, unit: '', aisle: 'dairy' },
-    { name: 'Olive oil', qty: 0, unit: '', aisle: '' },
-    { name: 'Sugar', qty: 0, unit: '', aisle: 'baking' },
-    { name: 'Black Pepper', qty: 0, unit: '', aisle: 'seasoning' },
-    { name: 'Salt', qty: 0, unit: '', aisle: '' },
-    
-    
+  { name: 'Black Pepper', qty: 0, unit: '', aisle: 'baking' },
+  { name: 'Butter', qty: 0, unit: '', aisle: 'dairy' },
+  
+  { name: 'Olive oil', qty: 0, unit: '', aisle: 'baking' },
+  
+  { name: 'Salt', qty: 0, unit: '', aisle: 'baking' },
+  { name: 'Sugar', qty: 0, unit: '', aisle: 'baking' },    
 ]
+
+const cannedGoods = [
+  { name: "Dill Pickle", qty: .5, unit: '', aisle: 'canned' },
+]
+
 const driedGoods = [
-    { name: 'Peanuts', qty: .25, unit: 'oz', aisle: '' },
-    { name: 'Crispy Fried Onion', qty: .25, unit: 'cup', aisle: '' },
+    { name: 'Bread Crumbs', qty: .125, unit: 'cup', aisle: 'baking' },
+
+    { name: 'Cornstarch', qty: .5, unit: 'TBSP', aisle: 'baking' },
+    { name: 'Crispy Fried Onion', qty: .25, unit: 'cup', aisle: 'baking' },
+
+    { name: 'Peanuts', qty: .25, unit: 'oz', aisle: 'snack' },   
 ]
+
 const seasoning = [
-  { name: 'Cumin', qty: .5, unit: 'tsp', aisle: 'seasoning' },
-  { name: 'Tumeric', qty: .5, unit: 'tsp', aisle: 'seasoning' },
-  { name: 'Smoked Paprika', qty: .5, unit: 'tsp', aisle: 'seasoning' },
+  { name: "Ancho Chili Powder", qty: .5, unit: 'tsp', aisle: 'baking' },
+
+  { name: 'Cumin', qty: .5, unit: 'tsp', aisle: 'baking' },
+
+  { name: "Dried Oregano", qty: .5, unit: 'tsp', aisle: 'baking' },
+
+  { name: "Frank's Seasoning", qty: .5, unit: '', aisle: 'baking' },
+  { name: "Fry Seasoning", qty: .5, unit: 'TBSP', aisle: 'baking' },
+
+  { name: "Garlic Powder", qty: .5, unit: 'tsp', aisle: 'baking' },
+
+  { name: 'Smoked Paprika', qty: .5, unit: 'tsp', aisle: 'baking' },
+
+  { name: 'Tumeric', qty: .5, unit: 'tsp', aisle: 'baking' },  
 ]
+
 const dairy = [
+  { name: 'Cream Cheese', qty: 2, unit: 'TBSP', aisle: 'cheese' },
+
+  { name: 'Gouda Cheese', qty: 1, unit: 'Slice', aisle: 'cheese' },
+
+  { name: 'Monterey Jack Cheese', qty: 1, unit: 'Slice', aisle: 'cheese' },
+
+  { name: 'Pepper Jack Cheese', qty: 1, unit: 'Slice', aisle: 'cheese' },
+
   { name: 'Sour Cream', qty: 1, unit: 'TBSP', aisle: 'dairy' },
-  { name: 'Gouda Cheese', qty: 1, unit: 'Slice', aisle: 'dairy' },
+]
+
+
+// 
+const dillonsBreakfastIngredients = [
+  ...dairy.filter(item => item.name === "Cream Cheese"),
+  ...grain.filter(item => item.name === "Everything Bagel"),
+  ...produce.filter(item => item.name === "Banana")  
 ]
 
 //Recipie ingredient lists
@@ -123,247 +198,192 @@ const goudaPorkBurgerIngredients = [
   ...dairy.filter(item => item.name === "Gouda Cheese"),
   ...grain.filter(item => item.name === "Potato Buns")
 ]
-
+const firehouseCheeseburgersIngredients = [
+  ...proteins.filter(item => item.name === "Ground Beef"),
+  ...sauce.filter(item => item.name === "Ranch Dressing" || item.name === "Sour Cream" || item.name === "Frank's Hot Sauce"),
+  ...dairy.filter(item => item.name === "Monterey Jack Cheese"),
+  ...seasoning.filter(item => item.name === "Frank's Seasoning" || item.name === "Garlic Powder"),
+  ...driedGoods.filter(item => item.name === "Crispy Fried Onion"),
+  ...grain.filter(item => item.name === "Potato Buns")
+]
+const meltyMontereyJackBurgersIngredients = [
+  ...proteins.filter(item => item.name === "Ground Beef"),
+  ...produce.filter(item => item.name === "Yellow Onion" || item.name === "Garlic"),
+  ...sauce.filter(item => item.name === "Balsamic Vinegar" || item.name === "Ketchup" || item.name === "Mayonnaise"),
+  ...grain.filter(item => item.name === "Potato Buns")
+]
+const anchoBbqSloppyJoesIngredients = [
+  ...proteins.filter(item => item.name === "Ground Beef"),
+  ...produce.filter(item => item.name === "Yellow Onion" || item.name === "Dill Pickle"),
+  ...driedGoods.filter(item => item.name === "Cornstarch"),
+  ...sauce.filter(item => item.name === "BBQ Sauce" || item.name === "Ketchup" || item.name === "Beef Stock Concentrate"),
+  ...seasoning.filter(item => item.name === "Ancho Chili Powder"),
+  ...grain.filter(item => item.name === "Potato Buns")
+]
 //sides
 const potatoWedgeIngredients = [
   ...produce.filter(item => item.name === "Yukon Gold Potato"),
   ...seasoning.filter(item => item.name === "Smoked Paprika"),
 ]
+const ovenGoldPotatoesIngredients = [
+  ...produce.filter(item => item.name === "Yukon Gold Potato"),
+  ...seasoning.filter(item => item.name === "Fry Seasoning"),
+]
 
+const zucchiniSpearsIngredients = [
+  ...produce.filter(item => item.name === "Zucchini" || item.name === "Garlic"),
+  ...sauce.filter(item => item.name === "Mayonnaise" ),
+  ...seasoning.filter(item => item.name === "Dried Oregano"),
+  ...driedGoods.filter(item => item.name === "Bread Crumbs"),
+]
 //dipping sauce
 const limeCreamaIngredients = [
   ...produce.filter(item => item.name === "Lime"),
   ...seasoning.filter(item => item.name === "Smoked Paprika"),
   ...sauce.filter(item => item.name === "Mayonnaise" || item.name === "Sour Cream"), 
 ]
+const garlicMayoIngredients = [
+  ...sauce.filter(item => item.name === "Mayonnaise" ),
+  ...produce.filter(item => item.name === "Garlic"),
+]
 
 // Recipies
-const recipies = [
+const recipes = [
     { name: 'Sweet Chili Pork Bowls', 
     ingredients: sweetChiliPorkBowlIngredients, 
-    instructions:[
-        '1 Prep and Dry all produce. Halve, core, and thinly slice bell pepper into strips. Halve, peel, and thinly slice onion. Mince cilantro. Zest and quarter lime.',
-        '2 Cook Rice. In a small pot, combine rice, 1¼ cups water (2¼ cups for 4 servings), and a pinch of salt. Bring to a boil, then cover and reduce to a low simmer. Cook until rice is tender, 15-18 minutes. Keep covered off heat until ready to serve.',
-        '3 Coat Peanuts. While rice cooks, heat a large, preferably nonstick, pan over medium-high heat. Add peanuts, 1 tsp sugar (2 tsp for 4 servings), and 2 TBSP water. Cook, stirring often, until water has evaporated and peanuts are coated and lightly toasted, 3-5 minutes. Turn off heat; transfer to a small bowl. Wipe out pan.',
-        '4 Cook Veggies. Heat a large drizzle of oil in same pan over medium-high heat. Add bell pepper and onion; season with salt and pepper. Cook, stirring, until tender and lightly browned, 6-9 minutes. Transfer veggies to a plate.',
-        '5 Cook Pork. Add another drizzle of oil to same pan over medium-high heat. Add pork; season with salt and pepper. Using a spatula, press into an even layer. Cook, without stirring, until browned on bottom, 3-4 minutes. Break up meat into pieces and continue cooking until pork is cooked through, 2-4 minutes. Stir in cooked veggies, then add sweet soy glaze, chili sauce, and 1 TBSP butter (2 TBSP for 4 servings). Cook, stirring, until mixture is thoroughly coated, 1-2 minutes more.',
-        '6 Finish and Serve. Fluff rice with a fork; stir in 1 TBSP butter (2 TBSP for 4 servings) and lime zest to taste. Season with salt. Divide between bowls and top with pork mixture, peanuts, and cilantro. Serve with lime wedges on the side.',
-    ],
-    info: [
-        {prep: '5 min', time: '30 min', calories: '930'}
-    ]
+    instructions:'instructions/sweet-chili-pork-bowls.pdf',
+    link: 'https://www.hellofresh.com/recipes/sweet-chili-pork-bowls-5efb358e43975d50ea6927d2'
 },
 
 { name: 'Sesame Soy Pork Bowls',
 ingredients: sesameSoyPorkBowlIngredients,
-instructions:[
-    '1 Cook Rice. In a small pot, combine rice, 1¼ cups water (2¼ cups for 4 servings), and a pinch of salt. Bring to a boil, then cover and reduce to a low simmer. Cook until rice is tender, 15-18 minutes. Keep covered off heat until ready to serve. ',
-    '2 Prep and Mix Mayo. While rice cooks, wash and dry all produce. Zest and quarter lime. Roughly chop cilantro. • In a small bowl, combine mayonnaise with chili sauce to taste.',
-    '3 Cook Pork. Heat a drizzle of oil in a large pan over medium-high heat. Add pork* and a big pinch of salt. Cook, breaking up meat into pieces, until browned, 3-4 minutes. • Stir in carrots, sweet soy glaze, and sesame dressing. Cook until carrots are softened, pork is cooked through, and sauce has thickened, 2-4 minutes more. Taste and season with salt and pepper. Turn off heat.',
-    '4 Finish and Serve. Fluff rice with a fork; stir in lime zest and 1 TBSP butter (2 TBSP for 4 servings). Season with salt and pepper. Divide rice between bowls and top with pork mixture and any remaining sauce from pan. Drizzle with chili mayo. Sprinkle with crispy fried onions and cilantro. Serve with lime wedges on the side.'
-],
-info: [
-  {prep: '5 min', time: '20 min', calories: '1060'}
-]
+instructions:'instructions/sesame-soy-pork-bowls.pdf',
+link: 'https://www.hellofresh.com/recipes/sesame-soy-pork-bowls-5fa06a5f20b9661c0d5e342f'
 },
 
 { name: 'Chimi Chicken and Yellow Rice Bowls',
 ingredients: chimiChickenAndYellowRiceBowlIngredients,
-instructions: [
-  '1 Cook Rice. In a small pot, combine rice, 1¼ cups water (2¼ cups for 4 servings), and a pinch of salt. Bring to a boil, then cover and reduce to a low simmer. Cook until rice is tender, 15-18 minutes. Keep covered off heat until ready to serve. ',
-  '2 Roast Veggies. Meanwhile, halve, core, and slice poblano into ½-inch-thick strips. Halve, peel, and cut onion into ½-inch-thick wedges; mince a few wedges until you have 2 TBSP (3 TBSP for 4 servings). Toss poblano and onion wedges on a baking sheet with a large drizzle of olive oil, salt, and pepper. Roast on top rack until softened and lightly charred, 18-20 minutes.',
-  '3 Prep. While veggies roast, finely dice tomato. Zest 1 lemon; quarter lemons. Mince garlic. Finely chop cilantro. Thinly slice chili.',
-  '4 Make ChimiChurri. In a small bowl, combine cilantro, half the garlic, half the cumin (you will use the rest later), and juice from 1 lemon (2 lemons for 4 servings). Add as much lemon zest and chili as you like. Stir in 2 TBSP olive oil (4 TBSP for 4); season generously with salt and pepper. In a separate small bowl, combine tomato, minced onion, and lemon juice to taste. Season with salt and pepper.',
-  '5 Cook Chicken. Pat chicken dry with paper towels; season with salt, pepper, and remaining cumin. Heat a drizzle of olive oil in a large pan over medium-high heat. Add chicken and cook, stirring occasionally, until browned and cooked though, 4-6 minutes. Stir in 2 TBSP water (4 TBSP for 4 servings) and remaining garlic and stock concentrates until combined. Simmer until saucy, 1-2 minutes. Turn off heat.',
-  '6 Finish and Serve. Fluff rice with a fork; stir in 1 TBSP butter (2 TBSP for 4 servings) and season with salt and pepper. Divide between bowls and top with veggies, chicken, and salsa. Spoon chimichurri over chicken. Serve with remaining lemon wedges on the side.'
-],
-info: [
-  {prep: '15 min', time: '35 min', calories: '770'}
-]
+instructions:'instructions/chimi-chicken-yellow-rice-bowls.pdf',
+link: 'https://www.hellofresh.com/recipes/chimi-chicken-yellow-rice-bowls-5e5e9a73e0678c51867e16db'
 },
 
 { name: 'Thai Basil Beef Bowls',
 ingredients: thaiBasilBeefBowlIngredients,
-instructions: [
-  '1. Cook Rice. In a small pot, combine rice, 1¼ cups water (2¼ cups for 4 servings), and a big pinch of salt. Bring to a boil, then cover and reduce to a low simmer. Cook until rice is tender, 15-18 minutes. Keep covered off heat until ready to serve.',
-  '2 Prep. Meanwhile, wash and dry all produce. Halve, peel, and thinly slice shallot. Halve, core, and thinly slice bell pepper into strips. Peel and mince or grate ginger. Zest and quarter lime. Pick basil leaves from stems; mince stems and half the leaves. Reserve remaining leaves for garnish.',
-  '3 Cook Veggies. Heat a drizzle of oil in a large pan over medium-high heat. Add bell pepper and cook, stirring occasionally, until browned and softened, 5-7 minutes. Add shallot and cook until softened, 1-2 minutes. Stir in half the ponzu (you will use the rest later) and season with salt and pepper. Turn off heat; transfer veggies to a medium bowl. Cover to keep warm. Wipe out pan, if necessary.',
-  '4 Cook Beef. Heat a drizzle of oil in same pan over medium-high heat. Add beef and cook, breaking up meat into pieces, until browned, 3-4 minutes. (TIP: If there is excess grease in your pan, carefully pour it out.) Add ginger and minced basil; cook until fragrant, 1-2 minutes. Stir in stock concentrate, remaining ponzu, 1 tsp sugar (2 tsp for 4 servings), and ¼ cup water (⅓ cup for 4). Cook until sauce is thickened and beef is cooked through, 1-2 minutes. Season with salt and pepper; remove from heat.',
-  '5 Make Srirach Mayo. While beef cooks, in a small bowl, combine mayonnaise, a squeeze of lime juice, and sriracha to taste. Add water 1 tsp at a time until mixture reaches a drizzling consistency. Season with salt and pepper.',
-  '6 Finish and Serve. Fluff rice with a fork and stir in lime zest and 1 TBSP butter (2 TBSP for 4 servings). Season with salt and pepper. Divide between bowls; arrange beef mixture and veggies on top in separate sections. Drizzle with sriracha mayo. Garnish with peanuts and reserved basil leaves (tear any larger leaves first). Serve with remaining lime wedges on the side.'
-],
-info: [
-  {prep: '10 min', time: '35 min', calories: '870'}
-]
+instructions:'instructions/thai-basil-beef-bowls.pdf',
+link: 'https://www.hellofresh.com/recipes/thai-basil-beef-bowls-5e39b0b7055a3835f148531a'
 },
 
-{ name: 'Pok and Zucchini Bibimbap',
+{ name: 'Pork and Zucchini Bibimbap',
 ingredients: porkAndZucchiniBibimbapIngredients,
-instructions: [
-  '1 Cook Rice. In a small pot, combine rice, 1¼ cups water (2¼ cups for 4 servings), and a big pinch of salt. Bring to a boil, then cover and reduce to a low simmer. Cook until rice is tender, 15-18 minutes. Keep covered off heat until ready to serve.',
-  '2 Prep. Meanwhile, wash and dry all produce. Trim and thinly slice scallions, separating whites from greens. Trim and peel carrots. Using a peeler, shave carrots lengthwise into ribbons, rotating as you go. Trim and halve zucchini lengthwise; thinly slice crosswise into half-moons. Peel and mince ginger. Mince garlic.',
-  '3 Make Pickles and Sauce. In a small bowl, combine scallion whites, vinegar, and a pinch of salt. Set aside to marinate, stirring occasionally, until ready to serve. In a separate small bowl, combine sesame oil, half the soy sauce (you will use the rest later), 1 TBSP sugar (2 TBSP for 4 servings), and up to half the sriracha to taste. Stir until sugar has dissolved.',
-  '4 Cook Veggies. Heat a drizzle of oil in a large, preferably nonstick, pan over mediumhigh heat. Add carrots; season with salt and pepper. Cook, stirring, until slightly softened, 3-4 minutes. Remove from pan and set aside. Add another drizzle of oil to pan. Add zucchini; season with salt and pepper. Cook until browned and tender, 3-5 minutes per side. Remove from pan and set aside with carrots.',
-  '5 Cook Pork. Heat another drizzle of oil in same pan over medium-high heat. Add pork, ginger, and garlic. Cook, breaking up meat into pieces, until pork is browned and cooked through, 4-6 minutes. Add remaining soy sauce and cook, stirring, until liquid has mostly evaporated, 1-2 minutes. Season with salt and pepper.',
-  '6 Finish and Serve. Fluff rice with a fork and season with salt and pepper; divide between bowls. Arrange pork and veggies on top. Top with pickled scallion whites (and pickling liquid). Drizzle with sauce and remaining sriracha to taste. Sprinkle with scallion greens and serve.'
-],
-info: [
-  {prep: '10 min', time: '30 min', calories: '820'}
-]
+instructions:'instructions/pork-and-veggie-bibimbap.pdf',
+link: 'https://www.hellofresh.com/recipes/pork-and-veggie-bibimbap-5e67d7511082fd2292725cfc'
 },
 { name: 'Teriyaki Pork Luau Bowls',
 ingredients: teriyakiPorkLuauBowlIngredients,
-instructions: [
-  '1 Prep. Wash and dry all produce. • Peel and dice kiwi. Dice tomato. Halve, peel, and thinly slice onion; finely dice a few slices until you have 2 TBSP. Zest and quarter lime. Peel and mince garlic. Halve, core, and thinly slice green pepper crosswise into strips.',
-  '2 Cook Rice. Melt 1 TBSP butter (2 TBSP for 4 servings) in a small pot over medium high heat. Add rice and stir to coat. Stir in ¾ cup water (1½ cups for 4) and a big pinch of salt. Bring to a boil, then cover and reduce to a low simmer. Cook until rice is tender, 15-18 minutes. Keep covered off heat until ready to serve.',
-  '3 Make Salsa and Crema. Meanwhile, in a medium bowl, combine kiwi, tomato, diced onion, and a squeeze of lime juice. Season with salt and pepper. • In a small bowl, combine sour cream, half the lime zest, and a pinch of garlic to taste. Stir in water 1 tsp at a time until mixture reaches a drizzling consistency. Season with salt and pepper.',
-  '4 Cook Veggies. Heat a drizzle of oil in a large pan over medium-high heat. Add green pepper and sliced onion; season with salt and pepper. Cook, stirring, until tender and lightly browned, 6-7 minutes. • Add remaining garlic and cook, stirring, until fragrant, 30 seconds. Transfer veggies to a plate.',
-  '5 Cook Pork. Heat another drizzle of oil in pan used for veggies over medium-high heat. Add pork*; season with salt and pepper. Using a spatula, press into an even layer. Cook, without stirring, until browned on bottom, 3-4 minutes. Break up meat into pieces and continue cooking until pork is cooked through, 1-2 minutes more. • Return cooked veggies to pan. Stir in teriyaki sauce, 1 tsp sugar (1½ tsp for 4 servings), and 1 TBSP butter (2 TBSP for 4). Cook until thickened, 1-2 minutes.',
-  '6 Finish and Serve. Fluff rice with a fork; stir in remaining lime zest and season with salt. • Divide rice between bowls and top with pork mixture, kiwi salsa, and garlic lime crema. Serve with remaining lime wedges on the side.'
-],
-info: [
-  {prep: '15 min', time: '35 min', calories: '830'}
-]
+instructions:'instructions/teriyaki-pork-luau-bowls.pdf',
+link: 'https://www.hellofresh.com/recipes/teriyaki-pork-luau-bowls-5fa56ef97511fc2549429dc0'
 },
 { name: 'Gouda Pork Burgers',
 ingredients: goudaPorkBurgerIngredients,
-instructions: [
-  '1 Prep. Thinly slice onion; mince a few slices until you have 2 TBSP (4 TBSP for 4 servings). Zest and quarter lime. Grate 1 clove garlic (2 cloves for 4). Halve buns.',
-  '2 Cook Onion. Meanwhile, melt 2 TBSP butter (3 TBSP for 4 servings) in a medium pan over medium heat. Add sliced onion, ¼ tsp sugar (½ tsp for 4), and salt. Cook, stirring, until browned and softened, 10-15 minutes. (TIP: Lower heat and add a splash of water if onion starts to burn.) Stir in a squeeze of lime juice and sriracha to taste.',
-  '3 Cook Patties. While onion cooks, in a large bowl, combine pork, minced onion, half the grated garlic, remaining paprika, ½ tsp sugar (1 tsp for 4 servings), and salt. Form into two patties (four for 4), each slightly wider than a burger bun. Heat a large drizzle of olive oil in a large pan over medium heat. Add patties and cook until browned and cooked through, 4-7 minutes per side. In the last 1-2 minutes of cooking, top each patty with gouda; cover pan until cheese melts. Remove from pan and set aside.',
-  '4 Toast Buns and Make Sauce. Toast buns until golden. (TIP: For a deeper flavor, toast in pan used for patties over medium heat.) While buns toast, in a small bowl, combine mayonnaise, sour cream, and a squeeze of lime juice. Stir in as much lime zest and remaining grated garlic as you like. Season with salt and pepper.',
-  '5 Serve. Spread as much sauce as you like onto bottom buns; fill buns with patties and sriracha onion. Divide burgers and potatoes between plates. Serve with sauce for dipping and lime wedges on the side.',
-],
-info: [
-  {prep: '5 min', time: '20 min', calories: '1090'}
-]
+instructions:'instructions/gouda-pork-burgers.pdf',
+link: 'https://www.hellofresh.com/recipes/gouda-pork-burgers-5e838042d6f999558005b0da'
 },
 
 
+{ name: 'Firehouse Cheeseburgers',
+ingredients: firehouseCheeseburgersIngredients,
+instructions:'instructions/firehouse-cheeseburgers.pdf',
+link: 'https://www.hellofresh.com/recipes/firehouse-cheeseburgers-609bd8375e0e4108d54ad302'
+},
+{ name: 'Melty Monterey Jack Burger',
+ingredients: meltyMontereyJackBurgersIngredients,
+instructions:'instructions/melty-monterey-jack-burgers.pdf',
+link: 'https://www.hellofresh.com/recipes/melty-monterey-jack-burgers-5e25f552b9721f76446c7585'
+},
+{ name: 'Ancho BBQ Sloppy Joes',
+ingredients: anchoBbqSloppyJoesIngredients,
+instructions: 'instructions/ancho-bbq-sloppy-joespdf.pdf',
+link: 'https://www.hellofresh.com/recipes/ancho-bbq-sloppy-joes-6231e882e5574621ea0c8d10'
+},
+
 { name: '',
 ingredients: '',
-instructions: [
-  '',
-  '',
-  '',
-  '',
-  '',
-  ''
-],
-info: [
-  {prep: '5 min', time: '20 min', calories: '1060'}
-]
+instructions:'instructions/',
+link: ''
 },
 { name: '',
 ingredients: '',
-instructions: [
-  '',
-  '',
-  '',
-  '',
-  '',
-  ''
-],
-info: [
-  {prep: '5 min', time: '20 min', calories: '1060'}
-]
+instructions:'instructions/',
+link: ''
 },
 { name: '',
 ingredients: '',
-instructions: [
-  '',
-  '',
-  '',
-  '',
-  '',
-  ''
-],
-info: [
-  {prep: '5 min', time: '20 min', calories: '1060'}
-]
+instructions:'instructions/',
+link: ''
 },
 { name: '',
 ingredients: '',
-instructions: [
-  '',
-  '',
-  '',
-  '',
-  '',
-  ''
-],
-info: [
-  {prep: '5 min', time: '20 min', calories: '1060'}
-]
-},
-{ name: '',
-ingredients: '',
-instructions: [
-  '',
-  '',
-  '',
-  '',
-  '',
-  ''
-],
-info: [
-  {prep: '5 min', time: '20 min', calories: '1060'}
-]
+instructions:'instructions/',
+link: ''
 },
 
 //sides
 { name: 'Potato Wedges',
 ingredients: potatoWedgeIngredients,
-instructions: [
-  '1 Prep. Adjust rack to middle position and preheat oven to 450 degrees. Wash and dry all produce. Cut potatoes into ½-inch-thick wedges. ',
-  '2 Roast Potatoes. Toss potatoes on a baking sheet with a large drizzle of olive oil, half the paprika (you will use the rest later), and a big pinch of salt and pepper. Roast on middle rack until browned and tender, 20-25 minutes.',
- 
-],
-info: [
-  {prep: '5 min', time: '30 min', calories: '0'}
-]
+instructions:'instructions/gouda-pork-burgers.pdf',
+link: 'https://www.hellofresh.com/recipes/gouda-pork-burgers-5e838042d6f999558005b0da'
+},
+{ name: 'Zucchini Spears',
+ingredients: zucchiniSpearsIngredients,
+instructions:'instructions/melty-monterey-jack-burgers.pdf',
+link: 'https://www.hellofresh.com/recipes/melty-monterey-jack-burgers-5dadc36bcd481422887d8d73'
+},
+{ name: 'Oven Gold Potatoes',
+ingredients: ovenGoldPotatoesIngredients,
+instructions: 'instructions/ancho-bbq-sloppy-joespdf.pdf',
+link: 'https://www.hellofresh.com/recipes/ancho-bbq-sloppy-joes-6231e882e5574621ea0c8d10'
 },
 
 //sauces
 { name: 'Lime Crema',
 ingredients: limeCreamaIngredients,
-instructions: [
-  'in a small bowl, combine mayonnaise, sour cream, and a squeeze of lime juice. Stir in as much lime zest and remaining grated garlic as you like. Season with salt and pepper.',
-
-],
-info: [
-  {prep: '2 min', time: '3 min', calories: '0'}
-]
+instructions:'instructions/gouda-pork-burgers.pdf',
+link: 'https://www.hellofresh.com/recipes/gouda-pork-burgers-5e838042d6f999558005b0da'
+},
+{ name: 'Garlic Mayo',
+ingredients: garlicMayoIngredients,
+instructions:'instructions/melty-monterey-jack-burgers.pdf',
+link: 'https://www.hellofresh.com/recipes/melty-monterey-jack-burgers-5e25f552b9721f76446c7585'
 },
 ]
 
-let groceryList = [
-   
-    
-]
+let groceryList = []
 
-const organizeList = () => {
-  
-}
-
-const addRecipieToList = (recipieList) => {
-    for (let i = 0; i < recipieList.length; i++) {
-        let ingredient = recipieList[i]
+const addRecipeToList = (recipeList) => {
+    for (let i = 0; i < recipeList.length; i++) {
+        let ingredient = recipeList[i]
         groceryList.push(`${ingredient.qty} ${ingredient.unit} ${ingredient.name} ${ingredient.aisle}`)
       }
 }
 
-addRecipieToList(necessities)
-addRecipieToList(sesameSoyPorkBowlIngredients)
-addRecipieToList(sweetChiliPorkBowlIngredients)
-addRecipieToList(chimiChickenAndYellowRiceBowlIngredients)
-addRecipieToList(thaiBasilBeefBowlIngredients)
-addRecipieToList(porkAndZucchiniBibimbapIngredients)
-addRecipieToList(teriyakiPorkLuauBowlIngredients)
-addRecipieToList(goudaPorkBurgerIngredients)
-addRecipieToList(potatoWedgeIngredients)
-addRecipieToList(limeCreamaIngredients)
-// groceryList.push(sesameSoyPorkBowlIngredients)
+addRecipeToList(necessities)
+addRecipeToList(dillonsBreakfastIngredients)
+
+addRecipeToList(sesameSoyPorkBowlIngredients)
+addRecipeToList(sweetChiliPorkBowlIngredients)
+addRecipeToList(chimiChickenAndYellowRiceBowlIngredients)
+addRecipeToList(thaiBasilBeefBowlIngredients)
+addRecipeToList(porkAndZucchiniBibimbapIngredients)
+addRecipeToList(teriyakiPorkLuauBowlIngredients)
+addRecipeToList(goudaPorkBurgerIngredients)
+addRecipeToList(potatoWedgeIngredients)
+addRecipeToList(firehouseCheeseburgersIngredients)
+addRecipeToList(zucchiniSpearsIngredients)
+addRecipeToList(meltyMontereyJackBurgersIngredients)
+
+addRecipeToList(limeCreamaIngredients)
+addRecipeToList(garlicMayoIngredients)
+
 
 
 const consolidateGroceryList = (groceryList, portion) => {
@@ -405,7 +425,7 @@ const consolidateGroceryList = (groceryList, portion) => {
 
   const sortGroceryListByAisle = (list) => {
     // Define the order of aisles
-    const aisleOrder = ['dairy', 'butcher', 'produce', 'bakery', 'seasoning', 'baking', 'condiment', '']
+    const aisleOrder = ['dairy', 'freezer', 'cheese', 'snack', 'butcher', 'ethnic', 'canned', 'baking','condiment', 'bakery', 'produce', '']
     
     // Add the aisle property to each item in the list
     const listWithAisle = list.map(item => {
@@ -436,6 +456,7 @@ const consolidateGroceryList = (groceryList, portion) => {
  
 
   const sortedGroceryList = sortGroceryListByAisle(consolidatedGroceryList)
-  console.log(sortedGroceryList)
+  console.log(sortedGroceryList.map(item => item.name));
+
   // Output: ['1 lb Ground beef (butcher)', '1 Onion (produce)', '2 cups Flour (bakery)', '1 can Tomato sauce (condiment)']
   
