@@ -27,11 +27,13 @@ const produce = [
     { name: 'Zucchini', qty: .5, unit: '', aisle: 'produce' },
     { name: 'Kiwi', qty: .5, unit: '', aisle: 'produce' },
     { name: 'Long Green Pepper', qty: .5, unit: '', aisle: 'produce' },
+    { name: 'Yukon Gold Potatoes', qty: 6, unit: 'oz', aisle: 'produce' },
         
 ]   
 
 const grain = [
     { name: 'Jasmine Rice', qty: .5, unit: 'cup', aisle: '' },
+    { name: 'Potato Buns', qty: 1, unit: 'Bun', aisle: 'bakery'},
 ]
 const sauce = [
     { name: 'Sweet Soy Glaze', qty: 2, unit: 'TBSP', aisle: '' },
@@ -64,9 +66,11 @@ const driedGoods = [
 const seasoning = [
   { name: 'Cumin', qty: .5, unit: 'tsp', aisle: 'seasoning' },
   { name: 'Tumeric', qty: .5, unit: 'tsp', aisle: 'seasoning' },
+  { name: 'Smoked Paprika', qty: .5, unit: 'tsp', aisle: 'seasoning' },
 ]
 const dairy = [
   { name: 'Sour Cream', qty: 1, unit: 'TBSP', aisle: 'dairy' },
+  { name: 'Gouda Cheese', qty: 1, unit: 'Slice', aisle: 'dairy' },
 ]
 
 //Recipie ingredient lists
@@ -110,6 +114,27 @@ const teriyakiPorkLuauBowlIngredients = [
   ...produce.filter(item => item.name === "Long Green Pepper" || item.name === "Red Onion" || item.name === "Roma Tomato" || item.name === "Lime" || item.name === "Garlic"),
   ...sauce.filter(item => item.name === "Teriyaki Sauce"),    
   ...grain.filter(item => item.name === "Jasmine Rice")
+]
+const goudaPorkBurgerIngredients = [
+  ...proteins.filter(item => item.name === "Ground Pork"),
+  ...produce.filter(item => item.name === "Yellow Onion" || item.name === "Lime" || item.name === "Garlic"),
+  ...seasoning.filter(item => item.name === "Smoked Paprika"),
+  ...sauce.filter(item => item.name === "Mayonnaise" || item.name === "Sour Cream"), 
+  ...dairy.filter(item => item.name === "Gouda Cheese"),
+  ...grain.filter(item => item.name === "Potato Buns")
+]
+
+//sides
+const potatoWedgeIngredients = [
+  ...produce.filter(item => item.name === "Yukon Gold Potato"),
+  ...seasoning.filter(item => item.name === "Smoked Paprika"),
+]
+
+//dipping sauce
+const limeCreamaIngredients = [
+  ...produce.filter(item => item.name === "Lime"),
+  ...seasoning.filter(item => item.name === "Smoked Paprika"),
+  ...sauce.filter(item => item.name === "Mayonnaise" || item.name === "Sour Cream"), 
 ]
 
 // Recipies
@@ -200,6 +225,21 @@ info: [
   {prep: '15 min', time: '35 min', calories: '830'}
 ]
 },
+{ name: 'Gouda Pork Burgers',
+ingredients: goudaPorkBurgerIngredients,
+instructions: [
+  '1 Prep. Thinly slice onion; mince a few slices until you have 2 TBSP (4 TBSP for 4 servings). Zest and quarter lime. Grate 1 clove garlic (2 cloves for 4). Halve buns.',
+  '2 Cook Onion. Meanwhile, melt 2 TBSP butter (3 TBSP for 4 servings) in a medium pan over medium heat. Add sliced onion, ¼ tsp sugar (½ tsp for 4), and salt. Cook, stirring, until browned and softened, 10-15 minutes. (TIP: Lower heat and add a splash of water if onion starts to burn.) Stir in a squeeze of lime juice and sriracha to taste.',
+  '3 Cook Patties. While onion cooks, in a large bowl, combine pork, minced onion, half the grated garlic, remaining paprika, ½ tsp sugar (1 tsp for 4 servings), and salt. Form into two patties (four for 4), each slightly wider than a burger bun. Heat a large drizzle of olive oil in a large pan over medium heat. Add patties and cook until browned and cooked through, 4-7 minutes per side. In the last 1-2 minutes of cooking, top each patty with gouda; cover pan until cheese melts. Remove from pan and set aside.',
+  '4 Toast Buns and Make Sauce. Toast buns until golden. (TIP: For a deeper flavor, toast in pan used for patties over medium heat.) While buns toast, in a small bowl, combine mayonnaise, sour cream, and a squeeze of lime juice. Stir in as much lime zest and remaining grated garlic as you like. Season with salt and pepper.',
+  '5 Serve. Spread as much sauce as you like onto bottom buns; fill buns with patties and sriracha onion. Divide burgers and potatoes between plates. Serve with sauce for dipping and lime wedges on the side.',
+],
+info: [
+  {prep: '5 min', time: '20 min', calories: '1090'}
+]
+},
+
+
 { name: '',
 ingredients: '',
 instructions: [
@@ -240,6 +280,59 @@ instructions: [
 ],
 info: [
   {prep: '5 min', time: '20 min', calories: '1060'}
+]
+},
+{ name: '',
+ingredients: '',
+instructions: [
+  '',
+  '',
+  '',
+  '',
+  '',
+  ''
+],
+info: [
+  {prep: '5 min', time: '20 min', calories: '1060'}
+]
+},
+{ name: '',
+ingredients: '',
+instructions: [
+  '',
+  '',
+  '',
+  '',
+  '',
+  ''
+],
+info: [
+  {prep: '5 min', time: '20 min', calories: '1060'}
+]
+},
+
+//sides
+{ name: 'Potato Wedges',
+ingredients: potatoWedgeIngredients,
+instructions: [
+  '1 Prep. Adjust rack to middle position and preheat oven to 450 degrees. Wash and dry all produce. Cut potatoes into ½-inch-thick wedges. ',
+  '2 Roast Potatoes. Toss potatoes on a baking sheet with a large drizzle of olive oil, half the paprika (you will use the rest later), and a big pinch of salt and pepper. Roast on middle rack until browned and tender, 20-25 minutes.',
+ 
+],
+info: [
+  {prep: '5 min', time: '30 min', calories: '0'}
+]
+},
+
+//sauces
+{ name: 'Lime Crema',
+ingredients: limeCreamaIngredients,
+instructions: [
+  'in a small bowl, combine mayonnaise, sour cream, and a squeeze of lime juice. Stir in as much lime zest and remaining grated garlic as you like. Season with salt and pepper.',
+
+],
+info: [
+  {prep: '2 min', time: '3 min', calories: '0'}
 ]
 },
 ]
@@ -249,10 +342,14 @@ let groceryList = [
     
 ]
 
+const organizeList = () => {
+  
+}
+
 const addRecipieToList = (recipieList) => {
     for (let i = 0; i < recipieList.length; i++) {
         let ingredient = recipieList[i]
-        groceryList.push(`${ingredient.qty} ${ingredient.unit} ${ingredient.name}`)
+        groceryList.push(`${ingredient.qty} ${ingredient.unit} ${ingredient.name} ${ingredient.aisle}`)
       }
 }
 
@@ -263,19 +360,28 @@ addRecipieToList(chimiChickenAndYellowRiceBowlIngredients)
 addRecipieToList(thaiBasilBeefBowlIngredients)
 addRecipieToList(porkAndZucchiniBibimbapIngredients)
 addRecipieToList(teriyakiPorkLuauBowlIngredients)
+addRecipieToList(goudaPorkBurgerIngredients)
+addRecipieToList(potatoWedgeIngredients)
+addRecipieToList(limeCreamaIngredients)
 // groceryList.push(sesameSoyPorkBowlIngredients)
-console.log(groceryList)
+
 
 const consolidateGroceryList = (groceryList, portion) => {
     const consolidatedList = {}
-    
+ 
     for (let i = 0; i < groceryList.length; i++) {
       const item = groceryList[i]
+    
       const parts = item.split(' ')
+    
       const qty = parseFloat(parts[0])
+ 
       const unit = parts[1]
+    
+      
       const name = parts.slice(2).join(' ')
-      const key = `${unit} ${name}`
+    
+      const key = `${unit} ${name} `
      
       if (key in consolidatedList) {
         consolidatedList[key] += qty
@@ -288,7 +394,7 @@ const consolidateGroceryList = (groceryList, portion) => {
     const consolidatedGroceryList = []
     for (const key in consolidatedList) {
       const qty = consolidatedList[key] * portion
-      
+    
       consolidatedGroceryList.push(`${qty} ${key}`)
     }
    
@@ -296,5 +402,40 @@ const consolidateGroceryList = (groceryList, portion) => {
   }
   
   const consolidatedGroceryList = consolidateGroceryList(groceryList, 2)
-  console.log(consolidatedGroceryList)
+
+  const sortGroceryListByAisle = (list) => {
+    // Define the order of aisles
+    const aisleOrder = ['dairy', 'butcher', 'produce', 'bakery', 'seasoning', 'baking', 'condiment', '']
+    
+    // Add the aisle property to each item in the list
+    const listWithAisle = list.map(item => {
+      const parts = item.split(' ')
+      const aisle = parts[parts.length - 2]
+      const name = parts.slice(0, -2).join(' ')
+      return { name: name, qty: parseFloat(parts[0]), unit: parts[1], aisle: aisle }
+    })
+    
+    // Sort the list based on the order of aisles
+    listWithAisle.sort((a, b) => {
+      const aIndex = aisleOrder.indexOf(a.aisle)
+      const bIndex = aisleOrder.indexOf(b.aisle)
+      if (aIndex < bIndex) {
+        return -1
+      } else if (aIndex > bIndex) {
+        return 1
+      } else {
+        return 0
+      }
+    })
+    
+    return listWithAisle;
+  }
+  
+  
+  // Example usage:
+ 
+
+  const sortedGroceryList = sortGroceryListByAisle(consolidatedGroceryList)
+  console.log(sortedGroceryList)
+  // Output: ['1 lb Ground beef (butcher)', '1 Onion (produce)', '2 cups Flour (bakery)', '1 can Tomato sauce (condiment)']
   
