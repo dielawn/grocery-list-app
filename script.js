@@ -38,7 +38,7 @@ const produce = [
   { name: 'Shredded Carrots', qty: 2, unit: 'oz', aisle: 'produce' },
   
   { name: 'Yellow Onion', qty: .5, unit: '', aisle: 'produce' },
-  { name: 'Yukon Gold Potatoes', qty: 6, unit: 'oz', aisle: 'produce' },
+  { name: 'Yukon Gold Potato', qty: 6, unit: 'oz', aisle: 'produce' },
  
   { name: 'Zucchini', qty: .5, unit: '', aisle: 'produce' },
         
@@ -388,37 +388,38 @@ const addRecipeToList = (recipeList) => {
         let ingredient = recipeList[i]
         groceryList.push(`${ingredient.qty} ${ingredient.unit} ${ingredient.name} ${ingredient.aisle}`)
       }
+      return groceryList
 }
 
-// addRecipeToList(necessities)
-// addRecipeToList(dillonsBreakfastIngredients)
+addRecipeToList(necessities)
+addRecipeToList(dillonsBreakfastIngredients)
 
-// addRecipeToList(sesameSoyPorkBowlIngredients)
-// addRecipeToList(sweetChiliPorkBowlIngredients)
-// addRecipeToList(chimiChickenAndYellowRiceBowlIngredients)
-// addRecipeToList(thaiBasilBeefBowlIngredients)
-// addRecipeToList(porkAndZucchiniBibimbapIngredients)
-// addRecipeToList(teriyakiPorkLuauBowlIngredients)
+addRecipeToList(sesameSoyPorkBowlIngredients)
+addRecipeToList(sweetChiliPorkBowlIngredients)
+addRecipeToList(chimiChickenAndYellowRiceBowlIngredients)
+addRecipeToList(thaiBasilBeefBowlIngredients)
+addRecipeToList(porkAndZucchiniBibimbapIngredients)
+addRecipeToList(teriyakiPorkLuauBowlIngredients)
 
-// addRecipeToList(goudaPorkBurgerIngredients)
-// addRecipeToList(firehouseCheeseburgersIngredients)
-// addRecipeToList(meltyMontereyJackBurgersIngredients)
-// addRecipeToList(baconBuckarooBurgerIngredients)
+addRecipeToList(goudaPorkBurgerIngredients)
+addRecipeToList(firehouseCheeseburgersIngredients)
+addRecipeToList(meltyMontereyJackBurgersIngredients)
+addRecipeToList(baconBuckarooBurgerIngredients)
 
-// addRecipeToList(potatoWedgeIngredients)
-// addRecipeToList(ovenGoldPotatoesIngredients)
-// addRecipeToList(cheesyLoadedPotatoRoundsIngredients)
-// addRecipeToList(zucchiniSpearsIngredients)
+addRecipeToList(potatoWedgeIngredients)
+addRecipeToList(ovenGoldPotatoesIngredients)
+addRecipeToList(cheesyLoadedPotatoRoundsIngredients)
+addRecipeToList(zucchiniSpearsIngredients)
 
-// addRecipeToList(limeCreamaIngredients)
-// addRecipeToList(garlicMayoIngredients)
+addRecipeToList(limeCreamaIngredients)
+addRecipeToList(garlicMayoIngredients)
 
 
 
-const consolidateGroceryList = (groceryList, portion) => {
+const consolidateGroceryList = (list, portion) => {
     const consolidatedList = {} 
-    for (let i = 0; i < groceryList.length; i++) {
-      const item = groceryList[i]
+    for (let i = 0; i < list.length; i++) {
+      const item = list[i]
       const parts = item.split(' ')
       const qty = parseFloat(parts[0])
       const unit = parts[1]
@@ -490,11 +491,11 @@ const consolidateGroceryList = (groceryList, portion) => {
       listElement.textContent = list[i].name;
       listElement.appendChild(removeBtn);
       removeBtn.textContent = 'X';
-      removeBtn.addEventListener('click', createRemoveListener(listElement, removeBtn));
+      removeBtn.addEventListener('click', createRemoveListener(listElement));
     }
   };
   
-  const createRemoveListener = (listElement, removeBtn) => {
+  const createRemoveListener = (listElement) => {
     return () => {
       listElement.remove(); // remove the list element from the DOM
       let itemName = listElement.textContent;
@@ -508,38 +509,101 @@ const consolidateGroceryList = (groceryList, portion) => {
   
   
   const renderRecipes = (recipeList) => {
-    let recipeDiv = document.getElementById('recipeDiv');
-    
+    let recipeDiv = document.getElementById('recipeDiv');    
     for (let i = 0; i < recipeList.length; i++) {
       let recipeElement = document.createElement('div');
-      let selectBtn = document.createElement('button');
+      let addBtn = document.createElement('button');
       recipeDiv.appendChild(recipeElement);
       recipeElement.classList = 'recipe';
       recipeElement.innerHTML = recipeList[i].name;
-      recipeElement.appendChild(selectBtn);
-      selectBtn.textContent = 'Add';
+      recipeElement.appendChild(addBtn);
+      addBtn.textContent = 'Add';
+      addBtn.classList = 'addBtn'
       let ingredientList = recipeList[i].ingredients;
       
       // Add event listener to each button
-      selectBtn.addEventListener('click', function() {
+      addBtn.addEventListener('click', function() {
         console.log(ingredientList);
-        switch(ingredientList) {
-          case 'sweetChiliPorkBowlIngredients':
-            addRecipeToList(sweetChiliPorkBowlIngredients)
-            renderList(sortedGroceryList)
-            break;
-          case 'sesameSoyPorkBowlIngredients':
-            addRecipeToList(sesameSoyPorkBowlIngredients)
-            renderList(sortedGroceryList)
-            break;
-          default:
-            // code block
-        }
+        handleClick(ingredientList)
+        renderList(sortedGroceryList)
       });
     }
   };
   
-  
+const handleClick = (ingredientList) => {
+    switch(ingredientList) {
+      case 'sweetChiliPorkBowlIngredients':
+        console.log(sweetChiliPorkBowlIngredients)
+        addRecipeToList(sweetChiliPorkBowlIngredients)
+        break;        
+      case 'sesameSoyPorkBowlIngredients':
+        console.log(sesameSoyPorkBowlIngredients)
+        addRecipeToList(sesameSoyPorkBowlIngredients)            
+        break;
+      case 'chimiChickenAndYellowRiceBowlIngredients':
+        console.log(chimiChickenAndYellowRiceBowlIngredients)
+        addRecipeToList(chimiChickenAndYellowRiceBowlIngredients)
+        break;        
+      case 'thaiBasilBeefBowlIngredients':
+        console.log(thaiBasilBeefBowlIngredients)
+        addRecipeToList(thaiBasilBeefBowlIngredients)            
+        break;
+      case 'porkAndZucchiniBibimbapIngredients':
+        console.log(porkAndZucchiniBibimbapIngredients)
+        addRecipeToList(porkAndZucchiniBibimbapIngredients)
+        break;        
+      case 'teriyakiPorkLuauBowlIngredients':
+        console.log(teriyakiPorkLuauBowlIngredients)
+        addRecipeToList(teriyakiPorkLuauBowlIngredients)            
+        break;
+      case 'goudaPorkBurgerIngredients':
+        console.log(goudaPorkBurgerIngredients)
+        addRecipeToList(goudaPorkBurgerIngredients)            
+        break;
+      case 'firehouseCheeseburgersIngredients':
+        console.log(firehouseCheeseburgersIngredients)
+        addRecipeToList(firehouseCheeseburgersIngredients)
+        break;          
+      case 'meltyMontereyJackBurgersIngredients':
+        console.log(meltyMontereyJackBurgersIngredients)
+        addRecipeToList(meltyMontereyJackBurgersIngredients)            
+        break;
+      case 'anchoBbqSloppyJoesIngredients':
+        console.log(anchoBbqSloppyJoesIngredients)
+        addRecipeToList(anchoBbqSloppyJoesIngredients)
+        break;          
+      case 'baconBuckarooBurgerIngredients':
+        console.log(baconBuckarooBurgerIngredients)
+        addRecipeToList(baconBuckarooBurgerIngredients)            
+        break;
+      case 'potatoWedgeIngredients':
+        console.log(potatoWedgeIngredients)
+        addRecipeToList(potatoWedgeIngredients)            
+        break;
+      case 'zucchiniSpearsIngredients':
+        console.log(zucchiniSpearsIngredients)
+        addRecipeToList(zucchiniSpearsIngredients)
+        break;
+      case 'ovenGoldPotatoesIngredients':
+        console.log(ovenGoldPotatoesIngredients)
+        addRecipeToList(ovenGoldPotatoesIngredients)            
+        break;
+      case 'cheesyLoadedPotatoRoundsIngredients':
+        console.log(cheesyLoadedPotatoRoundsIngredients)
+        addRecipeToList(cheesyLoadedPotatoRoundsIngredients)            
+        break;
+      case 'limeCreamaIngredients':
+        console.log(limeCreamaIngredients)
+        addRecipeToList(limeCreamaIngredients)
+        break;
+      case 'garlicMayoIngredients':
+        console.log(garlicMayoIngredients)
+        addRecipeToList(garlicMayoIngredients)        
+        break;
+      default:
+        
+    }
+  }
   
   renderRecipes(recipes);
   

@@ -7,4 +7,19 @@
 
 .container{
     padding: 20px;
+    display: flex;
+    justify-content: center;
+    width: 800px;
+}
+
+.listDiv,
+.recipeDiv{
+    width: 350px;
+    padding: 20px;
+   
+}
+.recipe,
+.shopping-list{
+    display: flex;
+    justify-content: space-between;
 }
