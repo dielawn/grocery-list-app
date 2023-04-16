@@ -23,6 +23,8 @@ const produce = [
   { name: 'Garlic', qty: 1, unit: 'Clove', aisle: 'produce' },
   { name: 'Ginger', qty: .5, unit: 'Thumb', aisle: 'produce' },
 
+  { name: 'Jalapeno', qty: 1, unit: 'jalapeno', aisle: 'produce' },
+
   { name: 'Kiwi', qty: .5, unit: '', aisle: 'produce' },
 
   { name: 'Lemon', qty: .5, unit: '', aisle: 'produce' },
@@ -48,6 +50,10 @@ const produce = [
 
 const grain = [
   { name: 'Brioche Buns', qty: 1, unit: 'Bun', aisle: 'bakery'},
+
+  { name: 'Cavatappi Pasta', qty: 3, unit: 'oz', aisle: 'noodle'},
+
+  { name: 'Quick Oats', qty: .33, unit: 'cup', aisle: 'cereal'},
   
   { name: 'Everything Bagel', qty: 1, unit: 'pack', aisle: 'bakery' },
 
@@ -56,6 +62,8 @@ const grain = [
   { name: 'Jasmine Rice', qty: .5, unit: 'cup', aisle: 'ethnic' },
   
   { name: 'Potato Buns', qty: 1, unit: 'Bun', aisle: 'bakery'},
+
+
     
 ]
 
@@ -114,15 +122,24 @@ const frozenFood = [
 ]
 
 const bakingGoods = [
+  { name: "Baking Soda", qty: .5, unit: 'tsp', aisle: 'bakery' },
+  { name: 'Brown Sugar', qty: .33, unit: 'cup', aisle: 'baking' }, 
+
+  { name: "Chocolate Chips", qty: .33, unit: 'cup', aisle: 'baking' },
+  { name: "Cinnamon", qty: 1, unit: 'tsp', aisle: 'baking' },
   { name: 'Cornstarch', qty: .5, unit: 'TBSP', aisle: 'baking' },
 
   { name: 'Flour', qty: .5, unit: 'cup', aisle: 'baking' },
   
+  { name: "Vanilla Extract", qty: 1, unit: 'tsp', aisle: 'baking' },
 ]
 
 const cannedGoods = [
   { name: "Dill Pickle", qty: .5, unit: '', aisle: 'canned' },
+
+  { name: "Peanut Butter", qty: .5, unit: 'cup', aisle: 'bakery' },
   { name: "Pineapple", qty: 2, unit: 'oz', aisle: 'canned' },
+  
 ]
 
 const driedGoods = [
@@ -147,6 +164,7 @@ const seasoning = [
   { name: "Garlic Powder", qty: .5, unit: 'tsp', aisle: 'baking' },
 
   { name: 'Smoked Paprika', qty: .5, unit: 'tsp', aisle: 'baking' },
+  { name: 'Southwest Spice Blend', qty: 1, unit: 'TBSP', aisle: 'baking' },
 
   { name: 'Tumeric', qty: .5, unit: 'tsp', aisle: 'baking' },
   
@@ -157,19 +175,23 @@ const seasoning = [
 
 const dairy = [
   { name: 'Cream Cheese', qty: 2, unit: 'TBSP', aisle: 'cheese' },
+  { name: 'Cream Sauce Base', qty: 2, unit: 'oz', aisle: 'dairy' },
+
+  { name: "Eggs", qty: 1, unit: 'egg', aisle: 'dairy' },
 
   { name: 'Gouda Cheese', qty: 1, unit: 'Slice', aisle: 'cheese' },
 
-  { name: 'Monterey Jack Cheese', qty: 1, unit: 'Slice', aisle: 'cheese' },
-  { name: 'Mozzearella Fresh', qty: .5, unit: 'Block', aisle: 'cheese' },
+  { name: 'Mexican Cheese Blend', qty: .25, unit: 'block', aisle: 'cheese' },
+  { name: 'Monterey Jack Cheese', qty: .25, unit: 'block', aisle: 'cheese' },
+  { name: 'Mozzearella Fresh', qty: .5, unit: 'block', aisle: 'cheese' },
 
-  { name: 'Pepper Jack Cheese', qty: 1, unit: 'Slice', aisle: 'cheese' },
+  { name: 'Pepper Jack Cheese', qty: .25, unit: 'block', aisle: 'cheese' },
 
   { name: 'Sour Cream', qty: 1, unit: 'TBSP', aisle: 'dairy' },
 
   { name: 'Yogurt', qty: .25, unit: 'cup', aisle: 'dairy' },
 
-  { name: 'White Cheddar Cheese', qty: 1, unit: 'Slice', aisle: 'cheese' },
+  { name: 'White Cheddar Cheese', qty: .25, unit: 'block', aisle: 'cheese' },
 ]
 
 
@@ -188,6 +210,12 @@ const alisonsBreakfastIngredients = [
 ]
 
 const cookieIngredients = [
+  ...grain.filter(item => item.name === "Quick Oats"),
+  ...cannedGoods.filter(item => item.name === "Peanut Butter"),
+  ...dairy.filter(item => item.name === "Eggs"),
+  ...bakingGoods.filter(item => item.name === "Brown Sugar" || item.name === "Vanilla Extract" 
+  || item.name === "Chocolate Chips" || item.name === "Baking Soda" || item.name === "Salt" 
+  || item.name === "Cinnamon"),
 
 ]
 
@@ -300,6 +328,14 @@ const bbqPineappleFlatbreadIngredients = [
   ...cannedGoods.filter(item => item.name === "Pineapple"),
   ...dairy.filter(item => item.name === "Mozzearella Fresh" || item.name === " Monterey Jack Cheese"),
 ]
+const baconJalapenoMacAndCheeseIngredients = [
+  ...proteins.filter(item => item.name === "Bacon"),
+  ...produce.filter(item => item.name === "Jalapeno" || item.name === "Scallions" || item.name === "Garlic"),
+  ...driedGoods.filter(item => item.name === "Bread Crumbs"),
+  ...dairy.filter(item => item.name === "Cream Cheese" || item.name === "Cream Sauce Base" 
+  || item.name === "Mexican Cheese Blend" || item.name === "Monterey Jack Cheese"),
+  ...bakingGoods.filter(item => item.name === "Flour"),
+]
 
 
 const templateIngredients = [
@@ -312,6 +348,7 @@ const templateIngredients = [
   ...seasoning.filter(item => item.name === ""),
   ...dairy.filter(item => item.name === ""),
   ...bakingGoods.filter(item => item.name === ""),
+  ...frozenFood.filter(item => item.name === ""),
 ]
 //sides
 //Potato sides
@@ -426,6 +463,11 @@ link: 'https://www.hellofresh.com/recipes/crispy-cajun-chicken-sandwiches-611d61
 ingredients: 'bbqPineappleFlatbreadIngredients',
 instructions:'instructions/bbq-pineapple-flatbreads.pdf',
 link: 'https://www.hellofresh.com/recipes/bbq-pineapple-flatbreads-620c20eaaf420111a021e19a'
+},
+{ name: 'Bacon Jalapeno Mac & Cheese',
+ingredients: 'baconJalapenoMacAndCheeseIngredients',
+instructions:'instructions/bacon-jalapeno-mac-cheese.pdf',
+link: 'https://www.hellofresh.com/recipes/bacon-jalapeno-mac-cheese-615db9700ab39518157b909f'
 },
 
 //sides
@@ -542,7 +584,7 @@ const consolidateGroceryList = (list, portion) => {
 
   const sortGroceryListByAisle = (list) => {
     // Define the order of aisles
-    const aisleOrder = ['dairy', 'freezer', 'cheese', 'snack', 'butcher', 'ethnic', 'canned', 'baking','condiment', 'bakery', 'produce', 'nutrition', '']
+    const aisleOrder = ['dairy', 'freezer', 'cheese', 'snack', 'butcher', 'ethnic', 'noodle',  'canned', 'baking', 'cereal', 'condiment', 'bakery', 'produce', 'nutrition', '']
     console.log(list, groceryList)
     // Add the aisle property to each item in the list
     const listWithAisle = list.map(item => {
@@ -711,6 +753,10 @@ const consolidateGroceryList = (list, portion) => {
         console.log(bbqPineappleFlatbreadIngredients, groceryList)
         addRecipeToList(bbqPineappleFlatbreadIngredients)        
         break;
+      case 'baconJalapenoMacAndCheeseIngredients':
+        console.log(baconJalapenoMacAndCheeseIngredients, groceryList)
+        addRecipeToList(baconJalapenoMacAndCheeseIngredients)        
+        break;
       default:
         
     }
@@ -729,25 +775,25 @@ const consolidateGroceryList = (list, portion) => {
   }
 
 const cookiesBtn = document.getElementById('cookiesBtn')
-cookiesBtn.addEventListener('click', function() {
+cookiesBtn.addEventListener('click',() => {
   addRecipeToList(cookieIngredients)
   renderList(groceryList)
 })
   
 const dillonBreakfastBtn = document.getElementById('dillonBreakfastBtn')
-dillonBreakfastBtn.addEventListener('click', function() {
+dillonBreakfastBtn.addEventListener('click',() => {
   addRecipeToList(dillonsBreakfastIngredients)
   renderList(groceryList)
 })
 
 const alisonBreakfastBtn = document.getElementById('alisonBreakfastBtn')
-alisonBreakfastBtn.addEventListener('click', function() {
+alisonBreakfastBtn.addEventListener('click',() => {
   addRecipeToList(alisonsBreakfastIngredients)
   renderList(groceryList)
 })
 
 const consolidateBtn = document.getElementById('consolidateBtn')
-consolidateBtn.addEventListener('click', function() {
+consolidateBtn.addEventListener('click',() => {
   consolidateGroceryList(groceryList, 2)
   renderList(groceryList)
 }) 
