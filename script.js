@@ -4,6 +4,7 @@ const proteins = [
   { name: 'Bacon', qty: 4, unit: 'oz', aisle: 'butcher' },
 
   { name: 'Chicken Breast Strips', qty: 5, unit: 'oz', aisle: 'butcher' },
+  { name: 'Chicken Cutlets', qty: 5, unit: 'oz', aisle: 'butcher' },
   
   { name: 'Ground Beef', qty: 5, unit: 'oz', aisle: 'butcher' },
   { name: 'Ground Pork', qty: 5, unit: 'oz', aisle: 'butcher' },
@@ -36,6 +37,7 @@ const produce = [
   { name: 'Scallions', qty: .5, unit: 'oz', aisle: 'produce' },
   { name: 'Shallot', qty: .5, unit: '', aisle: 'produce' },
   { name: 'Shredded Carrots', qty: 2, unit: 'oz', aisle: 'produce' },
+  { name: 'Spinach', qty: 1, unit: 'cup', aisle: 'produce' },
   
   { name: 'Yellow Onion', qty: .5, unit: '', aisle: 'produce' },
   { name: 'Yukon Gold Potato', qty: 6, unit: 'oz', aisle: 'produce' },
@@ -48,6 +50,8 @@ const grain = [
   { name: 'Brioche Buns', qty: 1, unit: 'Bun', aisle: 'bakery'},
   
   { name: 'Everything Bagel', qty: 1, unit: 'pack', aisle: 'bakery' },
+
+  { name: 'Flatbreads', qty: 1, unit: 'crust', aisle: 'bakery' },
   
   { name: 'Jasmine Rice', qty: .5, unit: 'cup', aisle: 'ethnic' },
   
@@ -62,9 +66,13 @@ const sauce = [
   
   { name: 'Chicken Stock Concentrate', qty: 1, unit: 'TBSP', aisle: 'canned' },
 
-  { name: "Frank's Hot Sauce", qty: .25, unit: 'oz', aisle: 'condiment' },
+  { name: 'Dijon Mustard', qty: 1, unit: 'tsp', aisle: 'condiment' },
 
+  { name: "Frank's Hot Sauce", qty: .25, unit: 'oz', aisle: 'condiment' },
+  
   { name: 'Gochujang Sauce', qty: .5, unit: 'oz', aisle: 'ethnic' },
+
+  { name: 'Hot Sauce', qty: 1, unit: 'tsp', aisle: 'condiment' },
 
   { name: "Ketchup", qty: .25, unit: 'oz', aisle: 'condiment' },
 
@@ -74,6 +82,7 @@ const sauce = [
   { name: 'Ponzu Sauce', qty: 24, unit: 'ml', aisle: 'ethnic' },
 
   { name: 'Ranch Dressing', qty: .75, unit: 'oz', aisle: 'condiment' },
+  { name: 'Red Wine Vinegar', qty: 2.5, unit: 'tsp', aisle: 'condiment' },
 
   { name: 'Sesame Dressing', qty: .75, unit: 'oz', aisle: 'condiment' },
   { name: 'Sesame Oil', qty: .5, unit: 'TBSP', aisle: 'ethnic' },
@@ -86,6 +95,7 @@ const sauce = [
     
   { name: 'White Wine Vinegar', qty: 2.5, unit: 'tsp', aisle: 'condiment' },
   
+  
 ]
 
 const necessities = [
@@ -96,19 +106,32 @@ const necessities = [
   
   { name: 'Salt', qty: 0, unit: '', aisle: 'baking' },
   { name: 'Sugar', qty: 0, unit: '', aisle: 'baking' },    
+    
+]
+
+const frozenFood = [
+  { name: 'Berries', qty: .25, unit: 'cup', aisle: 'freezer' },  
+]
+
+const bakingGoods = [
+  { name: 'Cornstarch', qty: .5, unit: 'TBSP', aisle: 'baking' },
+
+  { name: 'Flour', qty: .5, unit: 'cup', aisle: 'baking' },
+  
 ]
 
 const cannedGoods = [
   { name: "Dill Pickle", qty: .5, unit: '', aisle: 'canned' },
+  { name: "Pineapple", qty: 2, unit: 'oz', aisle: 'canned' },
 ]
 
 const driedGoods = [
     { name: 'Bread Crumbs', qty: .125, unit: 'cup', aisle: 'baking' },
 
-    { name: 'Cornstarch', qty: .5, unit: 'TBSP', aisle: 'baking' },
     { name: 'Crispy Fried Onion', qty: .25, unit: 'cup', aisle: 'baking' },
 
     { name: 'Peanuts', qty: .25, unit: 'oz', aisle: 'snack' },   
+    { name: 'Protein Powder', qty: .25, unit: 'oz', aisle: 'nutrition' },
 ]
 
 const seasoning = [
@@ -125,7 +148,11 @@ const seasoning = [
 
   { name: 'Smoked Paprika', qty: .5, unit: 'tsp', aisle: 'baking' },
 
-  { name: 'Tumeric', qty: .5, unit: 'tsp', aisle: 'baking' },  
+  { name: 'Tumeric', qty: .5, unit: 'tsp', aisle: 'baking' },
+  
+  { name: 'Old Bay Seasoning', qty: .5, unit: 'TBSP', aisle: 'baking' },
+
+  { name: 'Cajun Spice Blend', qty: 1, unit: 'TBSP', aisle: 'baking' },
 ]
 
 const dairy = [
@@ -134,11 +161,17 @@ const dairy = [
   { name: 'Gouda Cheese', qty: 1, unit: 'Slice', aisle: 'cheese' },
 
   { name: 'Monterey Jack Cheese', qty: 1, unit: 'Slice', aisle: 'cheese' },
+  { name: 'Mozzearella Fresh', qty: .5, unit: 'Block', aisle: 'cheese' },
 
   { name: 'Pepper Jack Cheese', qty: 1, unit: 'Slice', aisle: 'cheese' },
 
   { name: 'Sour Cream', qty: 1, unit: 'TBSP', aisle: 'dairy' },
+
+  { name: 'Yogurt', qty: .25, unit: 'cup', aisle: 'dairy' },
+
+  { name: 'White Cheddar Cheese', qty: 1, unit: 'Slice', aisle: 'cheese' },
 ]
+
 
 
 // 
@@ -146,6 +179,16 @@ const dillonsBreakfastIngredients = [
   ...dairy.filter(item => item.name === "Cream Cheese"),
   ...grain.filter(item => item.name === "Everything Bagel"),
   ...produce.filter(item => item.name === "Banana")  
+]
+const alisonsBreakfastIngredients = [
+  ...produce.filter(item => item.name === "Spinach" || item.name === "Banana"),
+  ...driedGoods.filter(item => item.name === "Protein Powder"), 
+  ...dairy.filter(item => item.name === "Yogurt"), 
+  ...frozenFood.filter(item => item.name === "Berries"),
+]
+
+const cookieIngredients = [
+
 ]
 
 //Recipie ingredient lists
@@ -222,14 +265,53 @@ const baconBuckarooBurgerIngredients = [
   ...sauce.filter(item => item.name === "BBQ Sauce"),
   ...grain.filter(item => item.name === "Brioche Buns")
 ]
+const whiteCheddarWonderBurgerIngredients = [
+  ...proteins.filter(item => item.name === "Ground Beef"),
+  ...produce.filter(item => item.name === "Yellow Onion"),
+  ...sauce.filter(item => item.name === "Mayonnaise" || item.name === "Dijon Mustard" || item.name === "Ketchup"), 
+  ...seasoning.filter(item => item.name === "Old Bay Seasoning"),
+  ...dairy.filter(item => item.name === "White Cheddar Cheese"),
+  ...grain.filter(item => item.name === "Potato Buns")
+]
 //Sandwhich
 const anchoBbqSloppyJoesIngredients = [
   ...proteins.filter(item => item.name === "Ground Beef"),
   ...produce.filter(item => item.name === "Yellow Onion" || item.name === "Dill Pickle"),
-  ...driedGoods.filter(item => item.name === "Cornstarch"),
+  ...bakingGoods.filter(item => item.name === "Cornstarch"),
   ...sauce.filter(item => item.name === "BBQ Sauce" || item.name === "Ketchup" || item.name === "Beef Stock Concentrate"),
   ...seasoning.filter(item => item.name === "Ancho Chili Powder"),
   ...grain.filter(item => item.name === "Potato Buns")
+]
+
+const crispyCajunChickenSandwichesIngredients = [
+  ...proteins.filter(item => item.name === "Chicken Cutlets"),
+  ...grain.filter(item => item.name === "Brioche Buns"),
+  ...sauce.filter(item => item.name === "Mayonnaise" || item.name === "Hot Sauce"),
+  ...cannedGoods.filter(item => item.name === "Dill Pickle"),
+  ...seasoning.filter(item => item.name === "Cajun Spice Blend"),
+  ...dairy.filter(item => item.name === "Sour Cream"),
+  ...bakingGoods.filter(item => item.name === "Flour" || item.name === "Cornstarch"),
+]
+
+const bbqPineappleFlatbreadIngredients = [
+  ...produce.filter(item => item.name === "Shallot" || item.name === "Cilantro" || item.name === "Poblano Pepper"),
+  ...grain.filter(item => item.name === "Flatbreads"),
+  ...sauce.filter(item => item.name === "BBQ Sauce" || item.name === "Red Wine Vinegar"),
+  ...cannedGoods.filter(item => item.name === "Pineapple"),
+  ...dairy.filter(item => item.name === "Mozzearella Fresh" || item.name === " Monterey Jack Cheese"),
+]
+
+
+const templateIngredients = [
+  ...proteins.filter(item => item.name === ""),
+  ...produce.filter(item => item.name === ""),
+  ...grain.filter(item => item.name === ""),
+  ...sauce.filter(item => item.name === ""),
+  ...cannedGoods.filter(item => item.name === ""),
+  ...driedGoods.filter(item => item.name === ""),
+  ...seasoning.filter(item => item.name === ""),
+  ...dairy.filter(item => item.name === ""),
+  ...bakingGoods.filter(item => item.name === ""),
 ]
 //sides
 //Potato sides
@@ -330,20 +412,20 @@ ingredients: 'baconBuckarooBurgerIngredients',
 instructions:'instructions/bacon-buckaroo-burgers.pdf',
 link: 'https://www.hellofresh.com/recipes/bacon-buckaroo-burgers-60f82814e088b95c6b25fb6e'
 },
-{ name: '',
-ingredients: '',
-instructions:'instructions/',
-link: ''
+{ name: 'White Cheddar Wonder Burger',
+ingredients: 'whiteCheddarWonderBurgerIngredients',
+instructions:'instructions/white-cheddar-wonderburgers.pdf',
+link: 'https://www.hellofresh.com/recipes/white-cheddar-wonderburgers-61cb23eb4547a11c25516b1e'
 },
-{ name: '',
-ingredients: '',
-instructions:'instructions/',
-link: ''
+{ name: 'Crispy Cajun Chicken Sandwiches',
+ingredients: 'crispyCajunChickenSandwichesIngredients',
+instructions:'instructions/crispy-cajun-chicken-sandwiches.pdf',
+link: 'https://www.hellofresh.com/recipes/crispy-cajun-chicken-sandwiches-611d61d0ba10940c4d444561'
 },
-{ name: '',
-ingredients: '',
-instructions:'instructions/',
-link: ''
+{ name: 'BBQ Pineapple Flatbread',
+ingredients: 'bbqPineappleFlatbreadIngredients',
+instructions:'instructions/bbq-pineapple-flatbreads.pdf',
+link: 'https://www.hellofresh.com/recipes/bbq-pineapple-flatbreads-620c20eaaf420111a021e19a'
 },
 
 //sides
@@ -383,79 +465,94 @@ link: 'https://www.hellofresh.com/recipes/melty-monterey-jack-burgers-5e25f552b9
 
 let groceryList = []
 
-const addRecipeToList = (recipeList) => {
-    for (let i = 0; i < recipeList.length; i++) {
-        let ingredient = recipeList[i]
-        groceryList.push(`${ingredient.qty} ${ingredient.unit} ${ingredient.name} ${ingredient.aisle}`)
-      }
-      return groceryList
+const addRecipeToList = (list) => {
+  for(let i = 0; i < list.length; i++){
+    let ingredient = list[i]
+    groceryList.push({ name: ingredient.name, qty: ingredient.qty, unit: ingredient.unit, aisle: ingredient.aisle })
+  }
+  console.log(groceryList)
+  return groceryList
 }
 
-addRecipeToList(necessities)
-addRecipeToList(dillonsBreakfastIngredients)
+// const addRecipeToList = (recipeList) => {
+//     for (let i = 0; i < recipeList.length; i++) {
+//         let ingredient = recipeList[i]
+//         groceryList.push(`${ingredient.qty} ${ingredient.unit} ${ingredient.name} ${ingredient.aisle}`)
+//       }
+//       console.log(groceryList)
+//       return groceryList
+// }
 
-addRecipeToList(sesameSoyPorkBowlIngredients)
-addRecipeToList(sweetChiliPorkBowlIngredients)
-addRecipeToList(chimiChickenAndYellowRiceBowlIngredients)
-addRecipeToList(thaiBasilBeefBowlIngredients)
-addRecipeToList(porkAndZucchiniBibimbapIngredients)
-addRecipeToList(teriyakiPorkLuauBowlIngredients)
+// addRecipeToList(necessities)
+// addRecipeToList(dillonsBreakfastIngredients)
 
-addRecipeToList(goudaPorkBurgerIngredients)
-addRecipeToList(firehouseCheeseburgersIngredients)
-addRecipeToList(meltyMontereyJackBurgersIngredients)
-addRecipeToList(baconBuckarooBurgerIngredients)
+// addRecipeToList(sesameSoyPorkBowlIngredients)
+// addRecipeToList(sweetChiliPorkBowlIngredients)
+// addRecipeToList(chimiChickenAndYellowRiceBowlIngredients)
+// addRecipeToList(thaiBasilBeefBowlIngredients)
+// addRecipeToList(porkAndZucchiniBibimbapIngredients)
+// addRecipeToList(teriyakiPorkLuauBowlIngredients)
 
-addRecipeToList(potatoWedgeIngredients)
-addRecipeToList(ovenGoldPotatoesIngredients)
-addRecipeToList(cheesyLoadedPotatoRoundsIngredients)
-addRecipeToList(zucchiniSpearsIngredients)
+// addRecipeToList(goudaPorkBurgerIngredients)
+// addRecipeToList(firehouseCheeseburgersIngredients)
+// addRecipeToList(meltyMontereyJackBurgersIngredients)
+// addRecipeToList(baconBuckarooBurgerIngredients)
 
-addRecipeToList(limeCreamaIngredients)
-addRecipeToList(garlicMayoIngredients)
+// addRecipeToList(potatoWedgeIngredients)
+// addRecipeToList(ovenGoldPotatoesIngredients)
+// addRecipeToList(cheesyLoadedPotatoRoundsIngredients)
+// addRecipeToList(zucchiniSpearsIngredients)
+
+// addRecipeToList(limeCreamaIngredients)
+// addRecipeToList(garlicMayoIngredients)
 
 
 
 const consolidateGroceryList = (list, portion) => {
-    const consolidatedList = {} 
-    for (let i = 0; i < list.length; i++) {
-      const item = list[i]
-      const parts = item.split(' ')
-      const qty = parseFloat(parts[0])
-      const unit = parts[1]
-      const name = parts.slice(2).join(' ')
-      const key = `${unit} ${name} `
-      if (key in consolidatedList) {
-        consolidatedList[key] += qty
-      } else {
-        consolidatedList[key] = qty
-      }
-      
-    }
-   
-    const consolidatedGroceryList = []
-    for (const key in consolidatedList) {
-      const qty = consolidatedList[key] * portion
+  const consolidatedList = {};
+  
+  for (let i = 0; i < list.length; i++) {
+    const ingredient = list[i];
+    const key = `${ingredient.unit} ${ingredient.name} `;
     
-      consolidatedGroceryList.push(`${qty} ${key}`)
+    if (key in consolidatedList) {
+      consolidatedList[key] += ingredient.qty;
+    } else {
+      consolidatedList[key] = ingredient.qty;
     }
-   
-    return consolidatedGroceryList
   }
   
-  const consolidatedGroceryList = consolidateGroceryList(groceryList, 2)
+  const consolidatedGroceryList = [];
+  for (const key in consolidatedList) {
+    const qty = consolidatedList[key] * portion;
+    consolidatedGroceryList.push({
+      name: key.split(' ').slice(1).join(' '),
+      qty,
+      unit: key.split(' ')[0],
+      aisle: list[0].aisle // use the aisle from the first ingredient in the list
+    });
+  }
+    // console.log(groceryList)
+    groceryList = consolidatedGroceryList
+    console.log(groceryList)
+    return groceryList
+  }
+  
+
 
   const sortGroceryListByAisle = (list) => {
     // Define the order of aisles
-    const aisleOrder = ['dairy', 'freezer', 'cheese', 'snack', 'butcher', 'ethnic', 'canned', 'baking','condiment', 'bakery', 'produce', '']
-    
+    const aisleOrder = ['dairy', 'freezer', 'cheese', 'snack', 'butcher', 'ethnic', 'canned', 'baking','condiment', 'bakery', 'produce', 'nutrition', '']
+    console.log(list, groceryList)
     // Add the aisle property to each item in the list
     const listWithAisle = list.map(item => {
-      const parts = item.split(' ')
-      const aisle = parts[parts.length - 2]
-      const name = parts.slice(0, -2).join(' ')
-      return { name: name, qty: parseFloat(parts[0]), unit: parts[1], aisle: aisle }
-    })
+      return {
+        name: item.name,
+        qty: item.qty,
+        unit: item.unit,
+        aisle: item.aisle
+      };
+    });
     
     // Sort the list based on the order of aisles
     listWithAisle.sort((a, b) => {
@@ -470,14 +567,16 @@ const consolidateGroceryList = (list, portion) => {
       }
     })
     
-    return listWithAisle;
-  }
+    groceryList = listWithAisle;
+    return groceryList
+}
+
   
   
   // Example usage:
  
 
-  const sortedGroceryList = sortGroceryListByAisle(consolidatedGroceryList)
+
 
   const renderList = (list) => {
     const listDiv = document.getElementById('listDiv');
@@ -488,7 +587,7 @@ const consolidateGroceryList = (list, portion) => {
       let removeBtn = document.createElement('button');
       listDiv.appendChild(listElement);
       listElement.classList = 'shopping-list';
-      listElement.textContent = list[i].name;
+      listElement.textContent = `${list[i].name} ${list[i].qty}, ${list[i].unit}`
       listElement.appendChild(removeBtn);
       removeBtn.textContent = 'X';
       removeBtn.addEventListener('click', createRemoveListener(listElement));
@@ -499,9 +598,9 @@ const consolidateGroceryList = (list, portion) => {
     return () => {
       listElement.remove(); // remove the list element from the DOM
       let itemName = listElement.textContent;
-      let index = sortedGroceryList.findIndex(item => item.name === itemName);
+      let index = groceryList.findIndex(item => item.name === itemName);
       if (index !== -1) {
-        sortedGroceryList.splice(index, 1); // remove the item from the list
+        groceryList.splice(index, 1); // remove the item from the list
       }
     };
   };
@@ -509,7 +608,7 @@ const consolidateGroceryList = (list, portion) => {
   
   
   const renderRecipes = (recipeList) => {
-    let recipeDiv = document.getElementById('recipeDiv');    
+    let recipeDiv = document.getElementById('recipeDiv');
     for (let i = 0; i < recipeList.length; i++) {
       let recipeElement = document.createElement('div');
       let addBtn = document.createElement('button');
@@ -519,92 +618,140 @@ const consolidateGroceryList = (list, portion) => {
       recipeElement.appendChild(addBtn);
       addBtn.textContent = 'Add';
       addBtn.classList = 'addBtn'
-      let ingredientList = recipeList[i].ingredients;
-      
+      let index = i;
       // Add event listener to each button
       addBtn.addEventListener('click', function() {
-        console.log(ingredientList);
-        handleClick(ingredientList)
-        renderList(sortedGroceryList)
+        handleClick(index, recipeList)
+      
       });
     }
   };
   
-const handleClick = (ingredientList) => {
+  const handleClick = (index, recipeList) => {
+    let ingredientList = recipeList[index].ingredients;
     switch(ingredientList) {
-      case 'sweetChiliPorkBowlIngredients':
-        console.log(sweetChiliPorkBowlIngredients)
+      case 'sweetChiliPorkBowlIngredients':        
         addRecipeToList(sweetChiliPorkBowlIngredients)
+        console.log(groceryList)
         break;        
       case 'sesameSoyPorkBowlIngredients':
-        console.log(sesameSoyPorkBowlIngredients)
-        addRecipeToList(sesameSoyPorkBowlIngredients)            
+        addRecipeToList(sesameSoyPorkBowlIngredients)        
+        console.log(groceryList)    
         break;
       case 'chimiChickenAndYellowRiceBowlIngredients':
-        console.log(chimiChickenAndYellowRiceBowlIngredients)
+        console.log(chimiChickenAndYellowRiceBowlIngredients, groceryList)
         addRecipeToList(chimiChickenAndYellowRiceBowlIngredients)
         break;        
       case 'thaiBasilBeefBowlIngredients':
-        console.log(thaiBasilBeefBowlIngredients)
+        console.log(thaiBasilBeefBowlIngredients, groceryList)
         addRecipeToList(thaiBasilBeefBowlIngredients)            
         break;
       case 'porkAndZucchiniBibimbapIngredients':
-        console.log(porkAndZucchiniBibimbapIngredients)
+        console.log(porkAndZucchiniBibimbapIngredients, groceryList)
         addRecipeToList(porkAndZucchiniBibimbapIngredients)
         break;        
       case 'teriyakiPorkLuauBowlIngredients':
-        console.log(teriyakiPorkLuauBowlIngredients)
+        console.log(teriyakiPorkLuauBowlIngredients, groceryList)
         addRecipeToList(teriyakiPorkLuauBowlIngredients)            
         break;
       case 'goudaPorkBurgerIngredients':
-        console.log(goudaPorkBurgerIngredients)
+        console.log(goudaPorkBurgerIngredients), groceryList
         addRecipeToList(goudaPorkBurgerIngredients)            
         break;
       case 'firehouseCheeseburgersIngredients':
-        console.log(firehouseCheeseburgersIngredients)
+        console.log(firehouseCheeseburgersIngredients, groceryList)
         addRecipeToList(firehouseCheeseburgersIngredients)
         break;          
       case 'meltyMontereyJackBurgersIngredients':
-        console.log(meltyMontereyJackBurgersIngredients)
+        console.log(meltyMontereyJackBurgersIngredients, groceryList)
         addRecipeToList(meltyMontereyJackBurgersIngredients)            
         break;
       case 'anchoBbqSloppyJoesIngredients':
-        console.log(anchoBbqSloppyJoesIngredients)
+        console.log(anchoBbqSloppyJoesIngredients, groceryList)
         addRecipeToList(anchoBbqSloppyJoesIngredients)
         break;          
       case 'baconBuckarooBurgerIngredients':
-        console.log(baconBuckarooBurgerIngredients)
-        addRecipeToList(baconBuckarooBurgerIngredients)            
+        console.log(baconBuckarooBurgerIngredients, groceryList)
+        addRecipeToList(baconBuckarooBurgerIngredients)   
+        console.log(baconBuckarooBurgerIngredients, groceryList)         
         break;
       case 'potatoWedgeIngredients':
-        console.log(potatoWedgeIngredients)
+        console.log(potatoWedgeIngredients), groceryList
         addRecipeToList(potatoWedgeIngredients)            
         break;
       case 'zucchiniSpearsIngredients':
-        console.log(zucchiniSpearsIngredients)
+        console.log(zucchiniSpearsIngredients, groceryList)
         addRecipeToList(zucchiniSpearsIngredients)
         break;
       case 'ovenGoldPotatoesIngredients':
-        console.log(ovenGoldPotatoesIngredients)
+        console.log(ovenGoldPotatoesIngredients, groceryList)
         addRecipeToList(ovenGoldPotatoesIngredients)            
         break;
       case 'cheesyLoadedPotatoRoundsIngredients':
-        console.log(cheesyLoadedPotatoRoundsIngredients)
+        console.log(cheesyLoadedPotatoRoundsIngredients, groceryList)
         addRecipeToList(cheesyLoadedPotatoRoundsIngredients)            
         break;
       case 'limeCreamaIngredients':
-        console.log(limeCreamaIngredients)
+        console.log(limeCreamaIngredients, groceryList)
         addRecipeToList(limeCreamaIngredients)
         break;
       case 'garlicMayoIngredients':
-        console.log(garlicMayoIngredients)
+        console.log(garlicMayoIngredients, groceryList)
         addRecipeToList(garlicMayoIngredients)        
+        break;
+      case 'whiteCheddarWonderBurgerIngredients':
+        console.log(whiteCheddarWonderBurgerIngredients, groceryList)
+        addRecipeToList(whiteCheddarWonderBurgerIngredients)
+        break;
+      case 'crispyCajunChickenSandwichesIngredients':
+        console.log(crispyCajunChickenSandwichesIngredients, groceryList)
+        addRecipeToList(crispyCajunChickenSandwichesIngredients)        
+        break;
+      case 'bbqPineappleFlatbreadIngredients':
+        console.log(bbqPineappleFlatbreadIngredients, groceryList)
+        addRecipeToList(bbqPineappleFlatbreadIngredients)        
         break;
       default:
         
     }
-  }
+    // console.log(groceryList)
+
   
+    // console.log(groceryList)
+
+    sortGroceryListByAisle(groceryList)
+    // console.log(groceryList)
+
+    renderList(groceryList)
+    // console.log(groceryList)
+
+
+  }
+
+const cookiesBtn = document.getElementById('cookiesBtn')
+cookiesBtn.addEventListener('click', function() {
+  addRecipeToList(cookieIngredients)
+  renderList(groceryList)
+})
+  
+const dillonBreakfastBtn = document.getElementById('dillonBreakfastBtn')
+dillonBreakfastBtn.addEventListener('click', function() {
+  addRecipeToList(dillonsBreakfastIngredients)
+  renderList(groceryList)
+})
+
+const alisonBreakfastBtn = document.getElementById('alisonBreakfastBtn')
+alisonBreakfastBtn.addEventListener('click', function() {
+  addRecipeToList(alisonsBreakfastIngredients)
+  renderList(groceryList)
+})
+
+const consolidateBtn = document.getElementById('consolidateBtn')
+consolidateBtn.addEventListener('click', function() {
+  consolidateGroceryList(groceryList, 2)
+  renderList(groceryList)
+}) 
+
   renderRecipes(recipes);
   
 
