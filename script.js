@@ -389,40 +389,47 @@ const garlicMayoIngredients = [
 const recipes = [
     { name: 'Sweet Chili Pork Bowls', 
     ingredients: 'sweetChiliPorkBowlIngredients', 
+    image: 'images/sweet-chili-pork-bowls.avif',
     instructions:'instructions/sweet-chili-pork-bowls.pdf',
     link: 'https://www.hellofresh.com/recipes/sweet-chili-pork-bowls-5efb358e43975d50ea6927d2'
 },
 
 { name: 'Sesame Soy Pork Bowls',
 ingredients: 'sesameSoyPorkBowlIngredients',
+image: 'images/sesame-soy-pork-bowl.avif',
 instructions:'instructions/sesame-soy-pork-bowls.pdf',
 link: 'https://www.hellofresh.com/recipes/sesame-soy-pork-bowls-5fa06a5f20b9661c0d5e342f'
 },
 
 { name: 'Chimi Chicken and Yellow Rice Bowls',
 ingredients: 'chimiChickenAndYellowRiceBowlIngredients',
+image: 'images/chimi-chicken-yellow-rice-bowls.avif',
 instructions:'instructions/chimi-chicken-yellow-rice-bowls.pdf',
 link: 'https://www.hellofresh.com/recipes/chimi-chicken-yellow-rice-bowls-5e5e9a73e0678c51867e16db'
 },
 
 { name: 'Thai Basil Beef Bowls',
 ingredients: 'thaiBasilBeefBowlIngredients',
+image: 'images/thai-basil-beef-bowls.avif',
 instructions:'instructions/thai-basil-beef-bowls.pdf',
 link: 'https://www.hellofresh.com/recipes/thai-basil-beef-bowls-5e39b0b7055a3835f148531a'
 },
 
 { name: 'Pork and Zucchini Bibimbap',
 ingredients: 'porkAndZucchiniBibimbapIngredients',
+image: 'images/pork-and-veggie-bibimbap.avif',
 instructions:'instructions/pork-and-veggie-bibimbap.pdf',
 link: 'https://www.hellofresh.com/recipes/pork-and-veggie-bibimbap-5e67d7511082fd2292725cfc'
 },
 { name: 'Teriyaki Pork Luau Bowls',
 ingredients: 'teriyakiPorkLuauBowlIngredients',
+image: 'images/teriyaki-pork-luau-bowls.avif',
 instructions:'instructions/teriyaki-pork-luau-bowls.pdf',
 link: 'https://www.hellofresh.com/recipes/teriyaki-pork-luau-bowls-5fa56ef97511fc2549429dc0'
 },
 { name: 'Gouda Pork Burgers',
 ingredients: 'goudaPorkBurgerIngredients',
+image: 'images/gouda-pork-burgers.avif',
 instructions:'instructions/gouda-pork-burgers.pdf',
 link: 'https://www.hellofresh.com/recipes/gouda-pork-burgers-5e838042d6f999558005b0da'
 },
@@ -430,42 +437,50 @@ link: 'https://www.hellofresh.com/recipes/gouda-pork-burgers-5e838042d6f99955800
 
 { name: 'Firehouse Cheeseburgers',
 ingredients: 'firehouseCheeseburgersIngredients',
+image: 'images/firehouse-cheeseburgers.avif',
 instructions:'instructions/firehouse-cheeseburgers.pdf',
 link: 'https://www.hellofresh.com/recipes/firehouse-cheeseburgers-609bd8375e0e4108d54ad302'
 },
 { name: 'Melty Monterey Jack Burger',
 ingredients: 'meltyMontereyJackBurgersIngredients',
+image: 'images/melty-monterey-jack-burgers.avif',
 instructions:'instructions/melty-monterey-jack-burgers.pdf',
 link: 'https://www.hellofresh.com/recipes/melty-monterey-jack-burgers-5e25f552b9721f76446c7585'
 },
 { name: 'Ancho BBQ Sloppy Joes',
 ingredients: 'anchoBbqSloppyJoesIngredients',
+image: 'images/ancho-bbq-sloppy-joes.avif',
 instructions: 'instructions/ancho-bbq-sloppy-joespdf.pdf',
 link: 'https://www.hellofresh.com/recipes/ancho-bbq-sloppy-joes-6231e882e5574621ea0c8d10'
 },
 
 { name: 'Bacon Buckaroo Burger',
 ingredients: 'baconBuckarooBurgerIngredients',
+image: 'images/bacon-buckaroo-burger.avif',
 instructions:'instructions/bacon-buckaroo-burgers.pdf',
 link: 'https://www.hellofresh.com/recipes/bacon-buckaroo-burgers-60f82814e088b95c6b25fb6e'
 },
 { name: 'White Cheddar Wonder Burger',
 ingredients: 'whiteCheddarWonderBurgerIngredients',
+image: 'images/white-cheddar-wonder-burger.avif',
 instructions:'instructions/white-cheddar-wonderburgers.pdf',
 link: 'https://www.hellofresh.com/recipes/white-cheddar-wonderburgers-61cb23eb4547a11c25516b1e'
 },
 { name: 'Crispy Cajun Chicken Sandwiches',
 ingredients: 'crispyCajunChickenSandwichesIngredients',
+image: 'images/crispy-cajun-chicken-sandwiches.avif',
 instructions:'instructions/crispy-cajun-chicken-sandwiches.pdf',
 link: 'https://www.hellofresh.com/recipes/crispy-cajun-chicken-sandwiches-611d61d0ba10940c4d444561'
 },
 { name: 'BBQ Pineapple Flatbread',
 ingredients: 'bbqPineappleFlatbreadIngredients',
+image: 'images/bbq-pineapple-flatbread.avif',
 instructions:'instructions/bbq-pineapple-flatbreads.pdf',
 link: 'https://www.hellofresh.com/recipes/bbq-pineapple-flatbreads-620c20eaaf420111a021e19a'
 },
 { name: 'Bacon Jalapeno Mac & Cheese',
 ingredients: 'baconJalapenoMacAndCheeseIngredients',
+image: 'images/bacon-jalapeno-mac-cheese.avif',
 instructions:'instructions/bacon-jalapeno-mac-cheese.pdf',
 link: 'https://www.hellofresh.com/recipes/bacon-jalapeno-mac-cheese-615db9700ab39518157b909f'
 },
@@ -473,21 +488,25 @@ link: 'https://www.hellofresh.com/recipes/bacon-jalapeno-mac-cheese-615db9700ab3
 //sides
 { name: 'Potato Wedges',
 ingredients: 'potatoWedgeIngredients',
+image: 'images/potato-wedges.jpg',
 instructions:'instructions/gouda-pork-burgers.pdf',
 link: 'https://www.hellofresh.com/recipes/gouda-pork-burgers-5e838042d6f999558005b0da'
 },
 { name: 'Zucchini Spears',
 ingredients: 'zucchiniSpearsIngredients',
+image: 'images/zucchini-spears.webp',
 instructions:'instructions/melty-monterey-jack-burgers.pdf',
 link: 'https://www.hellofresh.com/recipes/melty-monterey-jack-burgers-5dadc36bcd481422887d8d73'
 },
 { name: 'Oven Gold Potatoes',
 ingredients: 'ovenGoldPotatoesIngredients',
+image: 'images/oven-gold-potatoes.jpg',
 instructions: 'instructions/ancho-bbq-sloppy-joespdf.pdf',
 link: 'https://www.hellofresh.com/recipes/ancho-bbq-sloppy-joes-6231e882e5574621ea0c8d10'
 },
 { name: 'Cheesy Loaded Potato Rounds',
 ingredients: 'cheesyLoadedPotatoRoundsIngredients',
+image: 'images/cheesy-loaded-potato-rounds.jpg',
 instructions:'instructions/bacon-buckaroo-burgers.pdf',
 link: 'https://www.hellofresh.com/recipes/bacon-buckaroo-burgers-60f82814e088b95c6b25fb6e'
 },
@@ -495,11 +514,13 @@ link: 'https://www.hellofresh.com/recipes/bacon-buckaroo-burgers-60f82814e088b95
 //sauces
 { name: 'Lime Crema',
 ingredients: 'limeCreamaIngredients',
+image: 'images/lime-crema.jpg',
 instructions:'instructions/gouda-pork-burgers.pdf',
 link: 'https://www.hellofresh.com/recipes/gouda-pork-burgers-5e838042d6f999558005b0da'
 },
 { name: 'Garlic Mayo',
 ingredients: 'garlicMayoIngredients',
+image: 'images/garlic-mayonnaise.webp',
 instructions:'instructions/melty-monterey-jack-burgers.pdf',
 link: 'https://www.hellofresh.com/recipes/melty-monterey-jack-burgers-5e25f552b9721f76446c7585'
 },
