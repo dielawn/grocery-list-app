@@ -401,7 +401,7 @@ instructions:'instructions/sesame-soy-pork-bowls.pdf',
 link: 'https://www.hellofresh.com/recipes/sesame-soy-pork-bowls-5fa06a5f20b9661c0d5e342f'
 },
 
-{ name: 'Chimi Chicken and Yellow Rice Bowls',
+{ name: 'Chimi Chicken & Yellow Rice Bowls',
 ingredients: 'chimiChickenAndYellowRiceBowlIngredients',
 image: 'images/chimi-chicken-yellow-rice-bowls.avif',
 instructions:'instructions/chimi-chicken-yellow-rice-bowls.pdf',
@@ -415,7 +415,7 @@ instructions:'instructions/thai-basil-beef-bowls.pdf',
 link: 'https://www.hellofresh.com/recipes/thai-basil-beef-bowls-5e39b0b7055a3835f148531a'
 },
 
-{ name: 'Pork and Zucchini Bibimbap',
+{ name: 'Pork & Zucchini Bibimbap',
 ingredients: 'porkAndZucchiniBibimbapIngredients',
 image: 'images/pork-and-veggie-bibimbap.avif',
 instructions:'instructions/pork-and-veggie-bibimbap.pdf',
@@ -673,11 +673,23 @@ const consolidateGroceryList = (list, portion) => {
   const renderRecipes = (recipeList) => {
     let recipeDiv = document.getElementById('recipeDiv');
     for (let i = 0; i < recipeList.length; i++) {
-      let recipeElement = document.createElement('div');
-      let addBtn = document.createElement('button');
+
+      let recipeElement = document.createElement('div');      
       recipeDiv.appendChild(recipeElement);
       recipeElement.classList = 'recipe';
       recipeElement.innerHTML = recipeList[i].name;
+
+      let recipeLink = document.createElement('a');
+    recipeLink.href = recipeList[i].instructions;
+    recipeElement.appendChild(recipeLink);
+
+  
+    let recipeImageElement = document.createElement('img');
+    recipeLink.appendChild(recipeImageElement);
+    recipeImageElement.src = recipeList[i].image;
+    recipeImageElement.classList = 'recipeImg';
+
+      let addBtn = document.createElement('button');
       recipeElement.appendChild(addBtn);
       addBtn.textContent = 'Add';
       addBtn.classList = 'addBtn'

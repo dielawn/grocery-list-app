@@ -7,19 +7,48 @@
 
 .container{
     padding: 20px;
-    display: flex;
-    justify-content: center;
-    width: 800px;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    width: 100vw;
 }
 
-.listDiv,
-.recipeDiv{
+.listDiv{
     width: 350px;
     padding: 20px;
+}
+
+.recipeDiv{
+    display: grid;
+    column-gap: 25px;
+    row-gap: 25px;
+    grid-template-columns: auto auto auto auto;
+    width: 50vw;
+    padding: 20px;
+    font-size: .8rem;
    
 }
-.recipe,
+.recipe{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
 .shopping-list{
+    width: 15vw;
     display: flex;
     justify-content: space-between;
+}
+
+.recipeImg{
+    height: 100px;
+    width: 200px;
+    
+}
+
+.specialBtn{
+    height: fit-content;
+}
+.addBtn{
+    width: 200px;
 }
