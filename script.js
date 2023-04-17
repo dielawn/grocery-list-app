@@ -638,7 +638,11 @@ const consolidateGroceryList = (list, portion) => {
   
   // Example usage:
  
-
+const renderSelectedRecipes = (recipeName) => {
+ let selectedMealListDiv = document.getElementById('mealListDiv')
+ console.log(recipeName) 
+ selectedMealListDiv.innerHTML += `${recipeName} <br>`
+}
 
 
   const renderList = (list) => {
@@ -703,11 +707,13 @@ const consolidateGroceryList = (list, portion) => {
   };
   
   const handleClick = (index, recipeList) => {
+    let recipeName = recipeList[index].name
     let ingredientList = recipeList[index].ingredients;
     switch(ingredientList) {
       case 'sweetChiliPorkBowlIngredients':        
         addRecipeToList(sweetChiliPorkBowlIngredients)
-        console.log(groceryList)
+        
+        console.log(groceryList, recipeName)
         break;        
       case 'sesameSoyPorkBowlIngredients':
         addRecipeToList(sesameSoyPorkBowlIngredients)        
@@ -797,7 +803,7 @@ const consolidateGroceryList = (list, portion) => {
 
   
     // console.log(groceryList)
-
+    renderSelectedRecipes(recipeName)
     sortGroceryListByAisle(groceryList)
     // console.log(groceryList)
 
@@ -826,8 +832,9 @@ alisonBreakfastBtn.addEventListener('click',() => {
 })
 
 const consolidateBtn = document.getElementById('consolidateBtn')
+document.getElementById('servingsInput').value
 consolidateBtn.addEventListener('click',() => {
-  consolidateGroceryList(groceryList, 2)
+  consolidateGroceryList(groceryList, document.getElementById('servingsInput').value)
   renderList(groceryList)
 }) 
 
