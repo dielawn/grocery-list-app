@@ -571,7 +571,7 @@ const addRecipeToList = (list) => {
 
 
 
-const consolidateGroceryList = (list, portion) => {
+const consolidateGroceryList = (list) => {
   const consolidatedList = {};
   
   for (let i = 0; i < list.length; i++) {
@@ -587,7 +587,7 @@ const consolidateGroceryList = (list, portion) => {
   
   const consolidatedGroceryList = [];
   for (const key in consolidatedList) {
-    const qty = consolidatedList[key] * portion;
+    const qty = consolidatedList[key];
     consolidatedGroceryList.push({
       name: key.split(' ').slice(1).join(' '),
       qty,
@@ -648,13 +648,22 @@ const renderSelectedRecipes = (recipeName) => {
   const renderList = (list) => {
     const listDiv = document.getElementById('listDiv');
     listDiv.innerHTML = ''; // clear the container before adding new elements
-  
+    const servingInputs = document.querySelectorAll('.servingInput');
+    servingInputs.forEach((input, index) => {
+      input.addEventListener('change', () => {
+        console.log(`Input ${index} value: ${input.value}`);
+      });
+    });
     for (let i = 0; i < list.length; i++) {
       let listElement = document.createElement('div');
       let removeBtn = document.createElement('button');
+
+      // let servingInput = servingInputs[i];
+      let servingSize = list[i].qty * servingInputs[i].value
+      console.log(list[i].qty, servingInputs[i].value)
       listDiv.appendChild(listElement);
       listElement.classList = 'shopping-list';
-      listElement.textContent = `${list[i].name} ${list[i].qty}, ${list[i].unit}`
+      listElement.textContent = `${list[i].name} ${servingSize}, ${list[i].unit}`
       listElement.appendChild(removeBtn);
       removeBtn.textContent = 'X';
       removeBtn.addEventListener('click', createRemoveListener(listElement));
@@ -680,7 +689,7 @@ const renderSelectedRecipes = (recipeName) => {
 
       let recipeElement = document.createElement('div');      
       recipeDiv.appendChild(recipeElement);
-      recipeElement.classList = 'recipe';
+      recipeElement.classList.add('recipe');
       recipeElement.innerHTML = recipeList[i].name;
 
       let recipeLink = document.createElement('a');
@@ -691,12 +700,19 @@ const renderSelectedRecipes = (recipeName) => {
     let recipeImageElement = document.createElement('img');
     recipeLink.appendChild(recipeImageElement);
     recipeImageElement.src = recipeList[i].image;
-    recipeImageElement.classList = 'recipeImg';
+    recipeImageElement.classList.add('recipeImg');
+
+    let servingInput = document.createElement('input')
+    servingInput.classList.add('servingInput');
+    servingInput.id = `servingInput-${i}`;
+    recipeElement.appendChild(servingInput);
+   
+    
 
       let addBtn = document.createElement('button');
       recipeElement.appendChild(addBtn);
       addBtn.textContent = 'Add';
-      addBtn.classList = 'addBtn'
+      addBtn.classList.add('addBtn');
       let index = i;
       // Add event listener to each button
       addBtn.addEventListener('click', function() {
@@ -711,8 +727,7 @@ const renderSelectedRecipes = (recipeName) => {
     let ingredientList = recipeList[index].ingredients;
     switch(ingredientList) {
       case 'sweetChiliPorkBowlIngredients':        
-        addRecipeToList(sweetChiliPorkBowlIngredients)
-        
+        addRecipeToList(sweetChiliPorkBowlIngredients)        
         console.log(groceryList, recipeName)
         break;        
       case 'sesameSoyPorkBowlIngredients':
@@ -832,9 +847,9 @@ alisonBreakfastBtn.addEventListener('click',() => {
 })
 
 const consolidateBtn = document.getElementById('consolidateBtn')
-document.getElementById('servingsInput').value
+
 consolidateBtn.addEventListener('click',() => {
-  consolidateGroceryList(groceryList, document.getElementById('servingsInput').value)
+  consolidateGroceryList(groceryList)
   renderList(groceryList)
 }) 
 
