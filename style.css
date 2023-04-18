@@ -13,16 +13,16 @@
 }
 
 .listDiv{
-    width: 350px;
+    width: 10vw;
     padding: 20px;
 }
 
 .recipeDiv{
-    display: grid;
-    column-gap: 25px;
-    row-gap: 25px;
-    grid-template-columns: auto auto auto auto;
-    width: 50vw;
+    display: flex;
+    flex-wrap: wrap;
+    height: 95vh;
+    overflow: scroll;
+    max-width: 47vw;
     padding: 20px;
     font-size: .8rem;
    
@@ -32,10 +32,13 @@
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: space-between;
+    margin: 5px;
+    
 }
 
+.mealListDiv,
 .shopping-list{
-    width: 15vw;
+    width: 10vw;
     display: flex;
     justify-content: space-between;
 }
@@ -52,4 +55,13 @@
 }
 .addBtn{
     width: 200px;
+}
+
+.consolidateBtn{
+    
+}
+.buttonDiv{
+    display: flex;
+    flex-direction: column;
+    width: 100px;
 }

@@ -645,30 +645,29 @@ const renderSelectedRecipes = (recipeName) => {
 }
 
 
-  const renderList = (list) => {
-    const listDiv = document.getElementById('listDiv');
-    listDiv.innerHTML = ''; // clear the container before adding new elements
-    const servingInputs = document.querySelectorAll('.servingInput');
-    servingInputs.forEach((input, index) => {
-      input.addEventListener('change', () => {
-        console.log(`Input ${index} value: ${input.value}`);
-      });
-    });
-    for (let i = 0; i < list.length; i++) {
-      let listElement = document.createElement('div');
-      let removeBtn = document.createElement('button');
+const renderList = (list) => {
+  const listDiv = document.getElementById('listDiv');
+  listDiv.innerHTML = ''; // clear the container before adding new elements
+  const servingInput = document.getElementById('servingInput');
+  const servingSize = servingInput.value;
 
-      // let servingInput = servingInputs[i];
-      let servingSize = list[i].qty * servingInputs[i].value
-      console.log(list[i].qty, servingInputs[i].value)
-      listDiv.appendChild(listElement);
-      listElement.classList = 'shopping-list';
-      listElement.textContent = `${list[i].name} ${servingSize}, ${list[i].unit}`
-      listElement.appendChild(removeBtn);
-      removeBtn.textContent = 'X';
-      removeBtn.addEventListener('click', createRemoveListener(listElement));
-    }
-  };
+  for (let i = 0; i < list.length; i++) {
+    let listElement = document.createElement('div');
+    let removeBtn = document.createElement('button');
+
+    let quantity = list[i].qty;
+    let adjustedQuantity = quantity * servingSize;
+      
+    listDiv.appendChild(listElement);
+    listElement.classList = 'shopping-list';
+    listElement.textContent = `${list[i].name} ${adjustedQuantity}, ${list[i].unit}`;
+    listElement.appendChild(removeBtn);
+    removeBtn.textContent = 'X';
+    removeBtn.addEventListener('click', createRemoveListener(listElement));
+  }
+};
+
+
   
   const createRemoveListener = (listElement) => {
     return () => {
@@ -702,10 +701,10 @@ const renderSelectedRecipes = (recipeName) => {
     recipeImageElement.src = recipeList[i].image;
     recipeImageElement.classList.add('recipeImg');
 
-    let servingInput = document.createElement('input')
-    servingInput.classList.add('servingInput');
-    servingInput.id = `servingInput-${i}`;
-    recipeElement.appendChild(servingInput);
+    // let servingInput = document.createElement('input')
+    // servingInput.classList.add('servingInput');
+    // servingInput.id = `servingInput-${i}`;
+    // recipeElement.appendChild(servingInput);
    
     
 
