@@ -942,7 +942,31 @@ const renderList = (list) => {
         console.log(baconJalapenoMacAndCheeseIngredients, groceryList)
         addRecipeToList(baconJalapenoMacAndCheeseIngredients)        
         break;
-      default:
+        case 'epicNachoMacAndCheeseIngredients':
+          console.log(epicNachoMacAndCheeseIngredients, groceryList)
+          addRecipeToList(epicNachoMacAndCheeseIngredients)        
+          break;
+        case 'veggieBurritoBowlIngredients':
+          console.log(veggieBurritoBowlIngredients, groceryList)
+          addRecipeToList(veggieBurritoBowlIngredients)        
+          break;
+        case 'onePanCajunPorkSausageSkilletIngredients':
+          console.log(onePanCajunPorkSausageSkilletIngredients, groceryList)
+          addRecipeToList(onePanCajunPorkSausageSkilletIngredients)        
+          break;
+        case 'porkSausageAndBellPepperRisottoIngredients':
+          console.log(porkSausageAndBellPepperRisottoIngredients, groceryList)
+          addRecipeToList(porkSausageAndBellPepperRisottoIngredients)        
+          break;
+        case 'chickednEnchiladasVerdesIngredients':
+          console.log(chickednEnchiladasVerdesIngredients, groceryList)
+          addRecipeToList(chickednEnchiladasVerdesIngredients)        
+          break;
+        case 'honeyThymePorkTenderloinIngredients':
+          console.log(honeyThymePorkTenderloinIngredients, groceryList)
+          addRecipeToList(honeyThymePorkTenderloinIngredients)        
+          break;
+        default:
         
     }
     // console.log(groceryList)
