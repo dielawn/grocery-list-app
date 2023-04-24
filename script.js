@@ -11,6 +11,7 @@ const proteins = [
   
   { name: 'Italian Pork Sausage', qty: 5, unit: 'oz', aisle: 'butcher' },
 
+  { name: 'Pork Chops', qty: 6, unit: 'oz', aisle: 'butcher' },
   { name: 'Pork Tenderlion', qty: 5, unit: 'oz', aisle: 'butcher' },
 ];
 
@@ -26,6 +27,7 @@ const produce = [
 
   { name: 'Garlic', qty: 1, unit: 'Clove', aisle: 'produce' },
   { name: 'Ginger', qty: .5, unit: 'Thumb', aisle: 'produce' },
+  { name: 'Green Beans', qty: 3, unit: 'oz', aisle: 'produce' },
 
   { name: 'Jalapeno', qty: 1, unit: 'jalapeno', aisle: 'produce' },
 
@@ -97,6 +99,7 @@ const sauce = [
   { name: 'Mayonnaise', qty: 1, unit: 'TBSP', aisle: 'condiment' },
   { name: 'Mushroom Stock Concentrate', qty: 1, unit: 'TBSP', aisle: 'canned' },
 
+  { name: 'Peach Jam', qty: 2, unit: 'TBSP', aisle: 'ethnic' },
   { name: 'Ponzu Sauce', qty: 24, unit: 'ml', aisle: 'ethnic' },
 
   { name: 'Ranch Dressing', qty: .75, unit: 'oz', aisle: 'condiment' },
@@ -106,6 +109,7 @@ const sauce = [
   { name: 'Sesame Oil', qty: .5, unit: 'TBSP', aisle: 'ethnic' },
   { name: 'Soy Sauce', qty: 1, unit: 'TBSP', aisle: 'ethnic' },
   { name: 'Sriracha', qty: 1, unit: 'tsp', aisle: 'ethnic' },
+  
   { name: 'Sweet Soy Glaze', qty: 2, unit: 'TBSP', aisle: 'ethnic' },
   { name: 'Sweet Thai Chili Sauce', qty: .5, unit: 'oz', aisle: 'ethnic' },    
   
@@ -174,7 +178,10 @@ const driedGoods = [
 const seasoning = [
   { name: "Ancho Chili Powder", qty: .5, unit: 'tsp', aisle: 'baking' },
 
+  { name: "Bold and Savory Steak Spice", qty: .5, unit: 'TBSP', aisle: 'baking' },
+
   { name: 'Cajun Spice Blend', qty: 1, unit: 'TBSP', aisle: 'baking' },
+  { name: 'Chipotle Powder', qty: .5, unit: 'tsp', aisle: 'baking' },
   { name: 'Cumin', qty: .5, unit: 'tsp', aisle: 'baking' },
 
   { name: "Dried Oregano", qty: .5, unit: 'tsp', aisle: 'baking' },
@@ -189,6 +196,7 @@ const seasoning = [
 
   { name: 'Smoked Paprika', qty: .5, unit: 'tsp', aisle: 'baking' },
   { name: 'Southwest Spice Blend', qty: 1, unit: 'TBSP', aisle: 'baking' },
+  { name: 'Sweet and Smoky BBQ Seasoning', qty: .5, unit: 'TBSP', aisle: 'baking' },
 
   { name: 'Tumeric', qty: .5, unit: 'tsp', aisle: 'baking' },
   
@@ -198,6 +206,7 @@ const seasoning = [
 ]
 
 const dairy = [
+  { name: 'Cheddar Cheese', qty: .25, unit: 'block', aisle: 'cheese' },
   { name: 'Cream Cheese', qty: 2, unit: 'TBSP', aisle: 'cheese' },
   { name: 'Cream Sauce Base', qty: 2, unit: 'oz', aisle: 'dairy' },
 
@@ -427,6 +436,32 @@ const honeyThymePorkTenderloinIngredients = [
   ...bakingGoods.filter(item => item.name === "Honey"),
 ]
 
+const peachyKeenBbqRubbedPorkChopsIngredients = [
+  ...proteins.filter(item => item.name === "Pork Chops"),
+  ...produce.filter(item => item.name === "Green Beans" || item.name === "Lemon" 
+  || item.name === "Garlic"),
+  ...grain.filter(item => item.name === "Jasmine Rice"),
+  ...sauce.filter(item => item.name === "Chicken Stock Concentrate" || item.name === "Peach Jam"),
+  ...seasoning.filter(item => item.name === "Sweet and Smoky BBQ Seasoning"),
+]
+const steakhouseStylePorkChopsIngredients = [
+  ...proteins.filter(item => item.name === "Pork Chops"),
+  ...produce.filter(item => item.name === "Yukon Gold Potato" || item.name === "Yellow Onion"
+  || item.name === "Lemon" || item.name === "Broccoli"),
+  ...sauce.filter(item => item.name === "Beef Stock Concentrate"),
+  ...seasoning.filter(item => item.name === "Bold and Savory Steak Spice"),
+  ...dairy.filter(item => item.name === "Sour Cream"),
+]
+
+const bbqCheddarBurgerIngredients = [
+  ...proteins.filter(item => item.name === "Ground Beef"),
+  ...produce.filter(item => item.name === "Yellow Onion" || item.name === "Yukon Gold Potato"),
+  ...grain.filter(item => item.name === "Potato Buns"),
+  ...sauce.filter(item => item.name === "Mayonnaise" || item.name === "BBQ Sauce"),
+  ...seasoning.filter(item => item.name === "Chipotle Powder" || item.name === "Fry Seasoning"),
+  ...dairy.filter(item => item.name === "Cheddar Cheese"),
+]
+
 
 const templateIngredients = [
   ...proteins.filter(item => item.name === ""),
@@ -610,6 +645,24 @@ ingredients: 'honeyThymePorkTenderloinIngredients',
 image: 'images/honey-thyme-pork-tenderloin.avif',
 instructions:'honey-thyme-pork-tenderloin.pdf',
 link: 'https://www.hellofresh.com/recipes/honey-thyme-pork-tenderloin-615db8f220008b2e0307f097'
+},
+{ name: 'Peachy Keen BBQ-Rubbed Pork Chops',
+ingredients: 'peachyKeenBbqRubbedPorkChopsIngredients',
+image: 'images/peachy-keen-bbq-rubbed-pork-chops.avif',
+instructions:'peachy-keen-bbq-rubbed-pork-chops.pdf',
+link: 'https://www.hellofresh.com/recipes/peachy-keen-bbq-rubbed-pork-chops-61795d17951b0e24e516bead'
+},
+{ name: 'Steakhouse-Style Pork Chops',
+ingredients: 'steakhouseStylePorkChopsIngredients',
+image: 'images/steakhouse-pork-chops.avif',
+instructions:'steakhouse-pork-chops.pdf',
+link: 'https://www.hellofresh.com/recipes/steakhouse-pork-chops-5ff4c5c85811d66eb9512c50'
+},
+{ name: 'BBQ Cheddar Burger',
+ingredients: 'bbqCheddarBurgerIngredients',
+image: 'images/bbq-cheddar-burgers.avif',
+instructions:'bbq-cheddar-burgers.pdf',
+link: 'https://www.hellofresh.com/recipes/bbq-cheddar-burgers-61f18805e6fc5466ef777d06'
 },
 { name: 'template',
 ingredients: '',
@@ -848,7 +901,6 @@ const renderList = (list) => {
       // Add event listener to each button
       addBtn.addEventListener('click', function() {
         handleClick(index, recipeList)
-      
       });
     }
   };
@@ -965,6 +1017,18 @@ const renderList = (list) => {
         case 'honeyThymePorkTenderloinIngredients':
           console.log(honeyThymePorkTenderloinIngredients, groceryList)
           addRecipeToList(honeyThymePorkTenderloinIngredients)        
+          break;
+        case 'peachyKeenBbqRubbedPorkChopsIngredients':
+          console.log(peachyKeenBbqRubbedPorkChopsIngredients, groceryList)
+          addRecipeToList(peachyKeenBbqRubbedPorkChopsIngredients)        
+          break;
+        case 'steakhouseStylePorkChopsIngredients':
+          console.log(steakhouseStylePorkChopsIngredients, groceryList)
+          addRecipeToList(steakhouseStylePorkChopsIngredients)        
+          break;
+        case 'bbqCheddarBurgerIngredients':
+          console.log(bbqCheddarBurgerIngredients, groceryList)
+          addRecipeToList(bbqCheddarBurgerIngredients)        
           break;
         default:
         
