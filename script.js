@@ -9,12 +9,16 @@ const proteins = [
   { name: 'Ground Beef', qty: 5, unit: 'oz', aisle: 'butcher' },
   { name: 'Ground Pork', qty: 5, unit: 'oz', aisle: 'butcher' },
   
+  { name: 'Italian Pork Sausage', qty: 5, unit: 'oz', aisle: 'butcher' },
+
+  { name: 'Pork Tenderlion', qty: 5, unit: 'oz', aisle: 'butcher' },
 ];
 
 const produce = [
   { name: 'Banana', qty: .5, unit: 'bunch', aisle: 'produce' },
   { name: 'Basil', qty: .5, unit: 'oz', aisle: 'produce' },
   { name: 'Bell Pepper', qty: .5, unit: '', aisle: 'produce'},
+  { name: 'Broccoli', qty: 4, unit: 'oz', aisle: 'produce'},
 
   { name: 'Carrots', qty: .5, unit: 'oz', aisle: 'produce' },
   { name: 'Chili Pepper', qty: .5, unit: '', aisle: 'produce' },
@@ -31,6 +35,7 @@ const produce = [
   { name: 'Lime', qty: .5, unit: '', aisle: 'produce' },
   { name: 'Long Green Pepper', qty: .5, unit: '', aisle: 'produce' },
 
+  { name: 'Parsley', qty: .25, unit: 'oz', aisle: 'produce' },
   { name: 'Poblano Pepper', qty: .5, unit: '', aisle: 'produce' },
  
   { name: 'Red Onion', qty: .5, unit: '', aisle: 'produce' },  
@@ -49,6 +54,8 @@ const produce = [
 ]   
 
 const grain = [
+  { name: 'Arborio Rice', qty: .5, unit: 'cup', aisle: 'ethnic' },
+
   { name: 'Brioche Buns', qty: 1, unit: 'Bun', aisle: 'bakery'},
 
   { name: 'Cavatappi Pasta', qty: 3, unit: 'oz', aisle: 'noodle'},
@@ -62,6 +69,8 @@ const grain = [
   { name: 'Jasmine Rice', qty: .5, unit: 'cup', aisle: 'ethnic' },
   
   { name: 'Potato Buns', qty: 1, unit: 'Bun', aisle: 'bakery'},
+
+  { name: 'Flour Tortillas', qty: 3, unit: 'Tortilla', aisle: 'canned'},
 
 
     
@@ -78,6 +87,7 @@ const sauce = [
 
   { name: "Frank's Hot Sauce", qty: .25, unit: 'oz', aisle: 'condiment' },
   
+  { name: 'Green Salsa', qty: 4, unit: 'oz', aisle: 'ethnic' },
   { name: 'Gochujang Sauce', qty: .5, unit: 'oz', aisle: 'ethnic' },
 
   { name: 'Hot Sauce', qty: 1, unit: 'tsp', aisle: 'condiment' },
@@ -100,6 +110,8 @@ const sauce = [
   { name: 'Sweet Thai Chili Sauce', qty: .5, unit: 'oz', aisle: 'ethnic' },    
   
   { name: 'Teriyaki Sauce', qty: .5, unit: '', aisle: 'ethnic' },
+
+  { name: 'Veggie Stock Concentrate', qty: 1, unit: 'TBSP', aisle: 'canned' },
     
   { name: 'White Wine Vinegar', qty: 2.5, unit: 'tsp', aisle: 'condiment' },
   
@@ -130,15 +142,23 @@ const bakingGoods = [
   { name: 'Cornstarch', qty: .5, unit: 'TBSP', aisle: 'baking' },
 
   { name: 'Flour', qty: .5, unit: 'cup', aisle: 'baking' },
+
+  { name: 'Honey', qty: 1, unit: 'tsp', aisle: 'baking' },
   
   { name: "Vanilla Extract", qty: 1, unit: 'tsp', aisle: 'baking' },
 ]
 
 const cannedGoods = [
+  { name: "Black Beans", qty: 7, unit: 'oz', aisle: 'canned' },
+
+  { name: "Corn", qty: 7, unit: 'oz', aisle: 'canned' },
+
   { name: "Dill Pickle", qty: .5, unit: '', aisle: 'canned' },
 
   { name: "Peanut Butter", qty: .5, unit: 'cup', aisle: 'bakery' },
   { name: "Pineapple", qty: 2, unit: 'oz', aisle: 'canned' },
+
+  { name: "Tomato Paste", qty: .75, unit: 'oz', aisle: 'canned' },
   
 ]
 
@@ -154,14 +174,18 @@ const driedGoods = [
 const seasoning = [
   { name: "Ancho Chili Powder", qty: .5, unit: 'tsp', aisle: 'baking' },
 
+  { name: 'Cajun Spice Blend', qty: 1, unit: 'TBSP', aisle: 'baking' },
   { name: 'Cumin', qty: .5, unit: 'tsp', aisle: 'baking' },
 
   { name: "Dried Oregano", qty: .5, unit: 'tsp', aisle: 'baking' },
+  { name: "Dried Thyme", qty: .5, unit: 'tsp', aisle: 'baking' },
 
   { name: "Frank's Seasoning", qty: .5, unit: '', aisle: 'baking' },
   { name: "Fry Seasoning", qty: .5, unit: 'TBSP', aisle: 'baking' },
 
   { name: "Garlic Powder", qty: .5, unit: 'tsp', aisle: 'baking' },
+
+  { name: "Italian Seasoning", qty: .5, unit: 'tsp', aisle: 'baking' },
 
   { name: 'Smoked Paprika', qty: .5, unit: 'tsp', aisle: 'baking' },
   { name: 'Southwest Spice Blend', qty: 1, unit: 'TBSP', aisle: 'baking' },
@@ -170,7 +194,7 @@ const seasoning = [
   
   { name: 'Old Bay Seasoning', qty: .5, unit: 'TBSP', aisle: 'baking' },
 
-  { name: 'Cajun Spice Blend', qty: 1, unit: 'TBSP', aisle: 'baking' },
+  
 ]
 
 const dairy = [
@@ -185,6 +209,7 @@ const dairy = [
   { name: 'Monterey Jack Cheese', qty: .25, unit: 'block', aisle: 'cheese' },
   { name: 'Mozzearella Fresh', qty: .5, unit: 'block', aisle: 'cheese' },
 
+  { name: 'Parmesan Cheese', qty: .25, unit: 'block', aisle: 'cheese' },
   { name: 'Pepper Jack Cheese', qty: .25, unit: 'block', aisle: 'cheese' },
 
   { name: 'Sour Cream', qty: 1, unit: 'TBSP', aisle: 'dairy' },
@@ -194,6 +219,11 @@ const dairy = [
   { name: 'White Cheddar Cheese', qty: .25, unit: 'block', aisle: 'cheese' },
 ]
 
+const snack = [
+  { name: 'Doritos Cool Ranch', qty: .25, unit: 'bag', aisle: 'cheese' },
+  { name: 'Cheddar Ruffles', qty: .25, unit: 'bag', aisle: 'cheese' },
+  { name: 'Tortilla Chips', qty: .25, unit: 'bag', aisle: 'cheese' },
+]
 
 
 // 
@@ -330,11 +360,71 @@ const bbqPineappleFlatbreadIngredients = [
 ]
 const baconJalapenoMacAndCheeseIngredients = [
   ...proteins.filter(item => item.name === "Bacon"),
+  ...grain.filter(item => item.name === "Cavatappi Pasta"),
   ...produce.filter(item => item.name === "Jalapeno" || item.name === "Scallions" || item.name === "Garlic"),
   ...driedGoods.filter(item => item.name === "Bread Crumbs"),
   ...dairy.filter(item => item.name === "Cream Cheese" || item.name === "Cream Sauce Base" 
   || item.name === "Mexican Cheese Blend" || item.name === "Monterey Jack Cheese"),
   ...bakingGoods.filter(item => item.name === "Flour"),
+  
+]
+
+const epicNachoMacAndCheeseIngredients = [
+  ...grain.filter(item => item.name === "Cavatappi Pasta"),
+  ...produce.filter(item => item.name === "Long Green Pepper" || item.name === "Scallions" 
+  || item.name === "Garlic"),
+  ...snack.filter(item => item.name === "Tortilla Chips"),
+  ...dairy.filter(item => item.name === "Cream Cheese" || item.name === "White Cheddar Cheese" 
+  || item.name === "Mexican Cheese Blend" || item.name === "Sour Cream"),
+  ...seasoning.filter(item => item.name === "Southwest Spice Blend"),
+  ...sauce.filter(item => item.name === "Hot Sauce"),
+  ...bakingGoods.filter(item => item.name === "Flour"),
+]
+const veggieBurritoBowlIngredients = [
+  ...produce.filter(item => item.name === "Yellow Onion" || item.name === "Roma Tomato" 
+  || item.name === "Cilantro" || item.name === "Lime"),
+  ...grain.filter(item => item.name === "Jasmine Rice"),
+  ...sauce.filter(item => item.name === "Veggie Stock Concentrate" || item.name === "Hot Sauce"),
+  ...cannedGoods.filter(item => item.name === "Black Beans" || item.name === "Corn"),
+  ...seasoning.filter(item => item.name === "Southwest Spice Blend"),
+  ...dairy.filter(item => item.name === "Monterey Jack Cheese" || item.name === "Sour Cream"),
+  ...snack.filter(item => item.name === "Tortilla Chips")
+]
+const onePanCajunPorkSausageSkilletIngredients = [
+  ...proteins.filter(item => item.name === "Italian Pork Sausage"),
+  ...produce.filter(item => item.name === "Yellow Onion" || item.name === "Bell Pepper" 
+  || item.name == "Roma Tomato" || item.name == "Parsley"),
+  ...grain.filter(item => item.name === "Jasmine Rice"),
+  ...sauce.filter(item => item.name === "Chicken Stock Concentrate"),
+  ...cannedGoods.filter(item => item.name === "Tomato Paste"),
+  ...driedGoods.filter(item => item.name === ""),
+  ...seasoning.filter(item => item.name === "Cajun Spice Blend"),
+  ...dairy.filter(item => item.name === "Monterey Jack Cheese" || item.name == "Sour Cream"),
+]
+const porkSausageAndBellPepperRisottoIngredients = [
+  ...proteins.filter(item => item.name === "Italian Pork Sausage"),
+  ...produce.filter(item => item.name === "Bell Pepper" || item.name == "Garlic"
+  || item.name == "Lemon" || item.name == "Scallions"),
+  ...grain.filter(item => item.name === "Arborio Rice"),
+  ...sauce.filter(item => item.name === "Chicken Stock Concentrate"),
+  ...seasoning.filter(item => item.name === "Italian Seasoning"),
+  ...dairy.filter(item => item.name === "Parmesan Cheese"),
+]
+const chickednEnchiladasVerdesIngredients = [
+  ...proteins.filter(item => item.name === "Chicken Breast Strips"),
+  ...produce.filter(item => item.name === "Poblano Pepper" || item.name === "Scallions"),
+  ...grain.filter(item => item.name === "Flour Tortillas"),
+  ...sauce.filter(item => item.name === "Hot Sauce" || item.name === "Green Salsa"),
+  ...seasoning.filter(item => item.name === "Southwest Spice Blend"),
+  ...dairy.filter(item => item.name === "Sour Cream" || item.name === "Mexican Cheese Blend"),
+]
+const honeyThymePorkTenderloinIngredients = [
+  ...proteins.filter(item => item.name === "Pork Tenderlion"),
+  ...produce.filter(item => item.name === "Yukon Gold Potato" || item.name === "Garlic" 
+  || item.name === "Broccoli"),
+  ...sauce.filter(item => item.name === "Chicken Stock Concentrate"),
+  ...seasoning.filter(item => item.name === "Dried Thyme"),
+  ...bakingGoods.filter(item => item.name === "Honey"),
 ]
 
 
@@ -349,6 +439,7 @@ const templateIngredients = [
   ...dairy.filter(item => item.name === ""),
   ...bakingGoods.filter(item => item.name === ""),
   ...frozenFood.filter(item => item.name === ""),
+  ...snack.filter(item => item.name === "")
 ]
 //sides
 //Potato sides
@@ -484,7 +575,48 @@ image: 'images/bacon-jalapeno-mac-cheese.avif',
 instructions:'instructions/bacon-jalapeno-mac-cheese.pdf',
 link: 'https://www.hellofresh.com/recipes/bacon-jalapeno-mac-cheese-615db9700ab39518157b909f'
 },
-
+{ name: 'Epic Nacho Mac & Cheese',
+ingredients: 'epicNachoMacAndCheeseIngredients',
+image: 'images/epic-nacho-mac-cheese.avif',
+instructions:'epic-nacho-mac-cheese.pdf',
+link: 'https://www.hellofresh.com/recipes/epic-nacho-mac-n-cheese-6171950af588a0150a5570f4'
+},
+{ name: 'Veggie Burrito Bowl',
+ingredients: 'veggieBurritoBowlIngredients',
+image: 'images/veggie-burrito-bowl.avif',
+instructions:'veggie-burrito-bowl.pdf',
+link: 'https://www.hellofresh.com/recipes/veggie-burrito-bowls-5e5ea67325ed1a2b107a3598'
+},
+{ name: 'One-Pan Cajun Pork Sausage Skillet',
+ingredients: 'onePanCajunPorkSausageSkilletIngredients',
+image: 'images/one-pan-cajun-pork-sausage-skillet.avif',
+instructions:'one-pan-cajun-pork-sausage-skillet.pdf',
+link: 'https://www.hellofresh.com/recipes/one-pan-cajun-pork-sausage-skillet-61e6f0ac9853836f347a1f1d'
+},
+{ name: 'Pork Sausage and Bell Pepper Risotto',
+ingredients: 'porkSausageAndBellPepperRisottoIngredients',
+image: 'images/pork-sausage-bell-pepper-risotto.avif',
+instructions:'pork-sausage-bell-pepper-risotto.pdf',
+link: 'https://www.hellofresh.com/recipes/pork-sausage-bell-pepper-risotto-617041791f771a6a0b36e4b2'
+},
+{ name: 'Chicken Enchiladas Verdes',
+ingredients: 'chickednEnchiladasVerdesIngredients',
+image: 'images/salsa-verde-chicken-enchiladas.avif',
+instructions:'salsa-verde-chicken-enchiladas.pdf',
+link: 'https://www.hellofresh.com/recipes/salsa-verde-chicken-enchiladas-5dfd0bae39b70a23332c4678'
+},
+{ name: 'Honey Thyme Pork Tenderloin',
+ingredients: 'honeyThymePorkTenderloinIngredients',
+image: 'images/honey-thyme-pork-tenderloin.avif',
+instructions:'honey-thyme-pork-tenderloin.pdf',
+link: 'https://www.hellofresh.com/recipes/honey-thyme-pork-tenderloin-615db8f220008b2e0307f097'
+},
+{ name: 'template',
+ingredients: '',
+image: 'images/',
+instructions:'',
+link: ''
+},
 //sides
 { name: 'Potato Wedges',
 ingredients: 'potatoWedgeIngredients',
