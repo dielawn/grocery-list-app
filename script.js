@@ -13,6 +13,7 @@ const proteins = [
 
   { name: 'Pork Chops', qty: 6, unit: 'oz', aisle: 'butcher' },
   { name: 'Pork Tenderlion', qty: 5, unit: 'oz', aisle: 'butcher' },
+  { name: 'Pulled Pork', qty: 5, unit: 'oz', aisle: 'butcher' },
 ];
 
 const produce = [
@@ -114,6 +115,7 @@ const sauce = [
   { name: 'Sweet Thai Chili Sauce', qty: .5, unit: 'oz', aisle: 'ethnic' },    
   
   { name: 'Teriyaki Sauce', qty: .5, unit: '', aisle: 'ethnic' },
+  { name: 'Tex-Mex Paste', qty: .5, unit: '', aisle: 'ethnic' },
 
   { name: 'Veggie Stock Concentrate', qty: 1, unit: 'TBSP', aisle: 'canned' },
     
@@ -461,6 +463,15 @@ const bbqCheddarBurgerIngredients = [
   ...seasoning.filter(item => item.name === "Chipotle Powder" || item.name === "Fry Seasoning"),
   ...dairy.filter(item => item.name === "Cheddar Cheese"),
 ]
+const alPastorPulledPorkTacoIngredients = [
+  ...proteins.filter(item => item.name === "Pulled Pork"),
+  ...produce.filter(item => item.name === "Red Onion" || item.name === "Lime"
+   || item.name === "Cilantro"),
+  ...grain.filter(item => item.name === "Flour Tortillas"),
+  ...sauce.filter(item => item.name === "Tex-Mex Paste"),
+  ...cannedGoods.filter(item => item.name === "Pineapple"),
+  ...seasoning.filter(item => item.name === "Southwest Spice Blend"),
+]
 
 
 const templateIngredients = [
@@ -514,47 +525,47 @@ const garlicMayoIngredients = [
 // Recipies
 const recipes = [
     { name: 'Sweet Chili Pork Bowls', 
-    ingredients: 'sweetChiliPorkBowlIngredients', 
+    ingredients: sweetChiliPorkBowlIngredients, 
     image: 'images/sweet-chili-pork-bowls.avif',
     instructions:'instructions/sweet-chili-pork-bowls.pdf',
     link: 'https://www.hellofresh.com/recipes/sweet-chili-pork-bowls-5efb358e43975d50ea6927d2'
 },
 
 { name: 'Sesame Soy Pork Bowls',
-ingredients: 'sesameSoyPorkBowlIngredients',
+ingredients: sesameSoyPorkBowlIngredients,
 image: 'images/sesame-soy-pork-bowl.avif',
 instructions:'instructions/sesame-soy-pork-bowls.pdf',
 link: 'https://www.hellofresh.com/recipes/sesame-soy-pork-bowls-5fa06a5f20b9661c0d5e342f'
 },
 
 { name: 'Chimi Chicken & Yellow Rice Bowls',
-ingredients: 'chimiChickenAndYellowRiceBowlIngredients',
+ingredients: chimiChickenAndYellowRiceBowlIngredients,
 image: 'images/chimi-chicken-yellow-rice-bowls.avif',
 instructions:'instructions/chimi-chicken-yellow-rice-bowls.pdf',
 link: 'https://www.hellofresh.com/recipes/chimi-chicken-yellow-rice-bowls-5e5e9a73e0678c51867e16db'
 },
 
 { name: 'Thai Basil Beef Bowls',
-ingredients: 'thaiBasilBeefBowlIngredients',
+ingredients: thaiBasilBeefBowlIngredients,
 image: 'images/thai-basil-beef-bowls.avif',
 instructions:'instructions/thai-basil-beef-bowls.pdf',
 link: 'https://www.hellofresh.com/recipes/thai-basil-beef-bowls-5e39b0b7055a3835f148531a'
 },
 
 { name: 'Pork & Zucchini Bibimbap',
-ingredients: 'porkAndZucchiniBibimbapIngredients',
+ingredients: porkAndZucchiniBibimbapIngredients,
 image: 'images/pork-and-veggie-bibimbap.avif',
 instructions:'instructions/pork-and-veggie-bibimbap.pdf',
 link: 'https://www.hellofresh.com/recipes/pork-and-veggie-bibimbap-5e67d7511082fd2292725cfc'
 },
 { name: 'Teriyaki Pork Luau Bowls',
-ingredients: 'teriyakiPorkLuauBowlIngredients',
+ingredients: teriyakiPorkLuauBowlIngredients,
 image: 'images/teriyaki-pork-luau-bowls.avif',
 instructions:'instructions/teriyaki-pork-luau-bowls.pdf',
 link: 'https://www.hellofresh.com/recipes/teriyaki-pork-luau-bowls-5fa56ef97511fc2549429dc0'
 },
 { name: 'Gouda Pork Burgers',
-ingredients: 'goudaPorkBurgerIngredients',
+ingredients: goudaPorkBurgerIngredients,
 image: 'images/gouda-pork-burgers.avif',
 instructions:'instructions/gouda-pork-burgers.pdf',
 link: 'https://www.hellofresh.com/recipes/gouda-pork-burgers-5e838042d6f999558005b0da'
@@ -562,107 +573,113 @@ link: 'https://www.hellofresh.com/recipes/gouda-pork-burgers-5e838042d6f99955800
 
 
 { name: 'Firehouse Cheeseburgers',
-ingredients: 'firehouseCheeseburgersIngredients',
+ingredients: firehouseCheeseburgersIngredients,
 image: 'images/firehouse-cheeseburgers.avif',
 instructions:'instructions/firehouse-cheeseburgers.pdf',
 link: 'https://www.hellofresh.com/recipes/firehouse-cheeseburgers-609bd8375e0e4108d54ad302'
 },
 { name: 'Melty Monterey Jack Burger',
-ingredients: 'meltyMontereyJackBurgersIngredients',
+ingredients: meltyMontereyJackBurgersIngredients,
 image: 'images/melty-monterey-jack-burgers.avif',
 instructions:'instructions/melty-monterey-jack-burgers.pdf',
 link: 'https://www.hellofresh.com/recipes/melty-monterey-jack-burgers-5e25f552b9721f76446c7585'
 },
 { name: 'Ancho BBQ Sloppy Joes',
-ingredients: 'anchoBbqSloppyJoesIngredients',
+ingredients: anchoBbqSloppyJoesIngredients,
 image: 'images/ancho-bbq-sloppy-joes.avif',
 instructions: 'instructions/ancho-bbq-sloppy-joespdf.pdf',
 link: 'https://www.hellofresh.com/recipes/ancho-bbq-sloppy-joes-6231e882e5574621ea0c8d10'
 },
 
 { name: 'Bacon Buckaroo Burger',
-ingredients: 'baconBuckarooBurgerIngredients',
+ingredients: baconBuckarooBurgerIngredients,
 image: 'images/bacon-buckaroo-burger.avif',
 instructions:'instructions/bacon-buckaroo-burgers.pdf',
 link: 'https://www.hellofresh.com/recipes/bacon-buckaroo-burgers-60f82814e088b95c6b25fb6e'
 },
 { name: 'White Cheddar Wonder Burger',
-ingredients: 'whiteCheddarWonderBurgerIngredients',
+ingredients: whiteCheddarWonderBurgerIngredients,
 image: 'images/white-cheddar-wonder-burger.avif',
 instructions:'instructions/white-cheddar-wonderburgers.pdf',
 link: 'https://www.hellofresh.com/recipes/white-cheddar-wonderburgers-61cb23eb4547a11c25516b1e'
 },
 { name: 'Crispy Cajun Chicken Sandwiches',
-ingredients: 'crispyCajunChickenSandwichesIngredients',
+ingredients: crispyCajunChickenSandwichesIngredients,
 image: 'images/crispy-cajun-chicken-sandwiches.avif',
 instructions:'instructions/crispy-cajun-chicken-sandwiches.pdf',
 link: 'https://www.hellofresh.com/recipes/crispy-cajun-chicken-sandwiches-611d61d0ba10940c4d444561'
 },
 { name: 'BBQ Pineapple Flatbread',
-ingredients: 'bbqPineappleFlatbreadIngredients',
+ingredients: bbqPineappleFlatbreadIngredients,
 image: 'images/bbq-pineapple-flatbread.avif',
 instructions:'instructions/bbq-pineapple-flatbreads.pdf',
 link: 'https://www.hellofresh.com/recipes/bbq-pineapple-flatbreads-620c20eaaf420111a021e19a'
 },
 { name: 'Bacon Jalapeno Mac & Cheese',
-ingredients: 'baconJalapenoMacAndCheeseIngredients',
+ingredients: baconJalapenoMacAndCheeseIngredients,
 image: 'images/bacon-jalapeno-mac-cheese.avif',
 instructions:'instructions/bacon-jalapeno-mac-cheese.pdf',
 link: 'https://www.hellofresh.com/recipes/bacon-jalapeno-mac-cheese-615db9700ab39518157b909f'
 },
 { name: 'Epic Nacho Mac & Cheese',
-ingredients: 'epicNachoMacAndCheeseIngredients',
+ingredients: epicNachoMacAndCheeseIngredients,
 image: 'images/epic-nacho-mac-cheese.avif',
 instructions:'epic-nacho-mac-cheese.pdf',
 link: 'https://www.hellofresh.com/recipes/epic-nacho-mac-n-cheese-6171950af588a0150a5570f4'
 },
 { name: 'Veggie Burrito Bowl',
-ingredients: 'veggieBurritoBowlIngredients',
+ingredients: veggieBurritoBowlIngredients,
 image: 'images/veggie-burrito-bowl.avif',
 instructions:'veggie-burrito-bowl.pdf',
 link: 'https://www.hellofresh.com/recipes/veggie-burrito-bowls-5e5ea67325ed1a2b107a3598'
 },
 { name: 'One-Pan Cajun Pork Sausage Skillet',
-ingredients: 'onePanCajunPorkSausageSkilletIngredients',
+ingredients: onePanCajunPorkSausageSkilletIngredients,
 image: 'images/one-pan-cajun-pork-sausage-skillet.avif',
 instructions:'one-pan-cajun-pork-sausage-skillet.pdf',
 link: 'https://www.hellofresh.com/recipes/one-pan-cajun-pork-sausage-skillet-61e6f0ac9853836f347a1f1d'
 },
 { name: 'Pork Sausage and Bell Pepper Risotto',
-ingredients: 'porkSausageAndBellPepperRisottoIngredients',
+ingredients: porkSausageAndBellPepperRisottoIngredients,
 image: 'images/pork-sausage-bell-pepper-risotto.avif',
 instructions:'pork-sausage-bell-pepper-risotto.pdf',
 link: 'https://www.hellofresh.com/recipes/pork-sausage-bell-pepper-risotto-617041791f771a6a0b36e4b2'
 },
 { name: 'Chicken Enchiladas Verdes',
-ingredients: 'chickednEnchiladasVerdesIngredients',
+ingredients: chickednEnchiladasVerdesIngredients,
 image: 'images/salsa-verde-chicken-enchiladas.avif',
 instructions:'salsa-verde-chicken-enchiladas.pdf',
 link: 'https://www.hellofresh.com/recipes/salsa-verde-chicken-enchiladas-5dfd0bae39b70a23332c4678'
 },
 { name: 'Honey Thyme Pork Tenderloin',
-ingredients: 'honeyThymePorkTenderloinIngredients',
+ingredients: honeyThymePorkTenderloinIngredients,
 image: 'images/honey-thyme-pork-tenderloin.avif',
 instructions:'honey-thyme-pork-tenderloin.pdf',
 link: 'https://www.hellofresh.com/recipes/honey-thyme-pork-tenderloin-615db8f220008b2e0307f097'
 },
 { name: 'Peachy Keen BBQ-Rubbed Pork Chops',
-ingredients: 'peachyKeenBbqRubbedPorkChopsIngredients',
+ingredients: peachyKeenBbqRubbedPorkChopsIngredients,
 image: 'images/peachy-keen-bbq-rubbed-pork-chops.avif',
 instructions:'peachy-keen-bbq-rubbed-pork-chops.pdf',
 link: 'https://www.hellofresh.com/recipes/peachy-keen-bbq-rubbed-pork-chops-61795d17951b0e24e516bead'
 },
 { name: 'Steakhouse-Style Pork Chops',
-ingredients: 'steakhouseStylePorkChopsIngredients',
+ingredients: steakhouseStylePorkChopsIngredients,
 image: 'images/steakhouse-pork-chops.avif',
 instructions:'steakhouse-pork-chops.pdf',
 link: 'https://www.hellofresh.com/recipes/steakhouse-pork-chops-5ff4c5c85811d66eb9512c50'
 },
 { name: 'BBQ Cheddar Burger',
-ingredients: 'bbqCheddarBurgerIngredients',
+ingredients: bbqCheddarBurgerIngredients,
 image: 'images/bbq-cheddar-burgers.avif',
 instructions:'bbq-cheddar-burgers.pdf',
 link: 'https://www.hellofresh.com/recipes/bbq-cheddar-burgers-61f18805e6fc5466ef777d06'
+},
+{ name: 'Al Pastor Pulled Pork Tacos',
+ingredients: alPastorPulledPorkTacoIngredients,
+image: 'images/al-pastor-pulled-pork-tacos.avif',
+instructions:'al-pastor-pulled-pork-tacos.pdf',
+link: 'https://www.hellofresh.com/recipes/al-pastor-pulled-pork-tacos-6239d8fa96d43a56f83be59f'
 },
 { name: 'template',
 ingredients: '',
@@ -672,25 +689,25 @@ link: ''
 },
 //sides
 { name: 'Potato Wedges',
-ingredients: 'potatoWedgeIngredients',
+ingredients: potatoWedgeIngredients,
 image: 'images/potato-wedges.jpg',
 instructions:'instructions/gouda-pork-burgers.pdf',
 link: 'https://www.hellofresh.com/recipes/gouda-pork-burgers-5e838042d6f999558005b0da'
 },
 { name: 'Zucchini Spears',
-ingredients: 'zucchiniSpearsIngredients',
+ingredients: zucchiniSpearsIngredients,
 image: 'images/zucchini-spears.webp',
 instructions:'instructions/melty-monterey-jack-burgers.pdf',
 link: 'https://www.hellofresh.com/recipes/melty-monterey-jack-burgers-5dadc36bcd481422887d8d73'
 },
 { name: 'Oven Gold Potatoes',
-ingredients: 'ovenGoldPotatoesIngredients',
+ingredients: ovenGoldPotatoesIngredients,
 image: 'images/oven-gold-potatoes.jpg',
 instructions: 'instructions/ancho-bbq-sloppy-joespdf.pdf',
 link: 'https://www.hellofresh.com/recipes/ancho-bbq-sloppy-joes-6231e882e5574621ea0c8d10'
 },
 { name: 'Cheesy Loaded Potato Rounds',
-ingredients: 'cheesyLoadedPotatoRoundsIngredients',
+ingredients: cheesyLoadedPotatoRoundsIngredients,
 image: 'images/cheesy-loaded-potato-rounds.jpg',
 instructions:'instructions/bacon-buckaroo-burgers.pdf',
 link: 'https://www.hellofresh.com/recipes/bacon-buckaroo-burgers-60f82814e088b95c6b25fb6e'
@@ -698,13 +715,13 @@ link: 'https://www.hellofresh.com/recipes/bacon-buckaroo-burgers-60f82814e088b95
 
 //sauces
 { name: 'Lime Crema',
-ingredients: 'limeCreamaIngredients',
+ingredients: limeCreamaIngredients,
 image: 'images/lime-crema.jpg',
 instructions:'instructions/gouda-pork-burgers.pdf',
 link: 'https://www.hellofresh.com/recipes/gouda-pork-burgers-5e838042d6f999558005b0da'
 },
 { name: 'Garlic Mayo',
-ingredients: 'garlicMayoIngredients',
+ingredients: garlicMayoIngredients,
 image: 'images/garlic-mayonnaise.webp',
 instructions:'instructions/melty-monterey-jack-burgers.pdf',
 link: 'https://www.hellofresh.com/recipes/melty-monterey-jack-burgers-5e25f552b9721f76446c7585'
@@ -869,14 +886,15 @@ const renderList = (list) => {
   
   const renderRecipes = (recipeList) => {
     let recipeDiv = document.getElementById('recipeDiv');
+   
     for (let i = 0; i < recipeList.length; i++) {
-
+      let recipeName = recipeList[i].name
       let recipeElement = document.createElement('div');      
       recipeDiv.appendChild(recipeElement);
       recipeElement.classList.add('recipe');
-      recipeElement.innerHTML = recipeList[i].name;
+      recipeElement.innerHTML = recipeName;
 
-      let recipeLink = document.createElement('a');
+    let recipeLink = document.createElement('a');
     recipeLink.href = recipeList[i].instructions;
     recipeElement.appendChild(recipeLink);
 
@@ -886,166 +904,20 @@ const renderList = (list) => {
     recipeImageElement.src = recipeList[i].image;
     recipeImageElement.classList.add('recipeImg');
 
-    // let servingInput = document.createElement('input')
-    // servingInput.classList.add('servingInput');
-    // servingInput.id = `servingInput-${i}`;
-    // recipeElement.appendChild(servingInput);
-   
+    let addBtn = document.createElement('button');
+    recipeElement.appendChild(addBtn);
+    addBtn.textContent = 'Add';
+    addBtn.classList.add('addBtn');
     
-
-      let addBtn = document.createElement('button');
-      recipeElement.appendChild(addBtn);
-      addBtn.textContent = 'Add';
-      addBtn.classList.add('addBtn');
-      let index = i;
-      // Add event listener to each button
-      addBtn.addEventListener('click', function() {
-        handleClick(index, recipeList)
+    // Add event listener to each button
+    addBtn.addEventListener('click', function() {
+      addRecipeToList(recipeList[i].ingredients)
+      renderSelectedRecipes(recipeName)
+      sortGroceryListByAisle(groceryList)    
+      renderList(groceryList)
       });
     }
   };
-  
-  const handleClick = (index, recipeList) => {
-    let recipeName = recipeList[index].name
-    let ingredientList = recipeList[index].ingredients;
-    switch(ingredientList) {
-      case 'sweetChiliPorkBowlIngredients':        
-        addRecipeToList(sweetChiliPorkBowlIngredients)        
-        console.log(groceryList, recipeName)
-        break;        
-      case 'sesameSoyPorkBowlIngredients':
-        addRecipeToList(sesameSoyPorkBowlIngredients)        
-        console.log(groceryList)    
-        break;
-      case 'chimiChickenAndYellowRiceBowlIngredients':
-        console.log(chimiChickenAndYellowRiceBowlIngredients, groceryList)
-        addRecipeToList(chimiChickenAndYellowRiceBowlIngredients)
-        break;        
-      case 'thaiBasilBeefBowlIngredients':
-        console.log(thaiBasilBeefBowlIngredients, groceryList)
-        addRecipeToList(thaiBasilBeefBowlIngredients)            
-        break;
-      case 'porkAndZucchiniBibimbapIngredients':
-        console.log(porkAndZucchiniBibimbapIngredients, groceryList)
-        addRecipeToList(porkAndZucchiniBibimbapIngredients)
-        break;        
-      case 'teriyakiPorkLuauBowlIngredients':
-        console.log(teriyakiPorkLuauBowlIngredients, groceryList)
-        addRecipeToList(teriyakiPorkLuauBowlIngredients)            
-        break;
-      case 'goudaPorkBurgerIngredients':
-        console.log(goudaPorkBurgerIngredients), groceryList
-        addRecipeToList(goudaPorkBurgerIngredients)            
-        break;
-      case 'firehouseCheeseburgersIngredients':
-        console.log(firehouseCheeseburgersIngredients, groceryList)
-        addRecipeToList(firehouseCheeseburgersIngredients)
-        break;          
-      case 'meltyMontereyJackBurgersIngredients':
-        console.log(meltyMontereyJackBurgersIngredients, groceryList)
-        addRecipeToList(meltyMontereyJackBurgersIngredients)            
-        break;
-      case 'anchoBbqSloppyJoesIngredients':
-        console.log(anchoBbqSloppyJoesIngredients, groceryList)
-        addRecipeToList(anchoBbqSloppyJoesIngredients)
-        break;          
-      case 'baconBuckarooBurgerIngredients':
-        console.log(baconBuckarooBurgerIngredients, groceryList)
-        addRecipeToList(baconBuckarooBurgerIngredients)   
-        console.log(baconBuckarooBurgerIngredients, groceryList)         
-        break;
-      case 'potatoWedgeIngredients':
-        console.log(potatoWedgeIngredients), groceryList
-        addRecipeToList(potatoWedgeIngredients)            
-        break;
-      case 'zucchiniSpearsIngredients':
-        console.log(zucchiniSpearsIngredients, groceryList)
-        addRecipeToList(zucchiniSpearsIngredients)
-        break;
-      case 'ovenGoldPotatoesIngredients':
-        console.log(ovenGoldPotatoesIngredients, groceryList)
-        addRecipeToList(ovenGoldPotatoesIngredients)            
-        break;
-      case 'cheesyLoadedPotatoRoundsIngredients':
-        console.log(cheesyLoadedPotatoRoundsIngredients, groceryList)
-        addRecipeToList(cheesyLoadedPotatoRoundsIngredients)            
-        break;
-      case 'limeCreamaIngredients':
-        console.log(limeCreamaIngredients, groceryList)
-        addRecipeToList(limeCreamaIngredients)
-        break;
-      case 'garlicMayoIngredients':
-        console.log(garlicMayoIngredients, groceryList)
-        addRecipeToList(garlicMayoIngredients)        
-        break;
-      case 'whiteCheddarWonderBurgerIngredients':
-        console.log(whiteCheddarWonderBurgerIngredients, groceryList)
-        addRecipeToList(whiteCheddarWonderBurgerIngredients)
-        break;
-      case 'crispyCajunChickenSandwichesIngredients':
-        console.log(crispyCajunChickenSandwichesIngredients, groceryList)
-        addRecipeToList(crispyCajunChickenSandwichesIngredients)        
-        break;
-      case 'bbqPineappleFlatbreadIngredients':
-        console.log(bbqPineappleFlatbreadIngredients, groceryList)
-        addRecipeToList(bbqPineappleFlatbreadIngredients)        
-        break;
-      case 'baconJalapenoMacAndCheeseIngredients':
-        console.log(baconJalapenoMacAndCheeseIngredients, groceryList)
-        addRecipeToList(baconJalapenoMacAndCheeseIngredients)        
-        break;
-        case 'epicNachoMacAndCheeseIngredients':
-          console.log(epicNachoMacAndCheeseIngredients, groceryList)
-          addRecipeToList(epicNachoMacAndCheeseIngredients)        
-          break;
-        case 'veggieBurritoBowlIngredients':
-          console.log(veggieBurritoBowlIngredients, groceryList)
-          addRecipeToList(veggieBurritoBowlIngredients)        
-          break;
-        case 'onePanCajunPorkSausageSkilletIngredients':
-          console.log(onePanCajunPorkSausageSkilletIngredients, groceryList)
-          addRecipeToList(onePanCajunPorkSausageSkilletIngredients)        
-          break;
-        case 'porkSausageAndBellPepperRisottoIngredients':
-          console.log(porkSausageAndBellPepperRisottoIngredients, groceryList)
-          addRecipeToList(porkSausageAndBellPepperRisottoIngredients)        
-          break;
-        case 'chickednEnchiladasVerdesIngredients':
-          console.log(chickednEnchiladasVerdesIngredients, groceryList)
-          addRecipeToList(chickednEnchiladasVerdesIngredients)        
-          break;
-        case 'honeyThymePorkTenderloinIngredients':
-          console.log(honeyThymePorkTenderloinIngredients, groceryList)
-          addRecipeToList(honeyThymePorkTenderloinIngredients)        
-          break;
-        case 'peachyKeenBbqRubbedPorkChopsIngredients':
-          console.log(peachyKeenBbqRubbedPorkChopsIngredients, groceryList)
-          addRecipeToList(peachyKeenBbqRubbedPorkChopsIngredients)        
-          break;
-        case 'steakhouseStylePorkChopsIngredients':
-          console.log(steakhouseStylePorkChopsIngredients, groceryList)
-          addRecipeToList(steakhouseStylePorkChopsIngredients)        
-          break;
-        case 'bbqCheddarBurgerIngredients':
-          console.log(bbqCheddarBurgerIngredients, groceryList)
-          addRecipeToList(bbqCheddarBurgerIngredients)        
-          break;
-        default:
-        
-    }
-    // console.log(groceryList)
-
-  
-    // console.log(groceryList)
-    renderSelectedRecipes(recipeName)
-    sortGroceryListByAisle(groceryList)
-    // console.log(groceryList)
-
-    renderList(groceryList)
-    // console.log(groceryList)
-
-
-  }
 
 const cookiesBtn = document.getElementById('cookiesBtn')
 cookiesBtn.addEventListener('click',() => {
