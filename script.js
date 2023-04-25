@@ -739,40 +739,6 @@ const addRecipeToList = (list) => {
   return groceryList
 }
 
-// const addRecipeToList = (recipeList) => {
-//     for (let i = 0; i < recipeList.length; i++) {
-//         let ingredient = recipeList[i]
-//         groceryList.push(`${ingredient.qty} ${ingredient.unit} ${ingredient.name} ${ingredient.aisle}`)
-//       }
-//       console.log(groceryList)
-//       return groceryList
-// }
-
-// addRecipeToList(necessities)
-// addRecipeToList(dillonsBreakfastIngredients)
-
-// addRecipeToList(sesameSoyPorkBowlIngredients)
-// addRecipeToList(sweetChiliPorkBowlIngredients)
-// addRecipeToList(chimiChickenAndYellowRiceBowlIngredients)
-// addRecipeToList(thaiBasilBeefBowlIngredients)
-// addRecipeToList(porkAndZucchiniBibimbapIngredients)
-// addRecipeToList(teriyakiPorkLuauBowlIngredients)
-
-// addRecipeToList(goudaPorkBurgerIngredients)
-// addRecipeToList(firehouseCheeseburgersIngredients)
-// addRecipeToList(meltyMontereyJackBurgersIngredients)
-// addRecipeToList(baconBuckarooBurgerIngredients)
-
-// addRecipeToList(potatoWedgeIngredients)
-// addRecipeToList(ovenGoldPotatoesIngredients)
-// addRecipeToList(cheesyLoadedPotatoRoundsIngredients)
-// addRecipeToList(zucchiniSpearsIngredients)
-
-// addRecipeToList(limeCreamaIngredients)
-// addRecipeToList(garlicMayoIngredients)
-
-
-
 const consolidateGroceryList = (list) => {
   const consolidatedList = {};
   
@@ -803,8 +769,6 @@ const consolidateGroceryList = (list) => {
     return groceryList
   }
   
-
-
   const sortGroceryListByAisle = (list) => {
     // Define the order of aisles
     const aisleOrder = ['dairy', 'freezer', 'cheese', 'snack', 'butcher', 'ethnic', 'noodle',  'canned', 'baking', 'cereal', 'condiment', 'bakery', 'produce', 'nutrition', '']
@@ -835,10 +799,6 @@ const consolidateGroceryList = (list) => {
     groceryList = listWithAisle;
     return groceryList
 }
-
-  
-  
-  // Example usage:
  
 const renderSelectedRecipes = (recipeName) => {
  let selectedMealListDiv = document.getElementById('mealListDiv')
@@ -851,7 +811,10 @@ const renderList = (list) => {
   const listDiv = document.getElementById('listDiv');
   listDiv.innerHTML = ''; // clear the container before adding new elements
   const servingInput = document.getElementById('servingInput');
-  const servingSize = servingInput.value;
+  let servingSize = servingInput.value;
+  if(servingSize === ''){
+    servingSize = 1
+  }
 
   for (let i = 0; i < list.length; i++) {
     let listElement = document.createElement('div');
@@ -869,8 +832,6 @@ const renderList = (list) => {
   }
 };
 
-
-  
   const createRemoveListener = (listElement) => {
     return () => {
       listElement.remove(); // remove the list element from the DOM
@@ -881,8 +842,6 @@ const renderList = (list) => {
       }
     };
   };
-  
-  
   
   const renderRecipes = (recipeList) => {
     let recipeDiv = document.getElementById('recipeDiv');
@@ -897,7 +856,6 @@ const renderList = (list) => {
     let recipeLink = document.createElement('a');
     recipeLink.href = recipeList[i].instructions;
     recipeElement.appendChild(recipeLink);
-
   
     let recipeImageElement = document.createElement('img');
     recipeLink.appendChild(recipeImageElement);
@@ -938,7 +896,6 @@ alisonBreakfastBtn.addEventListener('click',() => {
 })
 
 const consolidateBtn = document.getElementById('consolidateBtn')
-
 consolidateBtn.addEventListener('click',() => {
   consolidateGroceryList(groceryList)
   renderList(groceryList)
