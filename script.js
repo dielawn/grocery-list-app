@@ -183,7 +183,8 @@ const seasoning = [
   { name: "Bold and Savory Steak Spice", qty: .5, unit: 'TBSP', aisle: 'baking' },
 
   { name: 'Cajun Spice Blend', qty: 1, unit: 'TBSP', aisle: 'baking' },
-  { name: 'Chipotle Powder', qty: .5, unit: 'tsp', aisle: 'baking' },
+  { name: 'Chili Powder', qty: .5, unit: 'tsp', aisle: 'baking' },
+  { name: 'Chipotle Powder', qty: .5, unit: 'tsp', aisle: 'baking' },  
   { name: 'Cumin', qty: .5, unit: 'tsp', aisle: 'baking' },
 
   { name: "Dried Oregano", qty: .5, unit: 'tsp', aisle: 'baking' },
@@ -298,7 +299,7 @@ const porkAndZucchiniBibimbapIngredients = [
   ...produce.filter(item => item.name === "Scallions" || item.name === "Carrots"
    || item.name === "Zucchini" || item.name === "Ginger" || item.name === "Garlic"),
   ...sauce.filter(item => item.name === "White Wine Vinegar" || item.name === "Sesame Oil"
-   || item.name === "Soy Sauce" || item.name === "Gonchujang Sauce"), 
+   || item.name === "Soy Sauce" || item.name === "Gochujang Sauce"), 
   ...grain.filter(item => item.name === "Jasmine Rice")
 ]
 const teriyakiPorkLuauBowlIngredients = [
@@ -485,6 +486,16 @@ const alPastorPulledPorkTacoIngredients = [
   ...sauce.filter(item => item.name === "Tex-Mex Paste"),
   ...cannedGoods.filter(item => item.name === "Pineapple"),
   ...seasoning.filter(item => item.name === "Southwest Spice Blend"),
+]
+
+const cheesyBeefTostadasIngredients = [
+  ...proteins.filter(item => item.name === "Ground Beef"),
+  ...produce.filter(item => item.name === "Yellow Onion" || item.name === "Roma Tomato"
+   || item.name === "Lime" || item.name === "Long Green Pepper" || item.name === "Cilantro"),
+  ...grain.filter(item => item.name === "Flour Tortillas"),
+  ...sauce.filter(item => item.name === "Hot Sauce" || item.name === "Beef Stock Concentrate"),
+  ...seasoning.filter(item => item.name === "Chili Powder" || item.name === "Southwest Spice Blend"),
+  ...dairy.filter(item => item.name === "Sour Cream" || item.name === "Mexican Cheese Blend"),
 ]
 
 
@@ -694,6 +705,12 @@ ingredients: alPastorPulledPorkTacoIngredients,
 image: 'images/al-pastor-pulled-pork-tacos.avif',
 instructions:'al-pastor-pulled-pork-tacos.pdf',
 link: 'https://www.hellofresh.com/recipes/al-pastor-pulled-pork-tacos-6239d8fa96d43a56f83be59f'
+},
+{ name: 'Cheesy Beef Tostadas',
+ingredients: cheesyBeefTostadasIngredients,
+image: 'images/cheesy-beef-tostadas.avif',
+instructions:'cheesy-beef-tostadas.pdf',
+link: 'https://www.hellofresh.com/recipes/cheesy-beef-tostadas-5e94c0640d7f123476528c9e'
 },
 { name: 'template',
 ingredients: '',
