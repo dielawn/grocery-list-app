@@ -286,27 +286,33 @@ const sweetChiliPorkBowlIngredients = [
   ];
   const thaiBasilBeefBowlIngredients = [
     ...proteins.filter(item => item.name === "Ground Beef"),
-    ...produce.filter(item => item.name === "Shallot" || item.name === "Bell Pepper" || item.name === "Ginger" || item.name === "Lime" || item.name === "Basil"),
-    ...sauce.filter(item => item.name === "Mushroom Stock Concentrate" || item.name === "Ponzu Sauce" || item.name === "Mayonnaise" || item.name === "Sriracha"), 
+    ...produce.filter(item => item.name === "Shallot" || item.name === "Bell Pepper"
+     || item.name === "Ginger" || item.name === "Lime" || item.name === "Basil"),
+    ...sauce.filter(item => item.name === "Mushroom Stock Concentrate"
+     || item.name === "Ponzu Sauce" || item.name === "Mayonnaise" || item.name === "Sriracha"), 
     ...driedGoods.filter(item => item.name === "Peanuts"),
     ...grain.filter(item => item.name === "Jasmine Rice")
   ]
 const porkAndZucchiniBibimbapIngredients = [
   ...proteins.filter(item => item.name === "Ground Pork"),
-  ...produce.filter(item => item.name === "Scallions" || item.name === "Carrots" || item.name === "Zucchini" || item.name === "Ginger" || item.name === "Garlic"),
-  ...sauce.filter(item => item.name === "White Wine Vinegar" || item.name === "Sesame Oil" || item.name === "Soy Sauce" || item.name === "Gonchujang Sauce"), 
+  ...produce.filter(item => item.name === "Scallions" || item.name === "Carrots"
+   || item.name === "Zucchini" || item.name === "Ginger" || item.name === "Garlic"),
+  ...sauce.filter(item => item.name === "White Wine Vinegar" || item.name === "Sesame Oil"
+   || item.name === "Soy Sauce" || item.name === "Gonchujang Sauce"), 
   ...grain.filter(item => item.name === "Jasmine Rice")
 ]
 const teriyakiPorkLuauBowlIngredients = [
   ...proteins.filter(item => item.name === "Ground Pork"),
-  ...produce.filter(item => item.name === "Long Green Pepper" || item.name === "Red Onion" || item.name === "Roma Tomato" || item.name === "Lime" || item.name === "Garlic"),
+  ...produce.filter(item => item.name === "Long Green Pepper" || item.name === "Red Onion"
+   || item.name === "Roma Tomato" || item.name === "Lime" || item.name === "Garlic"),
   ...sauce.filter(item => item.name === "Teriyaki Sauce"),    
   ...grain.filter(item => item.name === "Jasmine Rice")
 ]
 //Burgers
 const goudaPorkBurgerIngredients = [
   ...proteins.filter(item => item.name === "Ground Pork"),
-  ...produce.filter(item => item.name === "Yellow Onion" || item.name === "Lime" || item.name === "Garlic"),
+  ...produce.filter(item => item.name === "Yellow Onion" || item.name === "Lime"
+   || item.name === "Garlic"),
   ...seasoning.filter(item => item.name === "Smoked Paprika"),
   ...sauce.filter(item => item.name === "Mayonnaise" || item.name === "Sour Cream"), 
   ...dairy.filter(item => item.name === "Gouda Cheese"),
@@ -314,7 +320,8 @@ const goudaPorkBurgerIngredients = [
 ]
 const firehouseCheeseburgersIngredients = [
   ...proteins.filter(item => item.name === "Ground Beef"),
-  ...sauce.filter(item => item.name === "Ranch Dressing" || item.name === "Sour Cream" || item.name === "Frank's Hot Sauce"),
+  ...sauce.filter(item => item.name === "Ranch Dressing" || item.name === "Sour Cream"
+   || item.name === "Frank's Hot Sauce"),
   ...dairy.filter(item => item.name === "Monterey Jack Cheese"),
   ...seasoning.filter(item => item.name === "Frank's Seasoning" || item.name === "Garlic Powder"),
   ...driedGoods.filter(item => item.name === "Crispy Fried Onion"),
@@ -324,20 +331,24 @@ const meltyMontereyJackBurgersIngredients = [
   ...proteins.filter(item => item.name === "Ground Beef"),
   ...produce.filter(item => item.name === "Yellow Onion" || item.name === "Garlic"),
   ...dairy.filter(item => item.name === "Monterey Jack Cheese"),
-  ...sauce.filter(item => item.name === "Balsamic Vinegar" || item.name === "Ketchup" || item.name === "Mayonnaise"),
+  ...sauce.filter(item => item.name === "Balsamic Vinegar" || item.name === "Ketchup"
+   || item.name === "Mayonnaise"),
   ...grain.filter(item => item.name === "Potato Buns")
 ]
 const baconBuckarooBurgerIngredients = [
   ...proteins.filter(item => item.name === "Ground Beef" || item.name === 'Bacon'),
-  ...produce.filter(item => item.name === "Yellow Onion" || item.name === "Scallions" || item.name === 'Dill Pickle'),
-  ...dairy.filter(item => item.name === "Pepper Jack Cheese" || item.name === 'Gouda Cheese' || item.name === 'Sour Cream'),
+  ...produce.filter(item => item.name === "Yellow Onion" || item.name === "Scallions"
+   || item.name === 'Dill Pickle'),
+  ...dairy.filter(item => item.name === "Pepper Jack Cheese" || item.name === 'Gouda Cheese'
+   || item.name === 'Sour Cream'),
   ...sauce.filter(item => item.name === "BBQ Sauce"),
   ...grain.filter(item => item.name === "Brioche Buns")
 ]
 const whiteCheddarWonderBurgerIngredients = [
   ...proteins.filter(item => item.name === "Ground Beef"),
   ...produce.filter(item => item.name === "Yellow Onion"),
-  ...sauce.filter(item => item.name === "Mayonnaise" || item.name === "Dijon Mustard" || item.name === "Ketchup"), 
+  ...sauce.filter(item => item.name === "Mayonnaise" || item.name === "Dijon Mustard"
+   || item.name === "Ketchup"), 
   ...seasoning.filter(item => item.name === "Old Bay Seasoning"),
   ...dairy.filter(item => item.name === "White Cheddar Cheese"),
   ...grain.filter(item => item.name === "Potato Buns")
@@ -347,7 +358,8 @@ const anchoBbqSloppyJoesIngredients = [
   ...proteins.filter(item => item.name === "Ground Beef"),
   ...produce.filter(item => item.name === "Yellow Onion" || item.name === "Dill Pickle"),
   ...bakingGoods.filter(item => item.name === "Cornstarch"),
-  ...sauce.filter(item => item.name === "BBQ Sauce" || item.name === "Ketchup" || item.name === "Beef Stock Concentrate"),
+  ...sauce.filter(item => item.name === "BBQ Sauce" || item.name === "Ketchup"
+   || item.name === "Beef Stock Concentrate"),
   ...seasoning.filter(item => item.name === "Ancho Chili Powder"),
   ...grain.filter(item => item.name === "Potato Buns")
 ]
@@ -363,7 +375,8 @@ const crispyCajunChickenSandwichesIngredients = [
 ]
 
 const bbqPineappleFlatbreadIngredients = [
-  ...produce.filter(item => item.name === "Shallot" || item.name === "Cilantro" || item.name === "Poblano Pepper"),
+  ...produce.filter(item => item.name === "Shallot" || item.name === "Cilantro"
+   || item.name === "Poblano Pepper"),
   ...grain.filter(item => item.name === "Flatbreads"),
   ...sauce.filter(item => item.name === "BBQ Sauce" || item.name === "Red Wine Vinegar"),
   ...cannedGoods.filter(item => item.name === "Pineapple"),
@@ -372,7 +385,8 @@ const bbqPineappleFlatbreadIngredients = [
 const baconJalapenoMacAndCheeseIngredients = [
   ...proteins.filter(item => item.name === "Bacon"),
   ...grain.filter(item => item.name === "Cavatappi Pasta"),
-  ...produce.filter(item => item.name === "Jalapeno" || item.name === "Scallions" || item.name === "Garlic"),
+  ...produce.filter(item => item.name === "Jalapeno" || item.name === "Scallions"
+   || item.name === "Garlic"),
   ...driedGoods.filter(item => item.name === "Bread Crumbs"),
   ...dairy.filter(item => item.name === "Cream Cheese" || item.name === "Cream Sauce Base" 
   || item.name === "Mexican Cheese Blend" || item.name === "Monterey Jack Cheese"),
