@@ -50,6 +50,7 @@ const produce = [
  
   { name: 'Red Onion', qty: .5, unit: '', aisle: 'produce' },  
   { name: 'Roma Tomato', qty: .5, unit: '', aisle: 'produce' },
+  { name: 'Romaine Lettuce', qty: .25, unit: 'head', aisle: 'produce' },
   { name: 'Rosemary', qty: .5, unit: '', aisle: 'produce' },
  
   { name: 'Scallions', qty: .5, unit: 'oz', aisle: 'produce' },
@@ -198,6 +199,7 @@ const seasoning = [
   { name: "Dried Oregano", qty: .5, unit: 'tsp', aisle: 'baking' },
   { name: "Dried Thyme", qty: .5, unit: 'tsp', aisle: 'baking' },
 
+  { name: "Fajita Spice Blend", qty: .5, unit: 'TBSP', aisle: 'baking' },
   { name: "Frank's Seasoning", qty: .5, unit: '', aisle: 'baking' },
   { name: "Fry Seasoning", qty: .5, unit: 'TBSP', aisle: 'baking' },
 
@@ -565,7 +567,15 @@ const blackBeanPepperQuesadillaIngredients = [
   ...dairy.filter(item => item.name === "Sour Cream" || item.name === "Mexican Cheese Blend" 
   || item.name === "Monterey Jack Cheese"),
 ]
-
+const onePanPorkFajitaLettuceWrapngredients = [
+  ...proteins.filter(item => item.name === "Ground Pork"),
+  ...produce.filter(item => item.name === "Romaine Lettuce" || item.name === "Yellow Onion" 
+  || item.name === "Long Green Pepper" || item.name === "Lime"),
+  ...sauce.filter(item => item.name === "Beef Stock Concentrate"),
+  ...seasoning.filter(item => item.name === "Fajita Spice Blend"),
+  ...dairy.filter(item => item.name === "Sour Cream" || item.name === "Mexican Cheese Blend"),
+  ...snack.filter(item => item.name === "Tortilla Chips")
+]
 const templateIngredients = [
   ...proteins.filter(item => item.name === ""),
   ...produce.filter(item => item.name === ""),
@@ -814,6 +824,12 @@ ingredients: blackBeanPepperQuesadillaIngredients,
 image: 'images/black-bean-quesadillas.avif',
 instructions:'black-bean-quesadillas.pdf',
 link: 'https://www.hellofresh.com/recipes/black-bean-quesadillas-5e94c48ee884b05a1c0e32c2'
+},
+{ name: 'One-Pan Pork Fajita Lettuce Wrap',
+ingredients: onePanPorkFajitaLettuceWrapngredients,
+image: 'images/one-pan-pork-fajita-lettuce-cups.avif',
+instructions:'one-pan-pork-fajita-lettuce-cups.pdf',
+link: 'https://www.hellofresh.com/recipes/one-pan-pork-fajita-lettuce-cups-6231f20c57fc3010631bb574'
 },
 { name: 'template',
 ingredients: '',
