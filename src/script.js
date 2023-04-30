@@ -1186,7 +1186,8 @@ const pdfList = () => {
 }
 
 
-document.getElementById('pdfBtn').addEventListener('click',() => {
+const pdfBtn = document.getElementById('pdfBtn')
+pdfBtn.addEventListener('click',() => {
   console.log('pdf1')
   pdfList()
 })
@@ -1277,11 +1278,11 @@ const renderSelectedRecipes = (recipeName) => {
 //  selectedMealListDiv.innerHTML += `${recipeName} <br>`
 }
 
-
+const servingInput = document.getElementById('servingInput');
 const renderList = (list) => {
   const listDiv = document.getElementById('listDiv');
   listDiv.innerHTML = ''; // clear the container before adding new elements
-  const servingInput = document.getElementById('servingInput');
+  
   let servingSize = servingInput.value;
   if(servingSize === ''){
     servingSize = 1
@@ -1300,6 +1301,7 @@ const renderList = (list) => {
     listElement.textContent = `${list[i].name} ${adjustedQuantity}, ${list[i].unit}`;
     listElement.appendChild(removeBtn);
     removeBtn.textContent = 'X';
+    removeBtn.classList = 'removeBtn'
     removeBtn.addEventListener('click', createRemoveListener(listElement));
   }
 };
@@ -1374,5 +1376,46 @@ consolidateBtn.addEventListener('click',() => {
 }) 
 
 renderRecipes(recipes);
+
+const displayHideButtons = () => {
+  if(viewListBtn.textContent === 'View List'){
+    viewListBtn.textContent = 'View Recipes'
+    consolidateBtn.style.display = 'block'
+    pdfBtn.style.display = 'block'
+    servingInput.style.display = 'block'
+  } else {
+    viewListBtn.textContent = 'View List'
+    consolidateBtn.style.display = 'none'
+    pdfBtn.style.display = 'none'
+    servingInput.style.display = 'none'
+  }
   
+ }
+
+const displayHideList = () => {
+  const recipeList = document.getElementById('recipeDiv')
+  const shoppingList = document.getElementById('listDiv')
+  // const mealList = document.getElementsByClassName('mealListDiv')
+
+  
+    if(recipeList.style.display !== 'none'){
+      recipeList.style.display = 'none'
+      shoppingList.style.display = 'flex'
+      
+    } else {
+      recipeList.style.display = 'flex'
+      shoppingList.style.display = 'none'
+     
+    }
+  }
+
+ 
+
+const viewListBtn = document.getElementById('viewListBtn')
+viewListBtn.addEventListener('click', () => {
+
+  console.log(viewListBtn.textContent)
+  displayHideList()
+  displayHideButtons()
+})
 
