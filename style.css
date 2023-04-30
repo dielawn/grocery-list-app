@@ -8,7 +8,8 @@
 .container{
     padding: 20px;
     display: grid;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: repeat(2, auto) repeat(2, .8fr);;
+    grid-template-rows: auto auto;
     width: 100vw;
 }
 
@@ -22,10 +23,11 @@
     flex-wrap: wrap;
     height: 95vh;
     overflow: scroll;
-    max-width: 47vw;
+    max-width: 1000px;
     padding: 20px;
     font-size: .8rem;
-   
+   grid-row: 1/3;
+   grid-column: 1/3;
 }
 .recipe{
     display: flex;
@@ -43,9 +45,11 @@
     justify-content: space-between;
 }
 
+
+
 .recipeImg{
-    height: 100px;
-    width: 200px;
+   max-height: 200px;
+    width: 300px;
     
 }
 
@@ -54,14 +58,28 @@
     width: 200px;
 }
 .addBtn{
-    width: 200px;
+    width: 300px;
 }
 
 .consolidateBtn{
     
 }
 .buttonDiv{
+    grid-column: 3/5;
+    grid-row: 1/2;
     display: flex;
     flex-direction: column;
-    width: 100px;
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+}
+.shopping-list{
+    
+    grid-row: 2/3;
+    grid-column: 3/4;
+}
+.mealListDiv{
+    
+    grid-row: 2/3;
+    grid-column: 4/5;
 }

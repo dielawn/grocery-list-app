@@ -1,4 +1,5 @@
 //all units are single serving
+import { jsPDF } from "jspdf";
 
 const proteins = [
   { name: 'Bacon', qty: 4, unit: 'oz', aisle: 'butcher' },
@@ -1128,7 +1129,42 @@ link: 'https://www.hellofresh.com/recipes/melty-monterey-jack-burgers-5e25f552b9
 },
 ]
 
+
 let groceryList = []
+
+const createBtn = (parent, text, btnName) => {
+  const parentDiv = document.getElementById(parent)
+  let btn = document.createElement('button');
+    parentDiv.appendChild(btn);
+    btn.textContent = text;
+    btn.classList.add(btnName);
+    btn.id = btnName
+}
+createBtn('buttonDiv', 'GeneratePDF2', 'pdfBtn2')
+
+const pdfList = () => {
+  console.log('pdf')
+  const doc = new jsPDF();
+  const groceryListString = JSON.stringify(groceryList);
+  doc.text(groceryListString, 10, 10);
+  doc.setFontSize(14);
+  doc.setTextColor(0, 0, 255);
+  // doc.text("Grocery List", 10, 10);
+  
+  const lines = doc.splitTextToSize(groceryListString, 100);
+  doc.text(lines, 10, 20);
+  
+  doc.save("grocery-list.pdf");
+}
+
+document.getElementById('pdfBtn').addEventListener('click',() => {
+  console.log('pdf1')
+  pdfList()
+})
+document.getElementById('pdfBtn2').addEventListener('click',() => {
+  console.log('pdf2')
+  pdfList()
+})
 
 const addRecipeToList = (list) => {
   for(let i = 0; i < list.length; i++){
@@ -1302,26 +1338,4 @@ consolidateBtn.addEventListener('click',() => {
 
 renderRecipes(recipes);
   
-import { jsPDF } from "jspdf";
-import canvg from "canvg";
 
-const pdfList = () => {
-  const doc = new jsPDF();
-  const canvas = document.createElement("canvas");
-  const svg = "<svg><rect x='10' y='10' width='100' height='100'/></svg>";
-  canvg(canvas, svg);
-  const imgData = canvas.toDataURL("image/png");
-  doc.addImage(imgData, "PNG", 10, 10);
-  doc.save("grocery-list.pdf");
-}
-
-document.getElementById('pdfBtn').addEventListener('click',() => {
-  console.log('pdf')
-  pdfList()
-
-})
-
-
-
-  
-  

@@ -6,17 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grocery List App</title>
 
-    <script src="script.js" defer></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container" id="container">
 
-        <div id="buttonDiv" class="buttonDiv">
-            <label for="servingInput">Servings:</label>
-            <input id="servingInput" name="servingInput" type="text">
-            <button class="consolidateBtn" id="consolidateBtn">Consolidate List</button>
-         </div>
+       
          
         <div id="recipeDiv" class="recipeDiv">
             <button id="cookiesBtn" class="specialBtn">Alison's Famous Cookies</button>
@@ -24,12 +22,18 @@
             <button id="alisonBreakfastBtn" class="specialBtn">Alison's Breaksfast</button>
             <button class="specialBtn">Future Button</button>
         </div>   
-        
+        <div id="buttonDiv" class="buttonDiv">
+            <label for="servingInput">Servings:</label>
+            <input id="servingInput" name="servingInput" type="text">
+            <button class="consolidateBtn" id="consolidateBtn">Consolidate List</button>
+            <button class="pdfBtn" id="pdfBtn" >Generate PDF</button>
+         </div>
             <div id="listDiv" class="listDiv">
                
             </div>
             <div class="mealListDiv" id="mealListDiv"></div>
        
     </div>
+    <script src="dist/bundle.js" type="module"  defer></script>
 </body>
 </html>

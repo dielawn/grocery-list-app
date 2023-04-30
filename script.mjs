@@ -1303,22 +1303,22 @@ consolidateBtn.addEventListener('click',() => {
 renderRecipes(recipes);
   
 import { jsPDF } from "jspdf";
-import canvg from "canvg";
+
+const test = () => {
+    console.log('executed', groceryList)
+}
 
 const pdfList = () => {
+  console.log("pdfList function executed", typeof(groceryList)); // debug statement
   const doc = new jsPDF();
-  const canvas = document.createElement("canvas");
-  const svg = "<svg><rect x='10' y='10' width='100' height='100'/></svg>";
-  canvg(canvas, svg);
-  const imgData = canvas.toDataURL("image/png");
-  doc.addImage(imgData, "PNG", 10, 10);
+  doc.text(groceryList, 10, 10);
   doc.save("grocery-list.pdf");
 }
 
-document.getElementById('pdfBtn').addEventListener('click',() => {
-  console.log('pdf')
-  pdfList()
-
+const pdfBtn = document.getElementById('pdfBtn')
+pdfBtn.addEventListener('click', () => {
+    test()
+    pdfList()
 })
 
 
