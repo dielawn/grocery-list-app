@@ -38,7 +38,7 @@
     
 }
 
-.mealListDiv,
+.meal-list,
 .shopping-list{
     width: 10vw;
     display: flex;
@@ -78,7 +78,7 @@
     grid-row: 2/3;
     grid-column: 3/4;
 }
-.mealListDiv{
+.meal-list{
     
     grid-row: 2/3;
     grid-column: 4/5;

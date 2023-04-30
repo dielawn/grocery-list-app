@@ -1140,31 +1140,64 @@ const createBtn = (parent, text, btnName) => {
     btn.classList.add(btnName);
     btn.id = btnName
 }
-createBtn('buttonDiv', 'GeneratePDF2', 'pdfBtn2')
+// createBtn('buttonDiv', 'GeneratePDF2', 'pdfBtn2')
 
 const pdfList = () => {
-  console.log('pdf')
-  const doc = new jsPDF();
-  const groceryListString = JSON.stringify(groceryList);
-  doc.text(groceryListString, 10, 10);
-  doc.setFontSize(14);
-  doc.setTextColor(0, 0, 255);
-  // doc.text("Grocery List", 10, 10);
+  const doc = new jsPDF({
+    orientation: "landscape",
+    unit: "mm",
+    format: "a4",
+  });
+  // const doc2 = new jsPDF({})
+
+  const shoppingListElement = document.querySelectorAll(".shopping-list");
+  let myListText = "";
+
+  shoppingListElement.forEach((element) => {
+    const itemName = element.textContent.slice(0, -1);
+    myListText += itemName + "\n";
+  });
+
+  const mealElements = document.querySelectorAll(".meal-list");
+  let selectedMeals = "";
+
+  mealElements.forEach((element) => {
+    // const itemName = element.textContent.slice(0, -2);
+    selectedMeals += element.textContent + "\n";
+    console.log(selectedMeals)
+  });
   
-  const lines = doc.splitTextToSize(groceryListString, 100);
-  doc.text(lines, 10, 20);
+  
+// set up the columns
+  const col1Width = doc.internal.pageSize.width / 2 - 10;
+  const col2Width = doc.internal.pageSize.width / 2 - 10;
+  const col1Start = 8;
+  const col2Start = doc.internal.pageSize.width / 2 + 10;
+  doc.setFillColor(256, 256, 256);
+  doc.rect(col1Start, 10, col1Width, 250, "F");
+  doc.rect(col2Start, 10, col2Width, 250, "F");
+
+  doc.setFontSize(10);
+  doc.setTextColor(0, 0, 0);
+  
+  doc.text(myListText, col1Start + 10, 20);
+  
+  doc.setFontSize(10); // Add this line to set font size before calling doc.text()
+  doc.text(selectedMeals, col2Start + 10, 20);
   
   doc.save("grocery-list.pdf");
+  // doc.save('meal-list.pdf')
+  
 }
 
 document.getElementById('pdfBtn').addEventListener('click',() => {
   console.log('pdf1')
   pdfList()
 })
-document.getElementById('pdfBtn2').addEventListener('click',() => {
-  console.log('pdf2')
-  pdfList()
-})
+// document.getElementById('pdfBtn2').addEventListener('click',() => {
+//   console.log('pdf2')
+//   pdfList()
+// })
 
 const addRecipeToList = (list) => {
   for(let i = 0; i < list.length; i++){
@@ -1237,8 +1270,15 @@ const consolidateGroceryList = (list) => {
  
 const renderSelectedRecipes = (recipeName) => {
  let selectedMealListDiv = document.getElementById('mealListDiv')
- console.log(recipeName) 
- selectedMealListDiv.innerHTML += `${recipeName} <br>`
+
+  let listElement = document.createElement('div');
+  selectedMealListDiv.appendChild(listElement)
+  listElement.classList = 'meal-list';
+  listElement.id = 'mealList'
+  listElement.textContent += `${recipeName}`
+
+ //  console.log(recipeName) 
+//  selectedMealListDiv.innerHTML += `${recipeName} <br>`
 }
 
 
@@ -1260,6 +1300,7 @@ const renderList = (list) => {
       
     listDiv.appendChild(listElement);
     listElement.classList = 'shopping-list';
+    listElement.id = 'shoppingList'
     listElement.textContent = `${list[i].name} ${adjustedQuantity}, ${list[i].unit}`;
     listElement.appendChild(removeBtn);
     removeBtn.textContent = 'X';
