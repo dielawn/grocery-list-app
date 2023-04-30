@@ -30,6 +30,29 @@
             <input id="servingInput" class="servingInput" name="servingInput" type="text" placeholder="Servings:">
             <button class="consolidateBtn" id="consolidateBtn">Consolidate List</button>
             <button class="pdfBtn" id="pdfBtn" >Generate PDF</button>
+            <div class="addItemDiv">
+                <input type="text" class="itemInput input" id="itemInput" placeholder="Item">
+                <input type="text" class="qtyInput input" id="qtyInput" placeholder="Qty">
+                <input type="text" class="unitInput input" id="unitInput" placeholder="Unit">
+                <label for="aisleSelect">Select Aisle:</label>
+                <select name="aisleSelect" class="aisleSelect" id="aisleSelect">
+                    <option value="dairy">Dairy</option>
+                    <option value="freezer">Freezer</option>
+                    <option value="cheese">Cheese</option>
+                    <option value="snack">Snack</option>
+                    <option value="butcher">Butcher</option>
+                    <option value="ethnic">Ethnic</option>
+                    <option value="noodle">Noodle</option>
+                    <option value="canned">Canned</option>
+                    <option value="baking">Baking</option>
+                    <option value="cereal">Cereal</option>
+                    <option value="condiment">Condiment</option>
+                    <option value="bakery">Bakery</option>
+                    <option value="produce">Produce</option>
+                    <option value="nutrition">Nutrition</option>
+                </select>
+                <button class="addItemBtn" id="addItemBtn">Add Item to List</button>
+            </div>
          </div>
          <div id="listDiv" class="listDiv"></div>
         

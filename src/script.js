@@ -218,6 +218,7 @@ const seasoning = [
   { name: "Bold and Savory Steak Spice", qty: .5, unit: 'TBSP', aisle: 'baking' },
 
   { name: 'Cajun Spice Blend', qty: 1, unit: 'TBSP', aisle: 'baking' },
+  { name: 'Chili Flakes', qty: .5, unit: 'tsp', aisle: 'baking' },
   { name: 'Chili Powder', qty: .5, unit: 'tsp', aisle: 'baking' },
   { name: 'Chipotle Powder', qty: .5, unit: 'tsp', aisle: 'baking' },  
   { name: 'Cumin', qty: .5, unit: 'tsp', aisle: 'baking' },
@@ -267,6 +268,8 @@ const dairy = [
 
   { name: 'Parmesan Cheese', qty: .25, unit: 'block', aisle: 'cheese' },
   { name: 'Pepper Jack Cheese', qty: .25, unit: 'block', aisle: 'cheese' },
+
+  { name: 'Ricotta Cheese', qty: 4, unit: 'oz', aisle: 'cheese' },
 
   { name: 'Sour Cream', qty: 1, unit: 'TBSP', aisle: 'dairy' },
 
@@ -742,6 +745,14 @@ const sunDriedTomatoSpaghettiIngredients = [
   ...frozenFood.filter(item => item.name === ""),
   ...snack.filter(item => item.name === "")
 ]
+const zucchiniTomatoFlatbreadsIngredients = [
+  ...produce.filter(item => item.name === "Zucchini" || item.name === "Garlic"
+  || item.name === "Basil" || item.name === "Grape Tomatoes"  || item.name === "Lemon"),
+  ...grain.filter(item => item.name === "Flatbreads"),
+  ...seasoning.filter(item => item.name === "Chili Flakes"),
+  ...dairy.filter(item => item.name === "Ricotta Cheese"),
+  ...bakingGoods.filter(item => item.name === "Honey"),
+]
 // || item.name === ""
 const templateIngredients = [
   ...proteins.filter(item => item.name === ""),
@@ -799,28 +810,54 @@ const recipes = [
     instructions:'instructions/sweet-chili-pork-bowls.pdf',
     link: 'https://www.hellofresh.com/recipes/sweet-chili-pork-bowls-5efb358e43975d50ea6927d2'
 },
-
+{ name: 'One-Pan Cajun Pork Sausage Skillet',
+ingredients: onePanCajunPorkSausageSkilletIngredients,
+image: 'images/one-pan-cajun-pork-sausage-skillet.avif',
+instructions:'instructions/one-pan-cajun-pork-sausage-skillet.pdf',
+link: 'https://www.hellofresh.com/recipes/one-pan-cajun-pork-sausage-skillet-61e6f0ac9853836f347a1f1d'
+},
+{ name: 'Pork Sausage and Bell Pepper Risotto',
+ingredients: porkSausageAndBellPepperRisottoIngredients,
+image: 'images/pork-sausage-bell-pepper-risotto.avif',
+instructions:'instructions/pork-sausage-bell-pepper-risotto.pdf',
+link: 'https://www.hellofresh.com/recipes/pork-sausage-bell-pepper-risotto-617041791f771a6a0b36e4b2'
+},
 { name: 'Sesame Soy Pork Bowls',
 ingredients: sesameSoyPorkBowlIngredients,
 image: 'images/sesame-soy-pork-bowl.avif',
 instructions:'instructions/sesame-soy-pork-bowls.pdf',
 link: 'https://www.hellofresh.com/recipes/sesame-soy-pork-bowls-5fa06a5f20b9661c0d5e342f'
 },
-
+{ name: 'Yucatan Citrus Chicken Bowl',
+ingredients: yucatanCitrusChickenBowlIngredients,
+image: 'images/yucatan-citrus-chicken-bowls.avif',
+instructions:'instructions/yucatan-citrus-chicken-bowls.pdf',
+link: 'https://www.hellofresh.com/recipes/yucatan-citrus-chicken-bowls-621e8530b089c66fdb1a5599'
+},
 { name: 'Chimi Chicken & Yellow Rice Bowls',
 ingredients: chimiChickenAndYellowRiceBowlIngredients,
 image: 'images/chimi-chicken-yellow-rice-bowls.avif',
 instructions:'instructions/chimi-chicken-yellow-rice-bowls.pdf',
 link: 'https://www.hellofresh.com/recipes/chimi-chicken-yellow-rice-bowls-5e5e9a73e0678c51867e16db'
 },
-
+{ name: 'Veggie Burrito Bowl',
+ingredients: veggieBurritoBowlIngredients,
+image: 'images/veggie-burrito-bowl.avif',
+instructions:'instructions/veggie-burrito-bowl.pdf',
+link: 'https://www.hellofresh.com/recipes/veggie-burrito-bowls-5e5ea67325ed1a2b107a3598'
+},
 { name: 'Thai Basil Beef Bowls',
 ingredients: thaiBasilBeefBowlIngredients,
 image: 'images/thai-basil-beef-bowls.avif',
 instructions:'instructions/thai-basil-beef-bowls.pdf',
 link: 'https://www.hellofresh.com/recipes/thai-basil-beef-bowls-5e39b0b7055a3835f148531a'
 },
-
+{ name: 'Chicken Sausage & Rice Skillet',
+ingredients: southwestChickedSausageAndRiceSkilletIngredients,
+image: 'images/southwest-chicken-sausage-rice-skillet.avif',
+instructions:'instructions/southwest-chicken-sausage-rice-skillet.pdf',
+link: 'https://www.hellofresh.com/recipes/southwest-chicken-sausage-rice-skillet-6076d3ba1b35831bb538d476'
+},
 { name: 'Pork & Zucchini Bibimbap',
 ingredients: porkAndZucchiniBibimbapIngredients,
 image: 'images/pork-and-veggie-bibimbap.avif',
@@ -890,6 +927,12 @@ image: 'images/bbq-pineapple-flatbread.avif',
 instructions:'instructions/bbq-pineapple-flatbreads.pdf',
 link: 'https://www.hellofresh.com/recipes/bbq-pineapple-flatbreads-620c20eaaf420111a021e19a'
 },
+{ name: 'Zucchini & Tomato Flatbreads',
+ingredients: zucchiniTomatoFlatbreadsIngredients,
+image: 'images/zucchini-and-tomato-flatbreads.avif',
+instructions:'instructions/zucchini-and-tomato-flatbreads.pdf',
+link: 'https://www.hellofresh.com/recipes/zucchini-and-tomato-flatbreads-5e67d93735c3537f181f43c8'
+},
 { name: 'Bacon Jalapeno Mac & Cheese',
 ingredients: baconJalapenoMacAndCheeseIngredients,
 image: 'images/bacon-jalapeno-mac-cheese.avif',
@@ -902,29 +945,17 @@ image: 'images/epic-nacho-mac-cheese.avif',
 instructions:'instructions/epic-nacho-mac-cheese.pdf',
 link: 'https://www.hellofresh.com/recipes/epic-nacho-mac-n-cheese-6171950af588a0150a5570f4'
 },
-{ name: 'Veggie Burrito Bowl',
-ingredients: veggieBurritoBowlIngredients,
-image: 'images/veggie-burrito-bowl.avif',
-instructions:'instructions/veggie-burrito-bowl.pdf',
-link: 'https://www.hellofresh.com/recipes/veggie-burrito-bowls-5e5ea67325ed1a2b107a3598'
+{ name: 'Sheet Pan Monterey Jack Chicken',
+ingredients: sheetPanMontereyJackChickenIngredients,
+image: 'images/monterey-jack-un-fried-chicken.avif',
+instructions:'instructions/monterey-jack-un-fried-chicken.pdf',
+link: 'https://www.hellofresh.com/recipes/monterey-jack-un-fried-chicken-61f9829bc37180194a54cb5b'
 },
-{ name: 'One-Pan Cajun Pork Sausage Skillet',
-ingredients: onePanCajunPorkSausageSkilletIngredients,
-image: 'images/one-pan-cajun-pork-sausage-skillet.avif',
-instructions:'instructions/one-pan-cajun-pork-sausage-skillet.pdf',
-link: 'https://www.hellofresh.com/recipes/one-pan-cajun-pork-sausage-skillet-61e6f0ac9853836f347a1f1d'
-},
-{ name: 'Pork Sausage and Bell Pepper Risotto',
-ingredients: porkSausageAndBellPepperRisottoIngredients,
-image: 'images/pork-sausage-bell-pepper-risotto.avif',
-instructions:'instructions/pork-sausage-bell-pepper-risotto.pdf',
-link: 'https://www.hellofresh.com/recipes/pork-sausage-bell-pepper-risotto-617041791f771a6a0b36e4b2'
-},
-{ name: 'Chicken Enchiladas Verdes',
-ingredients: chickednEnchiladasVerdesIngredients,
-image: 'images/salsa-verde-chicken-enchiladas.avif',
-instructions:'instructions/salsa-verde-chicken-enchiladas.pdf',
-link: 'https://www.hellofresh.com/recipes/salsa-verde-chicken-enchiladas-5dfd0bae39b70a23332c4678'
+{ name: 'Bulgogi Pork Tenderloin',
+ingredients: bulgogiPorkTenderloinIngredients,
+image: 'images/bulgogi-pork-tenderloin.avif',
+instructions:'instructions/bulgogi-pork-tenderloin.pdf',
+link: 'https://www.hellofresh.com/recipes/bulgogi-pork-tenderloin-61d4c2208a7a0c7c44733a7d'
 },
 { name: 'Honey Thyme Pork Tenderloin',
 ingredients: honeyThymePorkTenderloinIngredients,
@@ -944,6 +975,12 @@ image: 'images/steakhouse-pork-chops.avif',
 instructions:'instructions/steakhouse-pork-chops.pdf',
 link: 'https://www.hellofresh.com/recipes/steakhouse-pork-chops-5ff4c5c85811d66eb9512c50'
 },
+{ name: 'Balsamic and Fig Beef Tenderloin',
+ingredients: balsamicAndFigBeefTenderloinIngredients,
+image: 'images/balsamic-fig-beef-tenderloin.avif',
+instructions:'instructions/balsamic-fig-beef-tenderloin.pdf',
+link: 'https://www.hellofresh.com/recipes/balsamic-fig-beef-tenderloin-5f3aeb9bad6a05609c7d8cac'
+},
 { name: 'Al Pastor Pulled Pork Tacos',
 ingredients: alPastorPulledPorkTacoIngredients,
 image: 'images/al-pastor-pulled-pork-tacos.avif',
@@ -956,36 +993,16 @@ image: 'images/cheesy-beef-tostadas.avif',
 instructions:'instructions/cheesy-beef-tostadas.pdf',
 link: 'https://www.hellofresh.com/recipes/cheesy-beef-tostadas-5e94c0640d7f123476528c9e'
 },
-{ name: 'Yucatan Citrus Chicken Bowl',
-ingredients: yucatanCitrusChickenBowlIngredients,
-image: 'images/yucatan-citrus-chicken-bowls.avif',
-instructions:'instructions/yucatan-citrus-chicken-bowls.pdf',
-link: 'https://www.hellofresh.com/recipes/yucatan-citrus-chicken-bowls-621e8530b089c66fdb1a5599'
-},
+
 { name: 'Rio Rancho Pulled Pork Tacos',
 ingredients: rioRanchoPulledPorkTacoIngredients,
 image: 'images/rio-rancho-pulled-pork-tacos.avif',
 instructions:'instructions/rio-rancho-pulled-pork-tacos.pdf',
 link: 'https://www.hellofresh.com/recipes/rio-rancho-pulled-pork-tacos-5e5ce98d740b5917bc02d716'
 },
-{ name: 'Balsamic and Fig Beef Tenderloin',
-ingredients: balsamicAndFigBeefTenderloinIngredients,
-image: 'images/balsamic-fig-beef-tenderloin.avif',
-instructions:'instructions/balsamic-fig-beef-tenderloin.pdf',
-link: 'https://www.hellofresh.com/recipes/balsamic-fig-beef-tenderloin-5f3aeb9bad6a05609c7d8cac'
-},
-{ name: 'Chicken Sausage & Rice Skillet',
-ingredients: southwestChickedSausageAndRiceSkilletIngredients,
-image: 'images/southwest-chicken-sausage-rice-skillet.avif',
-instructions:'instructions/southwest-chicken-sausage-rice-skillet.pdf',
-link: 'https://www.hellofresh.com/recipes/southwest-chicken-sausage-rice-skillet-6076d3ba1b35831bb538d476'
-},
-{ name: 'Melty Double Red Pepper Panini',
-ingredients: meltyDoubleRedPepperPaniniIngredients,
-image: 'images/double-red-pepper-panini.avif',
-instructions:'instructions/double-red-pepper-panini.pdf',
-link: 'https://www.hellofresh.com/recipes/double-red-pepper-panini-6239d8a288ef2226660b2f87'
-},
+
+
+
 { name: 'Black Bean & Pepper Quesadillas',
 ingredients: blackBeanPepperQuesadillaIngredients,
 image: 'images/black-bean-quesadillas.avif',
@@ -998,17 +1015,11 @@ image: 'images/one-pan-pork-fajita-lettuce-cups.avif',
 instructions:'instructions/one-pan-pork-fajita-lettuce-cups.pdf',
 link: 'https://www.hellofresh.com/recipes/one-pan-pork-fajita-lettuce-cups-6231f20c57fc3010631bb574'
 },
-{ name: 'Sheet Pan Monterey Jack Chicken',
-ingredients: sheetPanMontereyJackChickenIngredients,
-image: 'images/monterey-jack-un-fried-chicken.avif',
-instructions:'instructions/monterey-jack-un-fried-chicken.pdf',
-link: 'https://www.hellofresh.com/recipes/monterey-jack-un-fried-chicken-61f9829bc37180194a54cb5b'
-},
-{ name: 'Bulgogi Pork Tenderloin',
-ingredients: bulgogiPorkTenderloinIngredients,
-image: 'images/bulgogi-pork-tenderloin.avif',
-instructions:'instructions/bulgogi-pork-tenderloin.pdf',
-link: 'https://www.hellofresh.com/recipes/bulgogi-pork-tenderloin-61d4c2208a7a0c7c44733a7d'
+{ name: 'Chicken Enchiladas Verdes',
+ingredients: chickednEnchiladasVerdesIngredients,
+image: 'images/salsa-verde-chicken-enchiladas.avif',
+instructions:'instructions/salsa-verde-chicken-enchiladas.pdf',
+link: 'https://www.hellofresh.com/recipes/salsa-verde-chicken-enchiladas-5dfd0bae39b70a23332c4678'
 },
 { name: 'Steak and Green Pepper Quesadillas',
 ingredients: steakAndGreenPepperQuesadillasIngredients,
@@ -1027,6 +1038,12 @@ ingredients: porkAndPoblanoTacoIngredients,
 image: 'images/pork-and-poblano-tacos.avif',
 instructions:'instructions/pork-and-poblano-tacos.pdf',
 link: 'https://www.hellofresh.com/recipes/pork-and-poblano-tacos-5d35c6b276961900177709c0'
+},
+{ name: 'Melty Double Red Pepper Panini',
+ingredients: meltyDoubleRedPepperPaniniIngredients,
+image: 'images/double-red-pepper-panini.avif',
+instructions:'instructions/double-red-pepper-panini.pdf',
+link: 'https://www.hellofresh.com/recipes/double-red-pepper-panini-6239d8a288ef2226660b2f87'
 },
 { name: 'Harissa Sweet Potato pockets',
 ingredients: harissaSweetPotatoPocketIngredients,
@@ -1082,6 +1099,7 @@ image: 'images/sun-dried-tomato-spaghetti.avif',
 instructions:'instructions/sun-dried-tomato-spaghetti.pdf',
 link: 'https://www.hellofresh.com/recipes/sun-dried-tomato-spaghetti-6231ef8d59a1d65a30536f97'
 },
+
 { name: 'template',
 ingredients: '',
 image: 'images/',
@@ -1195,6 +1213,23 @@ pdfBtn.addEventListener('click',() => {
 //   console.log('pdf2')
 //   pdfList()
 // })
+let itemInput = document.getElementById('itemInput')
+let qtyInput = document.getElementById('qtyInput')
+let unitInput = document.getElementById('unitInput')
+let aisleInput = document.getElementById('aisleSelect')
+let additionItems = []
+const addItem = (item, qty, unit, aisle) => {
+  groceryList.push({ name: item, qty: qty, unit: unit, aisle: aisle })
+  sortGroceryListByAisle(groceryList)    
+  renderList(groceryList)
+}
+
+const addItemBtn = document.getElementById('addItemBtn')
+addItemBtn.addEventListener('click', () => {
+  addItem(itemInput.value, qtyInput.value, unitInput.value, aisleInput.value)
+  console.log(additionItems)
+})
+
 
 const addRecipeToList = (list) => {
   for(let i = 0; i < list.length; i++){

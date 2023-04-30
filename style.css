@@ -117,6 +117,7 @@ button:active{
     grid-column: 3/5;
     grid-row: 1/2;
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
     justify-content: space-between;
     width: 100%;
@@ -127,6 +128,27 @@ button:active{
     width: 300px;
     grid-row: 2/3;
     grid-column: 3/4;
+    
+}
+.addItemDiv{
+   
+    
+    height: 150px;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, .1);
+}
+.addItemBtn{
+    width: 150px;
+}
+.aisleSelect,
+.input{
+    height: 30px;
+    padding: 2px;
+    max-width: 150px;
+}
+.unitInput,
+.qtyInput{
+    width: 40px;
     
 }
 .meal-list{
@@ -162,7 +184,9 @@ button:active{
     align-items: center;
 }
 @media screen and (max-width: 800px) {
-    
+    .addItemDiv{
+        display: none;
+    }
     .consolidateBtn{
         display: none;
     }
