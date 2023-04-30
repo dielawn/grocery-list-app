@@ -167,7 +167,7 @@ const frozenFood = [
 ]
 
 const bakingGoods = [
-  { name: "Baking Soda", qty: .5, unit: 'tsp', aisle: 'bakery' },
+  { name: "Baking Soda", qty: .5, unit: 'tsp', aisle: 'baking' },
   { name: 'Brown Sugar', qty: .33, unit: 'cup', aisle: 'baking' }, 
 
   { name: "Chocolate Chips", qty: .33, unit: 'cup', aisle: 'baking' },
@@ -278,7 +278,7 @@ const dairy = [
 const snack = [
   { name: 'Doritos Cool Ranch', qty: .25, unit: 'bag', aisle: 'cheese' },
   { name: 'Cheddar Ruffles', qty: .25, unit: 'bag', aisle: 'cheese' },
-  { name: 'Tortilla Chips', qty: .25, unit: 'bag', aisle: 'cheese' },
+  { name: 'Tortilla Chips', qty: .25, unit: 'bag', aisle: 'snack' },
 ]
 
 
@@ -1144,15 +1144,13 @@ const createBtn = (parent, text, btnName) => {
 
 const pdfList = () => {
   const doc = new jsPDF({
-    orientation: "landscape",
+    orientation: "portrait",
     unit: "mm",
     format: "a4",
   });
-  // const doc2 = new jsPDF({})
-
+  
   const shoppingListElement = document.querySelectorAll(".shopping-list");
   let myListText = "";
-
   shoppingListElement.forEach((element) => {
     const itemName = element.textContent.slice(0, -1);
     myListText += itemName + "\n";
@@ -1160,11 +1158,8 @@ const pdfList = () => {
 
   const mealElements = document.querySelectorAll(".meal-list");
   let selectedMeals = "";
-
   mealElements.forEach((element) => {
-    // const itemName = element.textContent.slice(0, -2);
     selectedMeals += element.textContent + "\n";
-    console.log(selectedMeals)
   });
   
   
@@ -1189,6 +1184,7 @@ const pdfList = () => {
   // doc.save('meal-list.pdf')
   
 }
+
 
 document.getElementById('pdfBtn').addEventListener('click',() => {
   console.log('pdf1')

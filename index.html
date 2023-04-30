@@ -8,7 +8,7 @@
 
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-
+    <script src="dist/bundle.js" type="module"  defer></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -17,14 +17,14 @@
        
          
         <div id="recipeDiv" class="recipeDiv">
-            <button id="cookiesBtn" class="specialBtn">Alison's Famous Cookies</button>
+            <button id="cookiesBtn" class="specialBtn">Alison's Famous GF Cookies</button>
             <button id="dillonBreakfastBtn" class="specialBtn">Dielawn's Breakfast</button>
             <button id="alisonBreakfastBtn" class="specialBtn">Alison's Breaksfast</button>
             <button class="specialBtn">Future Button</button>
         </div>   
         <div id="buttonDiv" class="buttonDiv">
-            <label for="servingInput">Servings:</label>
-            <input id="servingInput" name="servingInput" type="text">
+            
+            <input id="servingInput" class="servingInput" name="servingInput" type="text" placeholder="Servings:">
             <button class="consolidateBtn" id="consolidateBtn">Consolidate List</button>
             <button class="pdfBtn" id="pdfBtn" >Generate PDF</button>
          </div>
@@ -34,6 +34,6 @@
             <div class="mealListDiv" id="mealListDiv"></div>
        
     </div>
-    <script src="dist/bundle.js" type="module"  defer></script>
+    
 </body>
 </html>
