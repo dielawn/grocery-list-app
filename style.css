@@ -251,7 +251,7 @@ button:active{
     }
     .buttonDiv{
         align-items: center;
-        min-height: 175px;
+        min-height: 200px;
         justify-content: start;
     }
     .viewListBtn{
