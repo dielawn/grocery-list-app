@@ -1179,8 +1179,7 @@ const pdfList = () => {
   mealElements.forEach((element) => {
     selectedMeals += element.textContent + "\n";
   });
-  
-  
+    
 // set up the columns
   const col1Width = doc.internal.pageSize.width / 2 - 10;
   const col2Width = doc.internal.pageSize.width / 2 - 10;
@@ -1217,17 +1216,18 @@ let itemInput = document.getElementById('itemInput')
 let qtyInput = document.getElementById('qtyInput')
 let unitInput = document.getElementById('unitInput')
 let aisleInput = document.getElementById('aisleSelect')
-let additionItems = []
+
 const addItem = (item, qty, unit, aisle) => {
   groceryList.push({ name: item, qty: qty, unit: unit, aisle: aisle })
   sortGroceryListByAisle(groceryList)    
   renderList(groceryList)
+  displayHideForm()
 }
 
 const addItemBtn = document.getElementById('addItemBtn')
 addItemBtn.addEventListener('click', () => {
   addItem(itemInput.value, qtyInput.value, unitInput.value, aisleInput.value)
-  console.log(additionItems)
+  
 })
 
 
@@ -1308,9 +1308,6 @@ const renderSelectedRecipes = (recipeName) => {
   listElement.classList = 'meal-list';
   listElement.id = 'mealList'
   listElement.textContent += `${recipeName}`
-
- //  console.log(recipeName) 
-//  selectedMealListDiv.innerHTML += `${recipeName} <br>`
 }
 
 const servingInput = document.getElementById('servingInput');
@@ -1412,17 +1409,37 @@ consolidateBtn.addEventListener('click',() => {
 
 renderRecipes(recipes);
 
+const displayHideForm = () => {
+  const itemForm = document.getElementById('addItemDiv')
+    if(itemForm.style.display === 'flex'){
+      itemForm.style.display = 'none'
+    } else {
+      itemForm.style.display = 'flex'
+    }
+}
+
+
+const formBtn = document.getElementById('addItemFormBtn')
+formBtn.addEventListener('click', () => {
+displayHideForm()
+
+})
+
+
+
 const displayHideButtons = () => {
   if(viewListBtn.textContent === 'View List'){
     viewListBtn.textContent = 'View Recipes'
     consolidateBtn.style.display = 'block'
     pdfBtn.style.display = 'block'
     servingInput.style.display = 'block'
+    
   } else {
     viewListBtn.textContent = 'View List'
     consolidateBtn.style.display = 'none'
     pdfBtn.style.display = 'none'
     servingInput.style.display = 'none'
+    
   }
   
  }
@@ -1430,17 +1447,13 @@ const displayHideButtons = () => {
 const displayHideList = () => {
   const recipeList = document.getElementById('recipeDiv')
   const shoppingList = document.getElementById('listDiv')
-  // const mealList = document.getElementsByClassName('mealListDiv')
-
-  
+  // const mealList = document.getElementsByClassName('mealListDiv')  
     if(recipeList.style.display !== 'none'){
       recipeList.style.display = 'none'
-      shoppingList.style.display = 'flex'
-      
+      shoppingList.style.display = 'flex'      
     } else {
       recipeList.style.display = 'flex'
-      shoppingList.style.display = 'none'
-     
+      shoppingList.style.display = 'none'     
     }
   }
 
