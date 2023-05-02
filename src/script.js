@@ -1240,6 +1240,10 @@ const addRecipeToList = (list) => {
   return groceryList
 }
 
+const saveToLocalStorage = (key, value) => {
+  localStorage.setItem(key, value);
+}
+
 const consolidateGroceryList = (list) => {
   const consolidatedList = {};
   
@@ -1251,6 +1255,9 @@ const consolidateGroceryList = (list) => {
     } else {
       consolidatedList[key] = ingredient.qty;
     }
+    const itemKey = list[i].name; // or list[i].id
+    const itemValue = `${list[i].name} ${adjustedQuantity}, ${list[i].unit}`;
+    saveToLocalStorage(itemKey, itemValue);
   }
   
   const consolidatedGroceryList = [];
@@ -1310,8 +1317,12 @@ const renderSelectedRecipes = (recipeName) => {
   listElement.textContent += `${recipeName}`
 }
 
-const servingInput = document.getElementById('servingInput');
+const removeFromLocalStorage = (key) => {
+  localStorage.removeItem(key)
+}
+
 const renderList = (list) => {
+  const servingInput = document.getElementById('servingInput');
   const listDiv = document.getElementById('listDiv');
   listDiv.innerHTML = ''; // clear the container before adding new elements
   
@@ -1332,9 +1343,14 @@ const renderList = (list) => {
     listElement.id = 'shoppingList'
     listElement.textContent = `${list[i].name} ${adjustedQuantity}, ${list[i].unit}`;
     listElement.appendChild(removeBtn);
+    localStorage.setItem("item", `${list[i].name} ${adjustedQuantity}, ${list[i].unit}`);
     removeBtn.textContent = 'X';
     removeBtn.classList = 'removeBtn'
-    removeBtn.addEventListener('click', createRemoveListener(listElement));
+    removeBtn.addEventListener('click', () => {
+      createRemoveListener(listElement)
+      const itemKey = list[i].name; // or list[i].id
+      removeFromLocalStorage(itemKey);
+    });
   }
 };
 
@@ -1345,6 +1361,8 @@ const renderList = (list) => {
       let index = groceryList.findIndex(item => item.name === itemName);
       if (index !== -1) {
         groceryList.splice(index, 1); // remove the item from the list
+        // console.log(groceryList)
+        // localStorage.removeItem("item");
       }
     };
   };
@@ -1374,7 +1392,7 @@ const renderList = (list) => {
     addBtn.classList.add('addBtn');
     
     // Add event listener to each button
-    addBtn.addEventListener('click', function() {
+    addBtn.addEventListener('click', () => {
       addRecipeToList(recipeList[i].ingredients)
       renderSelectedRecipes(recipeName)
       sortGroceryListByAisle(groceryList)    
@@ -1422,10 +1440,7 @@ const displayHideForm = () => {
 const formBtn = document.getElementById('addItemFormBtn')
 formBtn.addEventListener('click', () => {
 displayHideForm()
-
 })
-
-
 
 const displayHideButtons = () => {
   if(viewListBtn.textContent === 'View List'){
@@ -1433,15 +1448,12 @@ const displayHideButtons = () => {
     consolidateBtn.style.display = 'block'
     pdfBtn.style.display = 'block'
     servingInput.style.display = 'block'
-    
   } else {
     viewListBtn.textContent = 'View List'
     consolidateBtn.style.display = 'none'
     pdfBtn.style.display = 'none'
-    servingInput.style.display = 'none'
-    
+    servingInput.style.display = 'none' 
   }
-  
  }
 
 const displayHideList = () => {
@@ -1467,3 +1479,6 @@ viewListBtn.addEventListener('click', () => {
   displayHideButtons()
 })
 
+const clearLocalStorage = (key) => {
+  localStorage.clear();
+}
