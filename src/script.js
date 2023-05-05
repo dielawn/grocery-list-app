@@ -1150,6 +1150,17 @@ link: 'https://www.hellofresh.com/recipes/melty-monterey-jack-burgers-5e25f552b9
 
 let groceryList = []
 
+const loadLocalStorageList = () => {
+  if(groceryList.length === 0){
+    for(let i = 0; i < localStorage.length; i++){
+      const key = localStorage.key(i);
+      const value = localStorage.getItem(key);
+      groceryList.push(value);
+      renderList(groceryList)
+    } 
+  }
+}
+
 const createBtn = (parent, text, btnName) => {
   const parentDiv = document.getElementById(parent)
   let btn = document.createElement('button');
@@ -1240,10 +1251,6 @@ const addRecipeToList = (list) => {
   return groceryList
 }
 
-const saveToLocalStorage = (key, value) => {
-  localStorage.setItem(key, value);
-}
-
 const consolidateGroceryList = (list) => {
   const consolidatedList = {};
   
@@ -1256,8 +1263,8 @@ const consolidateGroceryList = (list) => {
       consolidatedList[key] = ingredient.qty;
     }
     const itemKey = list[i].name; // or list[i].id
-    const itemValue = `${list[i].name} ${adjustedQuantity}, ${list[i].unit}`;
-    saveToLocalStorage(itemKey, itemValue);
+    const itemValue = `${list[i].name} ${consolidatedList[key]}, ${list[i].unit}`;
+    localStorage.setItem(itemKey, itemValue);
   }
   
   const consolidatedGroceryList = [];
@@ -1317,9 +1324,7 @@ const renderSelectedRecipes = (recipeName) => {
   listElement.textContent += `${recipeName}`
 }
 
-const removeFromLocalStorage = (key) => {
-  localStorage.removeItem(key)
-}
+
 
 const renderList = (list) => {
   const servingInput = document.getElementById('servingInput');
@@ -1343,7 +1348,7 @@ const renderList = (list) => {
     listElement.id = 'shoppingList'
     listElement.textContent = `${list[i].name} ${adjustedQuantity}, ${list[i].unit}`;
     listElement.appendChild(removeBtn);
-    localStorage.setItem("item", `${list[i].name} ${adjustedQuantity}, ${list[i].unit}`);
+
     removeBtn.textContent = 'X';
     removeBtn.classList = 'removeBtn'
     removeBtn.addEventListener('click', () => {
@@ -1398,6 +1403,7 @@ const renderList = (list) => {
       sortGroceryListByAisle(groceryList)    
       renderList(groceryList)
       });
+      
     }
   };
 
@@ -1482,3 +1488,10 @@ viewListBtn.addEventListener('click', () => {
 const clearLocalStorage = (key) => {
   localStorage.clear();
 }
+
+const removeFromLocalStorage = (key) => {
+  localStorage.removeItem(key)
+}
+
+loadLocalStorageList()
+// clearLocalStorage()
