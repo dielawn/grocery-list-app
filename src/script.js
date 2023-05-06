@@ -1151,15 +1151,33 @@ link: 'https://www.hellofresh.com/recipes/melty-monterey-jack-burgers-5e25f552b9
 let groceryList = []
 
 const loadLocalStorageList = () => {
-  if(groceryList.length === 0){
-    for(let i = 0; i < localStorage.length; i++){
+  if (groceryList.length === 0) {
+    for (let i = 0; i < localStorage.length; i++) {
       const key = localStorage.key(i);
       const value = localStorage.getItem(key);
-      groceryList.push(value);
-      renderList(groceryList)
+      console.log('key:', key, 'value:', value)
+      const item = JSON.parse(value);
+      groceryList.push(item);
     } 
+    sortGroceryListByAisle(groceryList)
+    renderList(groceryList);
   }
 }
+
+
+const saveToLocalStorage = (key, value, list) => {
+  console.log(list)
+  for(let i = 0; i < list.length; i++){
+    let itemKey = 'ingredient' + i
+    let itemValue = { name: list[i].name, qty: list[i].qty, unit: list[i].unit, aisle: list[i].aisle }
+    console.log(itemKey, itemValue, )
+    localStorage.setItem(key, JSON.stringify(value));
+    
+  }
+  
+}
+
+
 
 const createBtn = (parent, text, btnName) => {
   const parentDiv = document.getElementById(parent)
@@ -1246,42 +1264,34 @@ const addRecipeToList = (list) => {
   for(let i = 0; i < list.length; i++){
     let ingredient = list[i]
     groceryList.push({ name: ingredient.name, qty: ingredient.qty, unit: ingredient.unit, aisle: ingredient.aisle })
+
   }
   console.log(groceryList)
   return groceryList
 }
 
+
 const consolidateGroceryList = (list) => {
   const consolidatedList = {};
-  
-  for (let i = 0; i < list.length; i++) {
+  let i;
+  for (i = 0; i < list.length; i++) {
     const ingredient = list[i];
-    const key = `${ingredient.unit} ${ingredient.name} `;    
+    const key = `${ingredient.unit} ${ingredient.name} `;
     if (key in consolidatedList) {
-      consolidatedList[key] += ingredient.qty;
+      consolidatedList[key].qty += ingredient.qty;
     } else {
-      consolidatedList[key] = ingredient.qty;
+      consolidatedList[key] = {...ingredient}; // make a copy of the ingredient object
     }
-    const itemKey = list[i].name; // or list[i].id
-    const itemValue = `${list[i].name} ${consolidatedList[key]}, ${list[i].unit}`;
-    localStorage.setItem(itemKey, itemValue);
   }
+  const consolidatedGroceryList = Object.values(consolidatedList);
+  console.log('before',groceryList)
+  groceryList = consolidatedGroceryList;
+  console.log('after',groceryList)
   
-  const consolidatedGroceryList = [];
-  for (const key in consolidatedList) {
-    const qty = consolidatedList[key];
-    consolidatedGroceryList.push({
-      name: key.split(' ').slice(1).join(' '),
-      qty,
-      unit: key.split(' ')[0],
-      aisle: list[0].aisle // use the aisle from the first ingredient in the list
-    });
-  }
-    // console.log(groceryList)
-    groceryList = consolidatedGroceryList
-    console.log(groceryList)
-    return groceryList
-  }
+};
+
+
+
   
   const sortGroceryListByAisle = (list) => {
     // Define the order of aisles
@@ -1353,8 +1363,12 @@ const renderList = (list) => {
     removeBtn.classList = 'removeBtn'
     removeBtn.addEventListener('click', () => {
       createRemoveListener(listElement)
-      const itemKey = list[i].name; // or list[i].id
-      removeFromLocalStorage(itemKey);
+      console.log(list[i])
+      if(groceryList === localStorage){
+        localStorage.removeItem(list[i])
+      }
+      
+      
     });
   }
 };
@@ -1475,7 +1489,21 @@ const displayHideList = () => {
     }
   }
 
- 
+  createBtn('buttonDiv', 'Clear List', 'clearListBtn')
+  document.getElementById('clearListBtn').addEventListener('click', () => {
+    clearLocalStorage()
+    groceryList = []
+  })
+
+  createBtn('buttonDiv', 'Save List', 'saveBtn')
+  document.getElementById('saveBtn').addEventListener('click', () => {  
+    for(let i = 0; i < groceryList.length; i++){
+      let itemKey = 'ingredient' + i
+      console.log(groceryList[i].name)
+      let itemValue = { name: groceryList[i].name, qty: groceryList[i].qty, unit: groceryList[i].unit, aisle: groceryList[i].aisle }
+      saveToLocalStorage(itemKey, itemValue, groceryList)
+    } 
+})
 
 const viewListBtn = document.getElementById('viewListBtn')
 viewListBtn.addEventListener('click', () => {
