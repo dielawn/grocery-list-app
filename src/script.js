@@ -1205,7 +1205,7 @@ const createBtn = (parent, text, btnName) => {
     btn.classList.add(btnName);
     btn.id = btnName
 }
-// createBtn('buttonDiv', 'GeneratePDF2', 'pdfBtn2')
+
 
 const pdfList = () => {
   const doc = new jsPDF({
@@ -1250,15 +1250,8 @@ const pdfList = () => {
 }
 
 
-const pdfBtn = document.getElementById('pdfBtn')
-pdfBtn.addEventListener('click',() => {
-  console.log('pdf1')
-  pdfList()
-})
-// document.getElementById('pdfBtn2').addEventListener('click',() => {
-//   console.log('pdf2')
-//   pdfList()
-// })
+
+
 let itemInput = document.getElementById('itemInput')
 let qtyInput = document.getElementById('qtyInput')
 let unitInput = document.getElementById('unitInput')
@@ -1463,19 +1456,9 @@ alisonBreakfastBtn.addEventListener('click',() => {
   renderList(groceryList)
 })
 
-const consolidateBtn = document.getElementById('consolidateBtn')
-consolidateBtn.addEventListener('click',() => {
-  consolidateGroceryList(groceryList)
-  for(let i = 0; i < groceryList.length; i++){
-    let itemKey = 'ingredient' + i
-    console.log(groceryList[i].name)
-    let itemValue = { name: groceryList[i].name, qty: groceryList[i].qty, unit: groceryList[i].unit, aisle: groceryList[i].aisle }
-    saveToLocalStorage(itemKey, itemValue, groceryList)
-  } 
-  renderList(groceryList)
-}) 
 
-renderRecipes(recipes);
+
+
 
 const displayHideForm = () => {
   const itemForm = document.getElementById('addItemDiv')
@@ -1519,13 +1502,7 @@ const displayHideList = () => {
     }
   }
 
-  createBtn('buttonDiv', 'Clear List', 'clearListBtn')
-  document.getElementById('clearListBtn').addEventListener('click', () => {
-    clearLocalStorage()
-    groceryList = []
-    renderList(groceryList)
-    renderSelectedRecipes('clearList')
-  })
+ 
 
 //   createBtn('buttonDiv', 'Save List', 'saveBtn')
 //   document.getElementById('saveBtn').addEventListener('click', () => {  
@@ -1549,9 +1526,63 @@ const clearLocalStorage = (key) => {
   localStorage.clear();
 }
 
-const removeFromLocalStorage = (key) => {
-  localStorage.removeItem(key)
+const searchRecipesByKeyword = (keyword) => {
+  console.log(keyword)
+  const matchingRecipes = []
+  for(let i = 0; i < recipes.length; i++){
+    // Check if the ingredients property is an array before calling the some() method
+    if(Array.isArray(recipes[i].ingredients) && recipes[i].ingredients.some(item => item.name.toLowerCase().includes(keyword.toLowerCase()))) {
+      // If the recipe has the keyword in its ingredients, add it to the matchingRecipes list
+      matchingRecipes.push({name: recipes[i].name, ingredients: recipes[i].ingredients, image: recipes[i].image, instructions: recipes[i].instructions, link: recipes[i].link });
+    }
+  }
+  document.getElementById('recipeDiv').innerHTML = ''
+  renderRecipes(matchingRecipes)
 }
+
+renderRecipes(recipes);
+
+let searchDiv = document.getElementById('searchDiv')
+createBtn('searchDiv', 'Search', 'searchBtn')
+searchBtn.addEventListener('click', () => {
+ 
+  let searchInput = document.getElementById('searchInput')
+  searchRecipesByKeyword(searchInput.value)
+  createBtn('searchDiv', 'Full List', 'fullListBtn')
+  searchInput.value = ''
+  document.getElementById('fullListBtn').addEventListener('click', () => {
+    searchRecipesByKeyword('')
+    document.getElementById('fullListBtn').remove()
+  })
+})
+
+createBtn('buttonDiv', 'Combine/Save', 'consolidateBtn')
+document.getElementById('consolidateBtn').addEventListener('click',() => {
+  consolidateGroceryList(groceryList)
+  for(let i = 0; i < groceryList.length; i++){
+    let itemKey = 'ingredient' + i
+    console.log(groceryList[i].name)
+    let itemValue = { name: groceryList[i].name, qty: groceryList[i].qty, unit: groceryList[i].unit, aisle: groceryList[i].aisle }
+    saveToLocalStorage(itemKey, itemValue, groceryList)
+  } 
+  renderList(groceryList)
+}) 
+
+createBtn('buttonDiv', 'Clear List', 'clearListBtn')
+document.getElementById('clearListBtn').addEventListener('click', () => {
+  clearLocalStorage()
+  groceryList = []
+  renderList(groceryList)
+  renderSelectedRecipes('clearList')
+})
+
+createBtn('buttonDiv', 'Generate PDF', 'pdfBtn')
+document.getElementById('pdfBtn').addEventListener('click',() => {
+  console.log('pdf1')
+  pdfList()
+})
+
+
 
 loadLocalStorageList()
 // clearLocalStorage()
