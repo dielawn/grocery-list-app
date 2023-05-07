@@ -1149,6 +1149,7 @@ link: 'https://www.hellofresh.com/recipes/melty-monterey-jack-burgers-5e25f552b9
 
 
 let groceryList = []
+let savedRecipes = []
 
 const loadLocalStorageList = () => {
   if (groceryList.length === 0) {
@@ -1156,11 +1157,22 @@ const loadLocalStorageList = () => {
       const key = localStorage.key(i);
       const value = localStorage.getItem(key);
       console.log('key:', key, 'value:', value)
-      const item = JSON.parse(value);
-      groceryList.push(item);
+      if(key.startsWith('ingredient')){
+        const item = JSON.parse(value);
+        groceryList.push(item);
+      }else {
+        const item = JSON.parse(value)
+        savedRecipes.push(item)
+      }
+      
     } 
     sortGroceryListByAisle(groceryList)
     renderList(groceryList);
+    for(let i =0; i < savedRecipes.length; i++){
+      let recipeName = savedRecipes[i]
+      renderSelectedRecipes(recipeName)
+    }
+    
   }
 }
 
@@ -1171,10 +1183,16 @@ const saveToLocalStorage = (key, value, list) => {
     let itemKey = 'ingredient' + i
     let itemValue = { name: list[i].name, qty: list[i].qty, unit: list[i].unit, aisle: list[i].aisle }
     console.log(itemKey, itemValue, )
-    localStorage.setItem(key, JSON.stringify(value));
-    
+    localStorage.setItem(key, JSON.stringify(value));    
   }
-  
+  let mealList = document.getElementsByClassName('meal-list')
+  console.log(mealList.length)
+  for(let i = 0; i < mealList.length; i++){
+    let itemKey = 'selected' + i
+    let itemValue = (mealList[i].textContent)    
+    console.log(itemKey, itemValue)
+    localStorage.setItem(itemKey, JSON.stringify(itemValue))
+  }
 }
 
 
@@ -1328,10 +1346,16 @@ const renderSelectedRecipes = (recipeName) => {
  let selectedMealListDiv = document.getElementById('mealListDiv')
 
   let listElement = document.createElement('div');
-  selectedMealListDiv.appendChild(listElement)
+  
   listElement.classList = 'meal-list';
-  listElement.id = 'mealList'
-  listElement.textContent += `${recipeName}`
+  if(recipeName === 'clearList'){
+    console.log('list cleared')
+    selectedMealListDiv.innerHTML = ''
+  }else {
+    listElement.textContent += `${recipeName}`
+    selectedMealListDiv.appendChild(listElement)
+  }
+  
 }
 
 
@@ -1500,6 +1524,7 @@ const displayHideList = () => {
     clearLocalStorage()
     groceryList = []
     renderList(groceryList)
+    renderSelectedRecipes('clearList')
   })
 
 //   createBtn('buttonDiv', 'Save List', 'saveBtn')
