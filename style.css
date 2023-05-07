@@ -200,7 +200,7 @@ button:active{
 }
 @media screen and (max-width: 800px) {
     .addItemFormBtn{
-        display: block;
+        display: none;
         width: 200px;
     }
     .addItemDiv{
@@ -245,7 +245,14 @@ button:active{
         justify-content: space-around;
     }
     .meal-list{
+        width: 125px;
+        font-size: .9rem;
+    }
+    .mealListDiv{
         display: none;
+        width: 100%;
+        background-color: aqua;
+        
     }
 
     .shopping-list{

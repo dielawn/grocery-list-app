@@ -1249,6 +1249,8 @@ const pdfList = () => {
   
 }
 
+const servingInput = document.getElementById('servingInput');
+const listDiv = document.getElementById('listDiv');
 
 
 
@@ -1264,11 +1266,7 @@ const addItem = (item, qty, unit, aisle) => {
   displayHideForm()
 }
 
-const addItemBtn = document.getElementById('addItemBtn')
-addItemBtn.addEventListener('click', () => {
-  addItem(itemInput.value, qtyInput.value, unitInput.value, aisleInput.value)
-  
-})
+
 
 
 const addRecipeToList = (list) => {
@@ -1334,12 +1332,11 @@ const consolidateGroceryList = (list) => {
     groceryList = listWithAisle;
     return groceryList
 }
- 
-const renderSelectedRecipes = (recipeName) => {
- let selectedMealListDiv = document.getElementById('mealListDiv')
 
-  let listElement = document.createElement('div');
-  
+let selectedMealListDiv = document.getElementById('mealListDiv')
+
+const renderSelectedRecipes = (recipeName) => {
+  let listElement = document.createElement('div');  
   listElement.classList = 'meal-list';
   if(recipeName === 'clearList'){
     console.log('list cleared')
@@ -1347,17 +1344,13 @@ const renderSelectedRecipes = (recipeName) => {
   }else {
     listElement.textContent += `${recipeName}`
     selectedMealListDiv.appendChild(listElement)
-  }
-  
+  }  
 }
 
 
 
-const renderList = (list) => {
-  const servingInput = document.getElementById('servingInput');
-  const listDiv = document.getElementById('listDiv');
-  listDiv.innerHTML = ''; // clear the container before adding new elements
-  
+const renderList = (list) => {    
+  listDiv.innerHTML = ''; // clear the container before adding new elements  
   let servingSize = servingInput.value;
   if(servingSize === ''){
     servingSize = 1
@@ -1402,10 +1395,9 @@ const createRemoveListener = (listElement, itemIndex) => {
   };
 };
 
+let recipeDiv = document.getElementById('recipeDiv');
   
-  const renderRecipes = (recipeList) => {
-    let recipeDiv = document.getElementById('recipeDiv');
-   
+  const renderRecipes = (recipeList) => {   
     for (let i = 0; i < recipeList.length; i++) {
       let recipeName = recipeList[i].name
       let recipeElement = document.createElement('div');      
@@ -1456,6 +1448,52 @@ alisonBreakfastBtn.addEventListener('click',() => {
   renderList(groceryList)
 })
 
+createBtn('buttonDiv', 'Clear List', 'clearListBtn')
+const clearListBtn = document.getElementById('clearListBtn')
+clearListBtn.addEventListener('click', () => {
+  clearLocalStorage()
+  groceryList = []
+  renderList(groceryList)
+  renderSelectedRecipes('clearList')
+})
+
+createBtn('buttonDiv', 'Generate PDF', 'pdfBtn')
+const dwnldPDFBtn = document.getElementById('pdfBtn')
+dwnldPDFBtn.addEventListener('click',() => {
+  console.log('pdf1')
+  pdfList()
+})
+
+createBtn('buttonDiv', 'Add Item', 'addItemFormBtn')
+const formBtn = document.getElementById('addItemFormBtn')
+formBtn.addEventListener('click', () => {
+displayHideForm()
+})
+
+createBtn('addItemDiv', 'Add Item to List', 'addItemBtn')
+const addItemBtn = document.getElementById('addItemBtn')
+addItemBtn.addEventListener('click', () => {
+  addItem(itemInput.value, qtyInput.value, unitInput.value, aisleInput.value)
+  
+})
+
+createBtn('buttonDiv', 'View List', 'viewListBtn')
+const viewListBtn = document.getElementById('viewListBtn')
+viewListBtn.addEventListener('click', () => {
+  console.log(viewListBtn.textContent)
+  displayHideList()
+  displayHideButtons()
+})
+
+//   createBtn('buttonDiv', 'Save List', 'saveBtn')
+//   document.getElementById('saveBtn').addEventListener('click', () => {  
+//     for(let i = 0; i < groceryList.length; i++){
+//       let itemKey = 'ingredient' + i
+//       console.log(groceryList[i].name)
+//       let itemValue = { name: groceryList[i].name, qty: groceryList[i].qty, unit: groceryList[i].unit, aisle: groceryList[i].aisle }
+//       saveToLocalStorage(itemKey, itemValue, groceryList)
+//     } 
+// })
 
 
 
@@ -1470,57 +1508,41 @@ const displayHideForm = () => {
 }
 
 
-const formBtn = document.getElementById('addItemFormBtn')
-formBtn.addEventListener('click', () => {
-displayHideForm()
-})
+
 
 const displayHideButtons = () => {
   if(viewListBtn.textContent === 'View List'){
     viewListBtn.textContent = 'View Recipes'
-    consolidateBtn.style.display = 'block'
-    pdfBtn.style.display = 'block'
+    combineSaveBtn.style.display = 'block'
+    dwnldPDFBtn.style.display = 'block'
     servingInput.style.display = 'block'
+    formBtn.style.display = 'flex'
+    
+    selectedMealListDiv.style.display = 'none'
   } else {
     viewListBtn.textContent = 'View List'
-    consolidateBtn.style.display = 'none'
-    pdfBtn.style.display = 'none'
+    combineSaveBtn.style.display = 'none'
+    dwnldPDFBtn.style.display = 'none'
     servingInput.style.display = 'none' 
+    formBtn.style.display = 'none'
+    selectedMealListDiv.style.display = 'block'
+    
   }
  }
 
-const displayHideList = () => {
-  const recipeList = document.getElementById('recipeDiv')
-  const shoppingList = document.getElementById('listDiv')
-  // const mealList = document.getElementsByClassName('mealListDiv')  
-    if(recipeList.style.display !== 'none'){
-      recipeList.style.display = 'none'
-      shoppingList.style.display = 'flex'      
+const displayHideList = () => { 
+    if(recipeDiv.style.display !== 'none'){
+      recipeDiv.style.display = 'none'
+      listDiv.style.display = 'flex'      
     } else {
-      recipeList.style.display = 'flex'
-      shoppingList.style.display = 'none'     
+      recipeDiv.style.display = 'flex'
+      listDiv.style.display = 'none'     
     }
   }
 
  
 
-//   createBtn('buttonDiv', 'Save List', 'saveBtn')
-//   document.getElementById('saveBtn').addEventListener('click', () => {  
-//     for(let i = 0; i < groceryList.length; i++){
-//       let itemKey = 'ingredient' + i
-//       console.log(groceryList[i].name)
-//       let itemValue = { name: groceryList[i].name, qty: groceryList[i].qty, unit: groceryList[i].unit, aisle: groceryList[i].aisle }
-//       saveToLocalStorage(itemKey, itemValue, groceryList)
-//     } 
-// })
 
-const viewListBtn = document.getElementById('viewListBtn')
-viewListBtn.addEventListener('click', () => {
-
-  console.log(viewListBtn.textContent)
-  displayHideList()
-  displayHideButtons()
-})
 
 const clearLocalStorage = (key) => {
   localStorage.clear();
@@ -1536,7 +1558,7 @@ const searchRecipesByKeyword = (keyword) => {
       matchingRecipes.push({name: recipes[i].name, ingredients: recipes[i].ingredients, image: recipes[i].image, instructions: recipes[i].instructions, link: recipes[i].link });
     }
   }
-  document.getElementById('recipeDiv').innerHTML = ''
+  recipeDiv.innerHTML = ''
   renderRecipes(matchingRecipes)
 }
 
@@ -1557,7 +1579,8 @@ searchBtn.addEventListener('click', () => {
 })
 
 createBtn('buttonDiv', 'Combine/Save', 'consolidateBtn')
-document.getElementById('consolidateBtn').addEventListener('click',() => {
+const combineSaveBtn = document.getElementById('consolidateBtn')
+combineSaveBtn.addEventListener('click',() => {
   consolidateGroceryList(groceryList)
   for(let i = 0; i < groceryList.length; i++){
     let itemKey = 'ingredient' + i
@@ -1568,21 +1591,7 @@ document.getElementById('consolidateBtn').addEventListener('click',() => {
   renderList(groceryList)
 }) 
 
-createBtn('buttonDiv', 'Clear List', 'clearListBtn')
-document.getElementById('clearListBtn').addEventListener('click', () => {
-  clearLocalStorage()
-  groceryList = []
-  renderList(groceryList)
-  renderSelectedRecipes('clearList')
-})
-
-createBtn('buttonDiv', 'Generate PDF', 'pdfBtn')
-document.getElementById('pdfBtn').addEventListener('click',() => {
-  console.log('pdf1')
-  pdfList()
-})
 
 
 
 loadLocalStorageList()
-// clearLocalStorage()
