@@ -142,8 +142,12 @@ button:active{
 }
 .searchInput{
     height: 25px;
+    width: 150px;
     padding: 10px;
     margin: 2px;
+}
+.searchBtn{
+    width: 100px;
 }
 .addItemBtn{
     width: 105px;
@@ -260,13 +264,23 @@ button:active{
         justify-content: center;
     }
     .buttonDiv{
+
         align-items: center;
-        min-height: 200px;
+        min-height: 300px;
         justify-content: start;
     }
     .viewListBtn{
         display: block;
         width: 200px;
     }
+    .searchDiv{
+       display: none;
+    }
+    .servingInput,
+.clearListBtn,
+.consolidateBtn,
+.pdfBtn{
+    width: 200px;
     
+}
 }
