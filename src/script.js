@@ -1448,6 +1448,19 @@ alisonBreakfastBtn.addEventListener('click',() => {
   renderList(groceryList)
 })
 
+createBtn('buttonDiv', 'Combine/Save', 'consolidateBtn')
+const combineSaveBtn = document.getElementById('consolidateBtn')
+combineSaveBtn.addEventListener('click',() => {
+  consolidateGroceryList(groceryList)
+  for(let i = 0; i < groceryList.length; i++){
+    let itemKey = 'ingredient' + i
+    console.log(groceryList[i].name)
+    let itemValue = { name: groceryList[i].name, qty: groceryList[i].qty, unit: groceryList[i].unit, aisle: groceryList[i].aisle }
+    saveToLocalStorage(itemKey, itemValue, groceryList)
+  } 
+  renderList(groceryList)
+}) 
+
 createBtn('buttonDiv', 'Clear List', 'clearListBtn')
 const clearListBtn = document.getElementById('clearListBtn')
 clearListBtn.addEventListener('click', () => {
@@ -1516,16 +1529,14 @@ const displayHideButtons = () => {
     combineSaveBtn.style.display = 'block'
     dwnldPDFBtn.style.display = 'block'
     servingInput.style.display = 'block'
-    formBtn.style.display = 'flex'
+    formBtn.style.display = 'block'
     
-    selectedMealListDiv.style.display = 'none'
   } else {
     viewListBtn.textContent = 'View List'
     combineSaveBtn.style.display = 'none'
     dwnldPDFBtn.style.display = 'none'
     servingInput.style.display = 'none' 
     formBtn.style.display = 'none'
-    selectedMealListDiv.style.display = 'block'
     
   }
  }
@@ -1534,9 +1545,13 @@ const displayHideList = () => {
     if(recipeDiv.style.display !== 'none'){
       recipeDiv.style.display = 'none'
       listDiv.style.display = 'flex'      
+      selectedMealListDiv.style.display = 'none'
+      searchDiv.style.display = 'none'
     } else {
       recipeDiv.style.display = 'flex'
       listDiv.style.display = 'none'     
+      selectedMealListDiv.style.display = 'flex'
+      searchDiv.style.display = 'block'
     }
   }
 
@@ -1578,18 +1593,7 @@ searchBtn.addEventListener('click', () => {
   })
 })
 
-createBtn('buttonDiv', 'Combine/Save', 'consolidateBtn')
-const combineSaveBtn = document.getElementById('consolidateBtn')
-combineSaveBtn.addEventListener('click',() => {
-  consolidateGroceryList(groceryList)
-  for(let i = 0; i < groceryList.length; i++){
-    let itemKey = 'ingredient' + i
-    console.log(groceryList[i].name)
-    let itemValue = { name: groceryList[i].name, qty: groceryList[i].qty, unit: groceryList[i].unit, aisle: groceryList[i].aisle }
-    saveToLocalStorage(itemKey, itemValue, groceryList)
-  } 
-  renderList(groceryList)
-}) 
+
 
 
 

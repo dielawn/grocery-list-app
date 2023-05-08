@@ -202,6 +202,7 @@ button:active{
     .addItemFormBtn{
         display: none;
         width: 200px;
+        text-align: center;
     }
     .addItemDiv{
         display: none;
@@ -240,19 +241,22 @@ button:active{
     .listDiv{
         display: none;
         width: 100%;
+        height: auto;
+        max-height: 50%;
+        overflow: scroll;
         flex-direction: column;
         align-content: space-around;
         justify-content: space-around;
     }
     .meal-list{
-        width: 125px;
+        width: 300px;
         font-size: .9rem;
     }
     .mealListDiv{
         display: none;
-        width: 100%;
-        background-color: aqua;
-        
+        width: 100%;  
+        flex-direction: column;
+        overflow: scroll;      
     }
 
     .shopping-list{
@@ -267,13 +271,14 @@ button:active{
     .recipeDiv{
         width: 100%;
         overflow: scroll;
-        height: 75vh;
+        height: 65vh;
         justify-content: center;
     }
     .buttonDiv{
-
+        flex-direction: column;
+        height: auto;
         align-items: center;
-        min-height: 300px;
+        min-height: fit-content;
         justify-content: start;
     }
     .viewListBtn{
@@ -281,13 +286,13 @@ button:active{
         width: 200px;
     }
     .searchDiv{
-       display: none;
+       display: block;
+      
     }
     .servingInput,
-.clearListBtn,
-.consolidateBtn,
-.pdfBtn{
-    width: 200px;
-    
-}
+    .clearListBtn,
+    .consolidateBtn,
+    .pdfBtn{
+        width: 200px;    
+    }   
 }
