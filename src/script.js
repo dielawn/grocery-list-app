@@ -804,6 +804,25 @@ const garlicMayoIngredients = [
 
 // Recipies
 const recipes = [
+  { name: "Alison's Famous GF Cookies",
+  ingredients: cookieIngredients,
+  image: 'images/cookies.jpeg',
+  instructions:'instructions/',
+  link: ''
+  },
+  { name: "Dielawn's Breakfast",
+  ingredients: dillonsBreakfastIngredients,
+  image: 'images/bagel-banana.jpeg',
+  instructions:'instructions/',
+  link: ''
+  },
+  { name: "Alison's Breaksfast",
+  ingredients: alisonsBreakfastIngredients,
+  image: 'images/breakfast-shake.jpeg',
+  instructions:'instructions/',
+  link: ''
+  },
+
     { name: 'Sweet Chili Pork Bowls', 
     ingredients: sweetChiliPorkBowlIngredients, 
     image: 'images/sweet-chili-pork-bowls.avif',
@@ -1100,6 +1119,7 @@ instructions:'instructions/sun-dried-tomato-spaghetti.pdf',
 link: 'https://www.hellofresh.com/recipes/sun-dried-tomato-spaghetti-6231ef8d59a1d65a30536f97'
 },
 
+
 { name: 'template',
 ingredients: '',
 image: 'images/',
@@ -1150,6 +1170,15 @@ link: 'https://www.hellofresh.com/recipes/melty-monterey-jack-burgers-5e25f552b9
 
 let groceryList = []
 let savedRecipes = []
+
+const searchDiv = document.getElementById('searchDiv')
+const listDiv = document.getElementById('listDiv');
+
+const servingInput = document.getElementById('servingInput');
+const itemInput = document.getElementById('itemInput')
+const qtyInput = document.getElementById('qtyInput')
+const unitInput = document.getElementById('unitInput')
+const aisleInput = document.getElementById('aisleSelect')
 
 const loadLocalStorageList = () => {
   if (groceryList.length === 0) {
@@ -1249,15 +1278,7 @@ const pdfList = () => {
   
 }
 
-const servingInput = document.getElementById('servingInput');
-const listDiv = document.getElementById('listDiv');
 
-
-
-let itemInput = document.getElementById('itemInput')
-let qtyInput = document.getElementById('qtyInput')
-let unitInput = document.getElementById('unitInput')
-let aisleInput = document.getElementById('aisleSelect')
 
 const addItem = (item, qty, unit, aisle) => {
   groceryList.push({ name: item, qty: qty, unit: unit, aisle: aisle })
@@ -1430,24 +1451,6 @@ let recipeDiv = document.getElementById('recipeDiv');
     }
   };
 
-const cookiesBtn = document.getElementById('cookiesBtn')
-cookiesBtn.addEventListener('click',() => {
-  addRecipeToList(cookieIngredients)
-  renderList(groceryList)
-})
-  
-const dillonBreakfastBtn = document.getElementById('dillonBreakfastBtn')
-dillonBreakfastBtn.addEventListener('click',() => {
-  addRecipeToList(dillonsBreakfastIngredients)
-  renderList(groceryList)
-})
-
-const alisonBreakfastBtn = document.getElementById('alisonBreakfastBtn')
-alisonBreakfastBtn.addEventListener('click',() => {
-  addRecipeToList(alisonsBreakfastIngredients)
-  renderList(groceryList)
-})
-
 createBtn('buttonDiv', 'Combine/Save', 'consolidateBtn')
 const combineSaveBtn = document.getElementById('consolidateBtn')
 combineSaveBtn.addEventListener('click',() => {
@@ -1508,9 +1511,6 @@ viewListBtn.addEventListener('click', () => {
 //     } 
 // })
 
-
-
-
 const displayHideForm = () => {
   const itemForm = document.getElementById('addItemDiv')
     if(itemForm.style.display === 'flex'){
@@ -1519,9 +1519,6 @@ const displayHideForm = () => {
       itemForm.style.display = 'flex'
     }
 }
-
-
-
 
 const displayHideButtons = () => {
   if(viewListBtn.textContent === 'View List'){
@@ -1555,10 +1552,6 @@ const displayHideList = () => {
     }
   }
 
- 
-
-
-
 const clearLocalStorage = (key) => {
   localStorage.clear();
 }
@@ -1579,10 +1572,10 @@ const searchRecipesByKeyword = (keyword) => {
 
 renderRecipes(recipes);
 
-let searchDiv = document.getElementById('searchDiv')
+
+
 createBtn('searchDiv', 'Search', 'searchBtn')
-searchBtn.addEventListener('click', () => {
- 
+searchBtn.addEventListener('click', () => { 
   let searchInput = document.getElementById('searchInput')
   searchRecipesByKeyword(searchInput.value)
   createBtn('searchDiv', 'Full List', 'fullListBtn')

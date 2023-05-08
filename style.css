@@ -63,8 +63,8 @@
 
 .meal-list,
 .shopping-list{
-    
-    width: 10vw;
+    padding: 2px;
+    width: 300px;
     display: flex;
     justify-content: space-between;
 }
@@ -248,10 +248,7 @@ button:active{
         align-content: space-around;
         justify-content: space-around;
     }
-    .meal-list{
-        width: 300px;
-        font-size: .9rem;
-    }
+ 
     .mealListDiv{
         display: flex;
         width: 100%;  
