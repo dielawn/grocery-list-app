@@ -253,7 +253,7 @@ button:active{
         font-size: .9rem;
     }
     .mealListDiv{
-        display: none;
+        display: flex;
         width: 100%;  
         flex-direction: column;
         overflow: scroll;      
