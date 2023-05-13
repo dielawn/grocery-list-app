@@ -12,6 +12,7 @@ const proteins = [
   
   { name: 'Ground Beef', qty: 5, unit: 'oz', aisle: 'butcher' },
   { name: 'Ground Pork', qty: 5, unit: 'oz', aisle: 'butcher' },
+  { name: 'Ground Turkey', qty: 5, unit: 'oz', aisle: 'butcher' },
   
   { name: 'Italian Chicken Sausage', qty: 5, unit: 'oz', aisle: 'butcher' },
   { name: 'Italian Pork Sausage', qty: 5, unit: 'oz', aisle: 'butcher' },
@@ -32,6 +33,7 @@ const produce = [
   { name: 'Button Mushrooms', qty: 4, unit: 'oz', aisle: 'produce'},
 
   { name: 'Carrots', qty: .5, unit: 'oz', aisle: 'produce' },
+  { name: 'Celery', qty: 1.25, unit: 'oz', aisle: 'produce' },
   { name: 'Chili Pepper', qty: .5, unit: '', aisle: 'produce' },
   { name: 'Cilantro', qty: .125, unit: 'oz', aisle: 'produce' },
   { name: 'Coleslaw Mix', qty: 2, unit: 'oz', aisle: 'produce' },
@@ -83,6 +85,7 @@ const grain = [
   { name: 'Arborio Rice', qty: .5, unit: 'cup', aisle: 'ethnic' },
 
   { name: 'Brioche Buns', qty: 1, unit: 'Bun', aisle: 'bakery'},
+  { name: 'Buttermilk Biscuits', qty: 3, unit: 'oz', aisle: 'bakery'},
 
   { name: 'Cavatappi Pasta', qty: 3, unit: 'oz', aisle: 'noodle'},
   
@@ -741,6 +744,20 @@ const sunDriedTomatoSpaghettiIngredients = [
   ...frozenFood.filter(item => item.name === ""),
   ...snack.filter(item => item.name === "")
 ]
+const homestyleTurkeyBiscuitPotPieIngredients = [
+  ...proteins.filter(item => item.name === "Ground Turkey"),
+  ...produce.filter(item => item.name === "Carrots" || item.name === "Celery"
+   || item.name === "Yellow Onion" || item.name === "Garlic" || item.name === "Thyme"),
+  ...grain.filter(item => item.name === "Homestyle Biscuits"),
+  ...sauce.filter(item => item.name === "Chicken Stock Concentrate"),
+  ...cannedGoods.filter(item => item.name === ""),
+  ...driedGoods.filter(item => item.name === ""),
+  ...seasoning.filter(item => item.name === ""),
+  ...dairy.filter(item => item.name === "Cream Cheese"),
+  ...bakingGoods.filter(item => item.name === ""),
+  ...frozenFood.filter(item => item.name === ""),
+  ...snack.filter(item => item.name === "")
+]
 // || item.name === ""
 const templateIngredients = [
   ...proteins.filter(item => item.name === ""),
@@ -1081,12 +1098,22 @@ image: 'images/sun-dried-tomato-spaghetti.avif',
 instructions:'instructions/sun-dried-tomato-spaghetti.pdf',
 link: 'https://www.hellofresh.com/recipes/sun-dried-tomato-spaghetti-6231ef8d59a1d65a30536f97'
 },
-{ name: 'template',
-ingredients: '',
-image: 'images/',
-instructions:'instructions/',
-link: ''
+{ name: 'Homestyle Turkey & Biscuit Pot Pie',
+ingredients: homestyleTurkeyBiscuitPotPieIngredients,
+image: 'images/homestyle-chicken-biscuit-pot-pie.avif',
+instructions:'instructions/homestyle-chicken-biscuit-pot-pie.pdf',
+link: 'https://www.hellofresh.com/recipes/homestyle-chicken-biscuit-pot-pie-5f049500d95a4007c84095f2'
 },
+
+
+// { name: 'template',
+// ingredients: '',
+// image: 'images/',
+// instructions:'instructions/',
+// link: ''
+// },
+
+
 //sides
 { name: 'Potato Wedges',
 ingredients: potatoWedgeIngredients,

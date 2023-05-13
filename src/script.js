@@ -1189,7 +1189,7 @@ const loadLocalStorageList = () => {
       const value = localStorage.getItem(key);
       console.log('key:', key, 'value:', value)
       if(key.startsWith('ingredient')){
-        localStorageKey = `ingredient${i}`
+        let localStorageKey = `ingredient${i}`
         console.log(`${localStorageKey}, ingredient${i} 1193`)
         const item = JSON.parse(value);
         groceryList.push(item);
@@ -1381,19 +1381,19 @@ const renderList = (list) => {
 
     removeBtn.textContent = 'X';
     removeBtn.classList = 'removeBtn'
-    removeBtn.addEventListener('click', createRemoveListener(listElement, i));
+    removeBtn.addEventListener('click', createRemoveListener(listElement));
   
   }
 };
 
 
 
-const createRemoveListener = (listElement, itemIndex) => {
+const createRemoveListener = (listElement) => {
   return () => {
     listElement.remove(); // remove the list element from the DOM
     let itemName = listElement.textContent;
     let index = groceryList.findIndex(item => item.name === itemName);
-    let localStorageKey = 'ingredient' + itemIndex
+    let localStorageKey = `ingredient${index}`
     console.log(`groceryList Index: ${index} localstorage key:${localStorageKey} 1391`)
     if(localStorage.length !== 0){
       localStorage.removeItem(localStorageKey)
