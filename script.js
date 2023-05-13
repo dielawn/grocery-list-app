@@ -750,13 +750,7 @@ const homestyleTurkeyBiscuitPotPieIngredients = [
    || item.name === "Yellow Onion" || item.name === "Garlic" || item.name === "Thyme"),
   ...grain.filter(item => item.name === "Homestyle Biscuits"),
   ...sauce.filter(item => item.name === "Chicken Stock Concentrate"),
-  ...cannedGoods.filter(item => item.name === ""),
-  ...driedGoods.filter(item => item.name === ""),
-  ...seasoning.filter(item => item.name === ""),
   ...dairy.filter(item => item.name === "Cream Cheese"),
-  ...bakingGoods.filter(item => item.name === ""),
-  ...frozenFood.filter(item => item.name === ""),
-  ...snack.filter(item => item.name === "")
 ]
 // || item.name === ""
 const templateIngredients = [
@@ -1303,23 +1297,23 @@ const renderList = (list) => {
     }
   };
 
-const cookiesBtn = document.getElementById('cookiesBtn')
-cookiesBtn.addEventListener('click',() => {
-  addRecipeToList(cookieIngredients)
-  renderList(groceryList)
-})
+// const cookiesBtn = document.getElementById('cookiesBtn')
+// cookiesBtn.addEventListener('click',() => {
+//   addRecipeToList(cookieIngredients)
+//   renderList(groceryList)
+// })
   
-const dillonBreakfastBtn = document.getElementById('dillonBreakfastBtn')
-dillonBreakfastBtn.addEventListener('click',() => {
-  addRecipeToList(dillonsBreakfastIngredients)
-  renderList(groceryList)
-})
+// const dillonBreakfastBtn = document.getElementById('dillonBreakfastBtn')
+// dillonBreakfastBtn.addEventListener('click',() => {
+//   addRecipeToList(dillonsBreakfastIngredients)
+//   renderList(groceryList)
+// })
 
-const alisonBreakfastBtn = document.getElementById('alisonBreakfastBtn')
-alisonBreakfastBtn.addEventListener('click',() => {
-  addRecipeToList(alisonsBreakfastIngredients)
-  renderList(groceryList)
-})
+// const alisonBreakfastBtn = document.getElementById('alisonBreakfastBtn')
+// alisonBreakfastBtn.addEventListener('click',() => {
+//   addRecipeToList(alisonsBreakfastIngredients)
+//   renderList(groceryList)
+// })
 
 const consolidateBtn = document.getElementById('consolidateBtn')
 consolidateBtn.addEventListener('click',() => {
