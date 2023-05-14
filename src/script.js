@@ -780,6 +780,14 @@ const chickenCheddarFajitasIngredients = [
   ...seasoning.filter(item => item.name === "Southwest Spice Blend"),
   ...dairy.filter(item => item.name === "Sour Cream" || item.name === "Cheddar Cheese"),
 ]
+const sweetPotatoFajitaIngredients = [
+  ...produce.filter(item => item.name === "Sweet Potato" || item.name === "Red Onion"
+  || item.name === "Roma Tomato" || item.name === "Cilantro" || item.name === "Long Green Pepper"
+  || item.name === "Lime" || item.name === "Jalapeno"),  
+  ...grain.filter(item => item.name === "Flour Tortillas"),
+  ...seasoning.filter(item => item.name === "Southwest Spice Blend"),
+  ...dairy.filter(item => item.name === "Sour Cream" || item.name === "Pepper Jack Cheese"),
+]
 // || item.name === ""
 const templateIngredients = [
   ...proteins.filter(item => item.name === ""),
@@ -1094,17 +1102,24 @@ image: 'images/pork-and-poblano-tacos.avif',
 instructions:'instructions/pork-and-poblano-tacos.pdf',
 link: 'https://www.hellofresh.com/recipes/pork-and-poblano-tacos-5d35c6b276961900177709c0'
 },
-{ name: 'Melty Double Red Pepper Panini',
-ingredients: meltyDoubleRedPepperPaniniIngredients,
-image: 'images/double-red-pepper-panini.avif',
-instructions:'instructions/double-red-pepper-panini.pdf',
-link: 'https://www.hellofresh.com/recipes/double-red-pepper-panini-6239d8a288ef2226660b2f87'
+{ name: 'Sweet Potato Fajitas',
+ingredients: sweetPotatoFajitaIngredients,
+image: 'images/sweet-potato-fajitas.avif',
+instructions:'instructions/sweet-potato-fajitas.pdf',
+link: 'https://www.hellofresh.com/recipes/2018w50-r8-sweet-potato-fajitas-5c87e384c445fa032d20dc82'
 },
+
 { name: 'Harissa Sweet Potato pockets',
 ingredients: harissaSweetPotatoPocketIngredients,
 image: 'images/harissa-sweet-potato-pita-pockets.avif',
 instructions:'instructions/harissa-sweet-potato-pita-pockets.pdf',
 link: 'https://www.hellofresh.com/recipes/harissa-sweet-potato-pita-pockets-5f15dcd008c01b2af5444822'
+},
+{ name: 'Melty Double Red Pepper Panini',
+ingredients: meltyDoubleRedPepperPaniniIngredients,
+image: 'images/double-red-pepper-panini.avif',
+instructions:'instructions/double-red-pepper-panini.pdf',
+link: 'https://www.hellofresh.com/recipes/double-red-pepper-panini-6239d8a288ef2226660b2f87'
 },
 { name: "Mushroom & Herb Shepherd's Pie",
 ingredients: mushroomHerbSheperdsPieIngredients,
@@ -1216,6 +1231,7 @@ const searchDiv = document.getElementById('searchDiv')
 const listDiv = document.getElementById('listDiv');
 
 const servingInput = document.getElementById('servingInput');
+const servingSizeSelect = document.getElementById('servingSizeSelect')
 const itemInput = document.getElementById('itemInput')
 const qtyInput = document.getElementById('qtyInput')
 const unitInput = document.getElementById('unitInput')
@@ -1402,10 +1418,11 @@ const renderSelectedRecipes = (recipeName) => {
 
 const renderList = (list) => {    
   listDiv.innerHTML = ''; // clear the container before adding new elements  
-  let servingSize = servingInput.value;
-  if(servingSize === ''){
-    servingSize = 1
-  }
+  console.log(`Serving Size: ${servingSizeSelect.value}`)
+  let servingSize = servingSizeSelect.value;
+  // if(servingSize === ''){
+  //   servingSize = 1
+  // }
 
   for (let i = 0; i < list.length; i++) {
     let listElement = document.createElement('div');
@@ -1483,7 +1500,7 @@ let recipeDiv = document.getElementById('recipeDiv');
     }
   };
 
-createBtn('buttonDiv', 'Save List', 'consolidateBtn')
+createBtn('buttonDiv', 'Consolidate Ingredients', 'consolidateBtn')
 const combineSaveBtn = document.getElementById('consolidateBtn')
 combineSaveBtn.addEventListener('click',() => {
   consolidateGroceryList(groceryList)
@@ -1557,14 +1574,14 @@ const displayHideButtons = () => {
     viewListBtn.textContent = 'View Recipes'
     combineSaveBtn.style.display = 'block'
     dwnldPDFBtn.style.display = 'block'
-    servingInput.style.display = 'block'
+    servingSizeSelect.style.display = 'block'
     formBtn.style.display = 'block'
     
   } else {
     viewListBtn.textContent = 'View List'
     combineSaveBtn.style.display = 'none'
     dwnldPDFBtn.style.display = 'none'
-    servingInput.style.display = 'none' 
+    servingSizeSelect.style.display = 'none' 
     formBtn.style.display = 'none'
     
   }

@@ -144,6 +144,10 @@ button:active{
     padding: 5px;
     grid-column:4/5;
     grid-row: 2/3;
+    font-size: .8rem;
+    display: flex;
+
+    align-items: center;
 }
 .pdfBtn{    
     width: 100px;
