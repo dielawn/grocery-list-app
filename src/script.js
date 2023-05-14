@@ -24,6 +24,7 @@ const proteins = [
 ];
 
 const produce = [
+  { name: 'Apple', qty: .5, unit: 'apple', aisle: 'produce' },
   { name: 'Avacado', qty: .5, unit: 'avacado', aisle: 'produce' },
 
   { name: 'Banana', qty: .5, unit: 'bunch', aisle: 'produce' },
@@ -58,6 +59,7 @@ const produce = [
   { name: 'Long Green Pepper', qty: .5, unit: '', aisle: 'produce' },
 
   { name: 'Mandarin Orange', qty: .5, unit: 'orange', aisle: 'produce' },
+  { name: 'Mixed Greens', qty: 2, unit: 'oz', aisle: 'produce' },
 
   { name: 'Parsley', qty: .25, unit: 'oz', aisle: 'produce' },
   { name: 'Poblano Pepper', qty: .5, unit: '', aisle: 'produce' },
@@ -93,7 +95,7 @@ const grain = [
   { name: 'Everything Bagel', qty: 1, unit: 'pack', aisle: 'bakery' },
 
   { name: 'Flatbreads', qty: 1, unit: 'crust', aisle: 'bakery' },
-  { name: 'Flour Tortillas', qty: 3, unit: 'Tortilla', aisle: 'canned'},
+  { name: 'Flour Tortillas', qty: 2-3, unit: 'Tortilla', aisle: 'canned'},
   
   { name: 'Jasmine Rice', qty: .5, unit: 'cup', aisle: 'ethnic' },
   
@@ -735,18 +737,13 @@ const chickenParmOverSpaghettiIngredients = [
    || item.name === "Mozzarella Cheese"),
 ]
 const sunDriedTomatoSpaghettiIngredients = [
-  ...proteins.filter(item => item.name === ""),
+  
   ...produce.filter(item => item.name === "Garlic" || item.name === "Grape Tomatoes"
    || item.name === "Green Herb Blend"),
   ...grain.filter(item => item.name === "Spaghetti"),
   ...sauce.filter(item => item.name === "Veggie Stock Concentrate"),
-  ...cannedGoods.filter(item => item.name === ""),
   ...driedGoods.filter(item => item.name === "Sliced Almonds" || item.name === "Sun-Dried Tomatoes"),
-  ...seasoning.filter(item => item.name === ""),
   ...dairy.filter(item => item.name === "Cream Cheese" || item.name === "Parmesan Cheese"),
-  ...bakingGoods.filter(item => item.name === ""),
-  ...frozenFood.filter(item => item.name === ""),
-  ...snack.filter(item => item.name === "")
 ]
 const zucchiniTomatoFlatbreadsIngredients = [
   ...produce.filter(item => item.name === "Zucchini" || item.name === "Garlic"
@@ -760,11 +757,21 @@ const homestyleTurkeyBiscuitPotPieIngredients = [
   ...proteins.filter(item => item.name === "Ground Turkey"),
   ...produce.filter(item => item.name === "Carrots" || item.name === "Celery"
    || item.name === "Yellow Onion" || item.name === "Garlic" || item.name === "Thyme"),
-  ...grain.filter(item => item.name === "Homestyle Biscuits"),
+  ...grain.filter(item => item.name === "Buttermilk Biscuits"),
   ...sauce.filter(item => item.name === "Chicken Stock Concentrate"),
   ...dairy.filter(item => item.name === "Cream Cheese"),
+  ...bakingGoods.filter(item => item.name === "Flour"),
 ]
+const mightyMushroomTortillaMeltsIngredients = [
+  ...produce.filter(item => item.name === "Yellow Onion" || item.name === "Lemon"
+   || item.name === "Apple" || item.name === "Mixed Greens" || item.name === "Button Mushrooms"),
+  ...grain.filter(item => item.name === "Flour Tortillas"),
+  ...sauce.filter(item => item.name === "Mushroom Stock Concentrate"),
+  ...seasoning.filter(item => item.name === "Fry Seasoning"),
+  ...dairy.filter(item => item.name === "Sour Cream" || item.name === "Monterey Jack Cheese"
+   || item.name === "Cheddar Cheese"),
 
+]
 // || item.name === ""
 const templateIngredients = [
   ...proteins.filter(item => item.name === ""),
@@ -1064,6 +1071,12 @@ image: 'images/chicken-pineapple-quesadillas.avif',
 instructions:'instructions/chicken-pineapple-quesadillas.pdf',
 link: 'https://www.hellofresh.com/recipes/chicken-pineapple-quesadillas-5e5026694cd03e416b3ebf93'
 },
+{ name: 'Mighty Mushroom Tortilla Melts',
+ingredients: mightyMushroomTortillaMeltsIngredients,
+image: 'images/mighty-mushroom-tortilla-melts.avif',
+instructions:'instructions/mighty-mushroom-tortilla-melts.pdf',
+link: 'https://www.hellofresh.com/recipes/mighty-mushroom-tortilla-melts-6239d54bf2907366e348025e'
+},
 { name: 'Pork & Poblano Tacos',
 ingredients: porkAndPoblanoTacoIngredients,
 image: 'images/pork-and-poblano-tacos.avif',
@@ -1137,12 +1150,12 @@ instructions:'instructions/homestyle-chicken-biscuit-pot-pie.pdf',
 link: 'https://www.hellofresh.com/recipes/homestyle-chicken-biscuit-pot-pie-5f049500d95a4007c84095f2'
 },
 
-{ name: 'template',
-ingredients: '',
-image: 'images/',
-instructions:'instructions/',
-link: ''
-},
+// { name: 'template',
+// ingredients: '',
+// image: 'images/',
+// instructions:'instructions/',
+// link: ''
+// },
 //sides
 { name: 'Potato Wedges',
 ingredients: potatoWedgeIngredients,
