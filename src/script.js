@@ -95,7 +95,7 @@ const grain = [
   { name: 'Everything Bagel', qty: 1, unit: 'pack', aisle: 'bakery' },
 
   { name: 'Flatbreads', qty: 1, unit: 'crust', aisle: 'bakery' },
-  { name: 'Flour Tortillas', qty: 2-3, unit: 'Tortilla', aisle: 'canned'},
+  { name: 'Flour Tortillas', qty: 3, unit: 'Tortilla', aisle: 'canned'},
   
   { name: 'Jasmine Rice', qty: .5, unit: 'cup', aisle: 'ethnic' },
   
@@ -772,6 +772,14 @@ const mightyMushroomTortillaMeltsIngredients = [
    || item.name === "Cheddar Cheese"),
 
 ]
+const chickenCheddarFajitasIngredients = [
+  ...proteins.filter(item => item.name === "Chicken Breast"),
+  ...produce.filter(item => item.name === "Bell Pepper" || item.name === "Jalapeno"
+   || item.name === "Red Onion" || item.name === "Lime"),
+  ...grain.filter(item => item.name === "Flour Tortillas"),
+  ...seasoning.filter(item => item.name === "Southwest Spice Blend"),
+  ...dairy.filter(item => item.name === "Sour Cream" || item.name === "Cheddar Cheese"),
+]
 // || item.name === ""
 const templateIngredients = [
   ...proteins.filter(item => item.name === ""),
@@ -1038,9 +1046,12 @@ image: 'images/rio-rancho-pulled-pork-tacos.avif',
 instructions:'instructions/rio-rancho-pulled-pork-tacos.pdf',
 link: 'https://www.hellofresh.com/recipes/rio-rancho-pulled-pork-tacos-5e5ce98d740b5917bc02d716'
 },
-
-
-
+{ name: 'Chicken Cheddar Fajitas',
+ingredients: chickenCheddarFajitasIngredients,
+image: 'images/chicken-cheddar-fajitas.avif',
+instructions:'instructions/chicken-cheddar-fajitas.pdf',
+link: 'https://www.hellofresh.com/recipes/chicken-cheddar-fajitas-5de6cecef4d7307d823bb545'
+},
 { name: 'Black Bean & Pepper Quesadillas',
 ingredients: blackBeanPepperQuesadillaIngredients,
 image: 'images/black-bean-quesadillas.avif',
