@@ -11,3 +11,6 @@
 5. Click "Generate PDF" to download a .pdf of grocery list and meal list.
 
 6. Click the image of any recipe to view instructions for that recipe.
+
+npx webpack --config webpack.config.js
+

@@ -1209,7 +1209,15 @@ const qtyInput = document.getElementById('qtyInput')
 const unitInput = document.getElementById('unitInput')
 const aisleInput = document.getElementById('aisleSelect')
 
-
+const handleLocalStorage = () => {
+  clearLocalStorage()
+  for(let i = 0; i < groceryList.length; i++){
+  let itemKey = 'ingredient' + i
+  console.log(groceryList[i].name)
+  let itemValue = { name: groceryList[i].name, qty: groceryList[i].qty, unit: groceryList[i].unit, aisle: groceryList[i].aisle }
+  saveToLocalStorage(itemKey, itemValue, groceryList)
+} 
+}
 
 //rename ingredient
 const loadLocalStorageList = () => {
@@ -1230,12 +1238,13 @@ const loadLocalStorageList = () => {
       
     } 
     sortGroceryListByAisle(groceryList)
+    
     renderList(groceryList);
     for(let i =0; i < savedRecipes.length; i++){
       let recipeName = savedRecipes[i]
       renderSelectedRecipes(recipeName)
     }
-    
+    handleLocalStorage()
   }
 }
 
@@ -1392,9 +1401,7 @@ const renderSelectedRecipes = (recipeName) => {
 const renderList = (list) => {    
   listDiv.innerHTML = ''; // clear the container before adding new elements  
   let servingSize = servingSizeSelect.value;
-  if(servingSize === ''){
-    servingSize = 1
-  }
+  
 
   for (let i = 0; i < list.length; i++) {
     let listElement = document.createElement('div');
@@ -1405,14 +1412,14 @@ const renderList = (list) => {
       
     listDiv.appendChild(listElement);
     listElement.classList = 'shopping-list';
-    listElement.id = 'shoppingList'
+    listElement.id = `shoppingList${i}`
     listElement.textContent = `${list[i].name} ${adjustedQuantity}, ${list[i].unit}`;
     listElement.appendChild(removeBtn);
 
     removeBtn.textContent = 'X';
     removeBtn.classList = 'removeBtn'
     removeBtn.addEventListener('click', createRemoveListener(listElement, i));
-  
+   
   }
 };
 
@@ -1420,25 +1427,19 @@ const renderList = (list) => {
 
 const createRemoveListener = (listElement, index) => {
   return () => {
+    let text = listElement.textContent.slice(0, -1)
+    let result = text.indexOf(listElement);
+    console.log('text:', text, 'result:', result, 1434)
     listElement.remove(); // remove the list element from the DOM
-    // let localStorageKey = `ingredient${index}`
-    // console.log(`groceryList Index: ${index} localstorage key:${localStorageKey} 1391`)
-    // if(localStorage.length !== 0){
-    //   localStorage.removeItem(localStorageKey)
-    // }
-    // console.log(localStorage)
+   
     if (index !== -1) {
-      console.log(index, groceryList, 1433)
-      groceryList.splice(index, 1); // remove the item from the list
-      console.log(index, groceryList, 1435)
+      console.log(result, groceryList, 1433)
+      groceryList.splice(result, 1); // remove the item from the list
+      
+      console.log(result, groceryList, 1435)
+      
     }
-    clearLocalStorage()
-    for(let i = 0; i < groceryList.length; i++){
-    let itemKey = 'ingredient' + i
-    console.log(groceryList[i].name)
-    let itemValue = { name: groceryList[i].name, qty: groceryList[i].qty, unit: groceryList[i].unit, aisle: groceryList[i].aisle }
-    saveToLocalStorage(itemKey, itemValue, groceryList)
-} 
+   
   };
 };
 

@@ -1,0 +1,305 @@
+[33mcommit 8612849b32efdcbfd5b78e53b1dab6ceb58e9105[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: dielawn <dielawnmerkill@gmail.com>
+Date:   Sun May 14 19:42:42 2023 -0600
+
+    Fixed local storage index issue by clearing and resaving
+
+[33mcommit fa3af3e87e2a68a7751020c0315d6fefcceb4cab[m
+Author: dielawn <dielawnmerkill@gmail.com>
+Date:   Sun May 14 14:04:58 2023 -0600
+
+    change serving size to select drop down
+
+[33mcommit 4168ce05dad03c38243bca6c66466b7a1e8b5142[m
+Author: dielawn <dielawnmerkill@gmail.com>
+Date:   Sun May 14 09:18:12 2023 -0600
+
+    new recipe
+
+[33mcommit 40e2485eed478d7ea22d7df446c6dbc399ffa289[m
+Author: dielawn <dielawnmerkill@gmail.com>
+Date:   Sun May 14 09:04:08 2023 -0600
+
+    new recipe
+
+[33mcommit 90ba58e977006c523137037f920546316555c42c[m
+Author: dielawn <dielawnmerkill@gmail.com>
+Date:   Sat May 13 16:24:21 2023 -0600
+
+    text to black added a recipe
+
+[33mcommit 39ad92ac2dd79ff782a7d163d5e6629eef391f76[m
+Author: dielawn <dielawnmerkill@gmail.com>
+Date:   Sat May 13 16:01:32 2023 -0600
+
+    font color black on body for iphone
+
+[33mcommit 1d887de9b76131ef994b004ce0be098c9cac44d8[m
+Author: dielawn <dielawnmerkill@gmail.com>
+Date:   Tue May 9 19:12:10 2023 -0600
+
+    trying out redifining localStorageKey to the current index
+
+[33mcommit 89d58fca1f239d2d9258fe7236c5287387b5ecec[m
+Author: dielawn <dielawnmerkill@gmail.com>
+Date:   Sun May 7 20:20:26 2023 -0600
+
+    removed buttons and added items to recipes
+
+[33mcommit aff237a5d0c56e389f0153122ed0fe978e18e8b6[m
+Author: dielawn <dielawnmerkill@gmail.com>
+Date:   Sun May 7 19:25:02 2023 -0600
+
+    changed display: for mealListDiv and searchDiv
+
+[33mcommit 8fcd3b71faf521e6b14ec2231c4f8e93fb0e60c3[m
+Author: dielawn <dielawnmerkill@gmail.com>
+Date:   Sun May 7 19:16:43 2023 -0600
+
+    mobile view hide stuff
+
+[33mcommit a0257b3cafc2219acd27b149e763a2a1348d4b16[m
+Author: dielawn <dielawnmerkill@gmail.com>
+Date:   Sun May 7 17:26:57 2023 -0600
+
+    converting buttons to function from html
+
+[33mcommit 0715c64c03a579bf5464852800e98fded8511a58[m
+Author: dielawn <dielawnmerkill@gmail.com>
+Date:   Sun May 7 11:26:04 2023 -0600
+
+    wider mobile buttons taller div so buttons stack
+
+[33mcommit 84104f5af5c01dc63b36a8eb55c8e8616a30213e[m
+Author: dielawn <dielawnmerkill@gmail.com>
+Date:   Sun May 7 10:40:24 2023 -0600
+
+    style stuff
+
+[33mcommit 57b7fb22110a60d2cc89da723ed8c466099e3340[m
+Author: dielawn <dielawnmerkill@gmail.com>
+Date:   Sun May 7 08:36:55 2023 -0600
+
+    selected recipe names are saving and loading with local storage
+
+[33mcommit 2487f9bf3b8b440c01a9ebb44d984c6e3ea35130[m
+Author: dielawn <dielawnmerkill@gmail.com>
+Date:   Sun May 7 06:26:57 2023 -0600
+
+    local storage complete list saves with consolidateBtn and clears with clearBtn items can be removed individually
+
+[33mcommit 804692e7afd0b2b68bb4da50a64df5efd0e019c5[m
+Author: dielawn <dielawnmerkill@gmail.com>
+Date:   Sat May 6 17:12:08 2023 -0600
+
+    local storage is loading and sorting in dom
+
+[33mcommit e82eb959311105021e6f4ca73fa9acd459f3a563[m
+Author: dielawn <dielawnmerkill@gmail.com>
+Date:   Fri May 5 06:16:39 2023 -0600
+
+    local storage items are present but not rendering
+
+[33mcommit 000291f4919a0007186759a7e2137b44a5905fb3[m
+Author: dielawn <dielawnmerkill@gmail.com>
+Date:   Tue May 2 06:31:07 2023 -0600
+
+    local storage stuff
+
+[33mcommit b67c00542c26c1ac962b74e71a08f544aed04ec9[m
+Author: dielawn <dielawnmerkill@gmail.com>
+Date:   Mon May 1 12:23:18 2023 -0600
+
+     adjusted recipeDiv so bottom buttons visible on mobile
+
+[33mcommit 0d3ecc7a936aa566d6d42db9c5ee6cc760890a73[m
+Author: dielawn <dielawnmerkill@gmail.com>
+Date:   Mon May 1 05:57:57 2023 -0600
+
+    adjusted menu height for mobile to fit all buttons
+
+[33mcommit 634121945052799c5f352863796e481ca9ef0b03[m
+Author: dielawn <dielawnmerkill@gmail.com>
+Date:   Sun Apr 30 19:27:00 2023 -0600
+
+    display and hide add item form for mobile
+
+[33mcommit f7d9dceac73f699a66cdff9fc2fa0cc8a9986ee1[m
+Author: dielawn <dielawnmerkill@gmail.com>
+Date:   Sun Apr 30 17:06:45 2023 -0600
+
+    added menu for adding an item to the grocery list
+
+[33mcommit b1377dd975ee5aabc95c08ccf32c272a5b26244a[m
+Author: dielawn <dielawnmerkill@gmail.com>
+Date:   Sun Apr 30 15:48:29 2023 -0600
+
+    mobile friendly css should be good
+
+[33mcommit d681913120842832067e879eb1a05b27765d0a6f[m
+Author: dielawn <dielawnmerkill@gmail.com>
+Date:   Sun Apr 30 06:56:39 2023 -0600
+
+    some style to buttons and input
+
+[33mcommit f02d074679a01cbaff0704e758930062acb4ff0d[m
+Author: dielawn <dielawnmerkill@gmail.com>
+Date:   Sun Apr 30 04:43:14 2023 -0600
+
+    pdf is working 2 cols 1st col is grocery list, 2nd col is selected meal list
+
+[33mcommit 652d19e0b0d24b365c5448ffa6fac8a92b30c61f[m
+Author: dielawn <dielawnmerkill@gmail.com>
+Date:   Sat Apr 29 19:32:17 2023 -0600
+
+    working on pdf generation, working now but needs formatting
+
+[33mcommit c41dc50b7ba8044e36e2a4e5584ed3a90fa62fb0[m
+Author: dielawn <dielawnmerkill@gmail.com>
+Date:   Sat Apr 29 06:24:29 2023 -0600
+
+    just more recipes
+
+[33mcommit 29a5def2b0233249352df67ad3c947e310578a0d[m
+Author: dielawn <dielawnmerkill@gmail.com>
+Date:   Thu Apr 27 07:29:18 2023 -0600
+
+    one more for the money
+
+[33mcommit 10358dc29ca8daeeae41c952d8f3175091e3d5b9[m
+Author: dielawn <dielawnmerkill@gmail.com>
+Date:   Thu Apr 27 06:32:05 2023 -0600
+
+    more recipes
+
+[33mcommit 433831e2b1cb96d8f9be3f726b9bab075fc28c6a[m
+Author: dielawn <dielawnmerkill@gmail.com>
+Date:   Wed Apr 26 07:05:50 2023 -0600
+
+    spelling error in saue, added another recipe
+
+[33mcommit 725a0b12e008902993c11e215f65007279b2ab64[m
+Author: dielawn <dielawnmerkill@gmail.com>
+Date:   Tue Apr 25 19:42:57 2023 -0600
+
+    formatting
+
+[33mcommit 1967f796a114fc77be71a662479334a9899f1adf[m
+Author: dielawn <dielawnmerkill@gmail.com>
+Date:   Tue Apr 25 06:38:54 2023 -0600
+
+    made default serving size 1 if input is left blank
+
+[33mcommit 56c4fdc9792b7c00fc954ac473055e5090bbd440[m
+Author: dielawn <dielawnmerkill@gmail.com>
+Date:   Tue Apr 25 06:28:29 2023 -0600
+
+    eliminated switch case function by removing quotes from ingredient variable.
+
+[33mcommit d2353d548710797d49fb402e8b8d1dfddf1993ef[m
+Author: dielawn <dielawnmerkill@gmail.com>
+Date:   Mon Apr 24 06:20:40 2023 -0600
+
+    more recipes
+
+[33mcommit cf19bc9f085b9c0669af9b3551ec91fc9ad04468[m
+Author: dielawn <dielawnmerkill@gmail.com>
+Date:   Sun Apr 23 21:31:00 2023 -0600
+
+    added buttons to switch case
+
+[33mcommit ca05f425cd0f22334df109db2ca6caed039301b2[m
+Author: dielawn <dielawnmerkill@gmail.com>
+Date:   Sun Apr 23 21:24:56 2023 -0600
+
+    added a few more recipes
+
+[33mcommit 4ee27c842c4050b43ecb3f3941e0a1f7158ce39c[m
+Author: dielawn <dielawnmerkill@gmail.com>
+Date:   Mon Apr 17 20:14:30 2023 -0600
+
+    went back to single input for serving size
+
+[33mcommit 508e592baddedc8addb3202569c9407d099bb88b[m
+Author: dielawn <dielawnmerkill@gmail.com>
+Date:   Sun Apr 16 20:35:10 2023 -0600
+
+    added portion inputs not outputing correct portion yet
+
+[33mcommit a22c7c1b96110e11056194c5b2b41b8165310c75[m
+Author: dielawn <dielawnmerkill@gmail.com>
+Date:   Sun Apr 16 18:39:26 2023 -0600
+
+    selected recipe list renders
+
+[33mcommit 394d28892ba9b2158cffe04e142d307961f407d6[m
+Author: dielawn <dielawnmerkill@gmail.com>
+Date:   Sun Apr 16 17:45:44 2023 -0600
+
+    linked images to pdf
+
+[33mcommit 66f25b4edf9a3cb2efe2e231d200afb9be4606a0[m
+Author: dielawn <dielawnmerkill@gmail.com>
+Date:   Sun Apr 16 16:55:48 2023 -0600
+
+    added images to array
+
+[33mcommit 7e725a40a11493825424a6cbb27d27688ed205c1[m
+Author: dielawn <dielawnmerkill@gmail.com>
+Date:   Sun Apr 16 16:29:50 2023 -0600
+
+    new recipe
+
+[33mcommit 1494eee1c1536a0d47386512a7984aec2ab4dd9d[m
+Author: dielawn <dielawnmerkill@gmail.com>
+Date:   Sun Apr 16 09:10:47 2023 -0600
+
+    functions are updated to keep array format
+
+[33mcommit 5bdbfeca11f044232ed935244b763818efac191d[m
+Author: dielawn <dielawnmerkill@gmail.com>
+Date:   Mon Apr 10 06:57:38 2023 -0600
+
+    mostly style changes still can't get ingredients to render unless function is called in the script.
+
+[33mcommit 30adb0fd6000a62dcd9ff931504dab469606fc59[m
+Author: dielawn <dielawnmerkill@gmail.com>
+Date:   Sun Apr 9 17:02:54 2023 -0600
+
+    working on the add recipe to list button
+
+[33mcommit ccbd978a5093a0b51a36fd87fcb9018dcf61ef4b[m
+Author: dielawn <dielawnmerkill@gmail.com>
+Date:   Sun Apr 9 12:48:18 2023 -0600
+
+    changed design to link instructions to pdf
+
+[33mcommit c177e12fe681637070ba5f2c0295f5d5d22e4cae[m
+Author: dielawn <dielawnmerkill@gmail.com>
+Date:   Sun Apr 9 08:25:32 2023 -0600
+
+    sort function is working!
+
+[33mcommit bb690c79d4fa52f32225166f073b6d9258f01a95[m
+Author: dielawn <dielawnmerkill@gmail.com>
+Date:   Sat Apr 8 20:38:57 2023 -0600
+
+    a couple more ingredients and recipies
+
+[33mcommit 7b3de3511e5d3313d584d5b8bf9b27fe711be915[m
+Author: dielawn <dielawnmerkill@gmail.com>
+Date:   Sat Apr 8 19:50:41 2023 -0600
+
+     added aisle atribute to organize final list
+
+[33mcommit 16c0da36589491b3436f48c4313be1c776a2995c[m
+Author: dielawn <dielawnmerkill@gmail.com>
+Date:   Sat Apr 8 16:37:46 2023 -0600
+
+    added to recipes and have a function that adds the ingredients to a list and a function that consolidates the list and sums qty
+
+[33mcommit 13250bb5abfb3026ac4ce62028408ef79b01fe09[m
+Author: dielawn <dielawnmerkill@gmail.com>
+Date:   Sat Apr 8 13:30:13 2023 -0600
+
+    first commit
