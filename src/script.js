@@ -1249,11 +1249,12 @@ const loadLocalStorageList = () => {
 }
 
 const saveToLocalStorage = (key, value, list) => {  
-  console.log(list)
+  
   for(let i = 0; i < list.length; i++){
+    console.log(`saveToLocalStorage List: ${list[i].name}`)
     let itemKey = 'ingredient' + i
     let itemValue = { name: list[i].name, qty: list[i].qty, unit: list[i].unit, aisle: list[i].aisle }
-    console.log(itemKey, itemValue, )
+    console.log(`saveToLocalStorage ItemKey: ${itemKey}, ItemValue: ${itemValue.name}, `)
     localStorage.setItem(key, JSON.stringify(value));    
   }
   let mealList = document.getElementsByClassName('meal-list')
@@ -1427,21 +1428,42 @@ const renderList = (list) => {
 
 const createRemoveListener = (listElement, index) => {
   return () => {
-    let text = listElement.textContent.slice(0, -1)
-    let result = text.indexOf(listElement);
-    console.log('text:', text, 'result:', result, 1434)
-    listElement.remove(); // remove the list element from the DOM
-   
-    if (index !== -1) {
-      console.log(result, groceryList, 1433)
-      groceryList.splice(result, 1); // remove the item from the list
-      
-      console.log(result, groceryList, 1435)
-      
+    let text = listElement.textContent.split(' ').slice(0, -2).join(' ');
+    let result = -1;
+
+    for (let i = 0; i < groceryList.length; i++) {
+      console.log('Checking:', groceryList[i].name);
+      if (groceryList[i].name === text) {
+        result = i;
+        break;
+      }
     }
-   
+
+    console.log('text:', text, 'result:', result);
+    listElement.remove(); // remove the list element from the DOM
+
+    if (result !== -1) {
+      console.log(result, groceryList);
+      groceryList.splice(result, 1); // remove the item from the list
+      clearLocalStorage()
+      for(let i = 0; i < groceryList.length; i++){
+      let itemKey = 'ingredient' + i
+      console.log(groceryList[i].name)
+      let itemValue = { name: groceryList[i].name, qty: groceryList[i].qty, unit: groceryList[i].unit, aisle: groceryList[i].aisle }
+      saveToLocalStorage(itemKey, itemValue, groceryList)
+      } 
+      console.log(result, groceryList);
+    }
   };
 };
+
+
+
+
+
+
+
+
 
 let recipeDiv = document.getElementById('recipeDiv');
   

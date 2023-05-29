@@ -273,7 +273,7 @@ button:active{
         display: none;
     }
     .servingSizeSelect{
-        display: none;
+        display: block;
     }
   
     .container{
