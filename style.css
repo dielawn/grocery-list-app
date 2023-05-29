@@ -130,8 +130,9 @@ button:active{
         height: 250px;
 }
 .addItemBtn{
-    width: 105px;
+    width: 125px;
 }
+ol,
 .servingSizeDiv{
     
    display: flex;
@@ -142,32 +143,33 @@ button:active{
     grid-row: 1/2;
 }
 .saveListBtn{
-    width: 100px;
+    width: 125px;
     height: 30px;
     padding: 5px;
     grid-column:3/4;
     grid-row: 3/4;
 }
 .clearListBtn{
-    width: 100px;
+    width: 125px;
     height: 30px;
     padding: 5px;
     grid-column:1/2;
     grid-row: 3/4;
 }
 .consolidateBtn{
-    width: 100px;
+    width: 125px;
     height: 30px;
     padding: 5px;
     grid-column:4/5;
     grid-row: 2/3;
     font-size: .8rem;
     display: flex;
-
+   justify-content: center;
+text-align: center;
     align-items: center;
 }
 .pdfBtn{    
-    width: 100px;
+    width: 125px;
     height: 30px;
     padding: 5px;
     grid-column:2/3;
@@ -187,7 +189,7 @@ button:active{
     padding: 5px;
 }
 .searchBtn{
-    width: 100px;
+    width: 125px;
 }
 
 
@@ -242,6 +244,7 @@ button:active{
     align-items: center;
 }
 .addItemFormBtn{
+    width: 125px;
     display: block;
     grid-column: 3/4;
     grid-row: 1/2;
