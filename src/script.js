@@ -265,6 +265,8 @@ const snack = [
 { name: 'Tortilla Chips', qty: .25, unit: 'bag', aisle: 'snack' },
 ]
 
+
+
 // 
 const dillonsBreakfastIngredients = [
 ...dairy.filter(item => item.name === "Cream Cheese"),
@@ -1354,9 +1356,94 @@ const consolidateGroceryList = (list) => {
   
 };
 
+const aisleOrder = ['dairy', 'freezer', 'cheese', 'snack', 'butcher', 'ethnic', 'noodle',  'canned', 'baking', 'cereal', 'condiment', 'bakery', 'produce', 'nutrition', ''];
+const aisleSelectorDiv = document.getElementById('aisleOrderDiv');
+
+const renderAisleOrder = () => {
+  
+  
+  for (let i = 0; i < aisleOrder.length; i++) {
+    console.log(aisleOrder[i])
+  let listElement = document.createElement('div');  
+  listElement.classList = 'aisle-order';
+  let aisleName = aisleOrder[i]
+  let firstLetter = aisleName.charAt(0)
+  let remainingLetters = aisleName.substring(1)
+  let firstLetterCap = firstLetter.toUpperCase()
+  let capitalizedName = firstLetterCap + remainingLetters
+
+  listElement.textContent = capitalizedName
+  aisleSelectorDiv.appendChild(listElement)
+  }
+
+}
+
+
+
+const createAisleSelector = () => {
+
+  
+  aisleSelectorDiv.innerHTML = ''
+
+  const selectAisleElement = document.createElement('select');
+  selectAisleElement.name = 'aisleOrderName';
+  selectAisleElement.id = 'aisleOrderSelector';
+
+  const selectIndexElement = document.createElement('select');
+  selectIndexElement.name = 'aisleOrderIndex';
+  selectIndexElement.id = 'aisleOrderIndex';
+
+  for (let i = 0; i < aisleOrder.length; i++) {
+    const optionElement = document.createElement('option');
+    optionElement.value = i.toString();
+    optionElement.textContent = aisleOrder[i];
+    selectAisleElement.appendChild(optionElement);
+
+    const optionIndexElement = document.createElement('option')
+    optionIndexElement.value = i.toString();
+    optionIndexElement.textContent = i + 1;
+    selectIndexElement.appendChild(optionIndexElement)
+  }
+
+  aisleSelectorDiv.appendChild(selectAisleElement);
+  aisleSelectorDiv.appendChild(selectIndexElement);
+  
+  // const aisleSelector = document.getElementById('aisleOrderSelector');
+  // const aisleIndexSelector = document.getElementById('aisleOrderIndex');
+
+  createBtn('aisleOrderDiv', 'Change Index', 'changeIndexBtn')
+const aisleIndexBtn  = document.getElementById('changeIndexBtn')
+aisleIndexBtn.addEventListener('click', () => {
+  setAisleOrder(aisleOrder, selectAisleElement.value, selectIndexElement.value)
+  sortGroceryListByAisle(groceryList)
+  renderList(groceryList)
+  renderAisleOrder()
+  createAisleSelector()
+})
+renderAisleOrder()
+};
+
+const setAisleOrder = (array, oldIndex, newIndex) => {
+  console.log(`Before reorder: ${array}`);
+  if (newIndex >= array.length) {
+    var k = newIndex - array.length;
+    while ((k--) + 1) {
+      array.push(undefined);
+    }
+  }
+  array.splice(newIndex, 0, array.splice(oldIndex, 1)[0]);
+  console.log(`After reorder: ${array}`);
+  return array;
+};
+
+createAisleSelector();
+
+
+
+
   const sortGroceryListByAisle = (list) => {
     // Define the order of aisles
-    const aisleOrder = ['dairy', 'freezer', 'cheese', 'snack', 'butcher', 'ethnic', 'noodle',  'canned', 'baking', 'cereal', 'condiment', 'bakery', 'produce', 'nutrition', '']
+    
     console.log(list, groceryList)
     // Add the aisle property to each item in the list
     const listWithAisle = list.map(item => {

@@ -1,0 +1,89 @@
+{
+    "proteins": [
+      {
+        "name": "Bacon",
+        "qty": 4,
+        "unit": "oz",
+        "aisle": "butcher"
+      },
+      {
+        "name": "Beef Tenderloin Steak",
+        "qty": 5,
+        "unit": "oz",
+        "aisle": "butcher"
+      },
+      {
+        "name": "Chicken Breast",
+        "qty": 6,
+        "unit": "oz",
+        "aisle": "butcher"
+      },
+      {
+        "name": "Chicken Breast Strips",
+        "qty": 5,
+        "unit": "oz",
+        "aisle": "butcher"
+      },
+      {
+        "name": "Chicken Cutlets",
+        "qty": 5,
+        "unit": "oz",
+        "aisle": "butcher"
+      },
+      {
+        "name": "Diced Steak",
+        "qty": 5,
+        "unit": "oz",
+        "aisle": "butcher"
+      },
+      {
+        "name": "Ground Beef",
+        "qty": 5,
+        "unit": "oz",
+        "aisle": "butcher"
+      },
+      {
+        "name": "Ground Pork",
+        "qty": 5,
+        "unit": "oz",
+        "aisle": "butcher"
+      },
+      {
+        "name": "Ground Turkey",
+        "qty": 5,
+        "unit": "oz",
+        "aisle": "butcher"
+      },
+      {
+        "name": "Italian Chicken Sausage",
+        "qty": 5,
+        "unit": "oz",
+        "aisle": "butcher"
+      },
+      {
+        "name": "Italian Pork Sausage",
+        "qty": 5,
+        "unit": "oz",
+        "aisle": "butcher"
+      },
+      {
+        "name": "Pork Chops",
+        "qty": 6,
+        "unit": "oz",
+        "aisle": "butcher"
+      },
+      {
+        "name": "Pork Tenderloin",
+        "qty": 5,
+        "unit": "oz",
+        "aisle": "butcher"
+      },
+      {
+        "name": "Pulled Pork",
+        "qty": 5,
+        "unit": "oz",
+        "aisle": "butcher"
+      }
+    ]
+  }
+  

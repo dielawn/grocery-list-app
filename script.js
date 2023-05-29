@@ -1352,10 +1352,10 @@ const consolidateGroceryList = (list) => {
   console.log('after',groceryList)
   
 };
-
+const aisleOrder = ['dairy', 'freezer', 'cheese', 'snack', 'butcher', 'ethnic', 'noodle',  'canned', 'baking', 'cereal', 'condiment', 'bakery', 'produce', 'nutrition', '']
   const sortGroceryListByAisle = (list) => {
     // Define the order of aisles
-    const aisleOrder = ['dairy', 'freezer', 'cheese', 'snack', 'butcher', 'ethnic', 'noodle',  'canned', 'baking', 'cereal', 'condiment', 'bakery', 'produce', 'nutrition', '']
+    
     console.log(list, groceryList)
     // Add the aisle property to each item in the list
     const listWithAisle = list.map(item => {
