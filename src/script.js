@@ -1608,7 +1608,7 @@ const displayHideList = () => {
     }
   }
 
-const clearLocalStorage = (key) => {
+const clearLocalStorage = () => {
   localStorage.clear();
 }
 

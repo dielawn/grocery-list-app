@@ -133,6 +133,7 @@ button:active{
     width: 105px;
 }
 .servingSizeDiv{
+    
    display: flex;
     height: 30px;
     padding: 5px;
@@ -272,8 +273,8 @@ button:active{
     .pdfBtn{
         display: none;
     }
-    .servingSizeSelect{
-        display: block;
+    .servingSizeDiv{
+        display: none;
     }
   
     .container{
@@ -322,7 +323,7 @@ button:active{
         height:32vh;
         margin: 15px;
         align-items: center;
-        
+        width: 100%;
         justify-content: space-around;
         background-color: white;
         align-content: center;
