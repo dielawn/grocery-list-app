@@ -1680,7 +1680,7 @@ const showHideButtonDiv = () => {
       selectedMealListDiv.style.display = 'block'
       
     }else if(buttonDiv.style.display === 'none'){
-      buttonDiv.style.display = 'block'
+      buttonDiv.style.display = 'flex'
       selectedMealListDiv.style.display = 'none'
     }
    
@@ -1732,10 +1732,13 @@ const displayHideInstructions = () => {
   if(listDiv.classList.contains('blur')){
     listDiv.classList.remove('blur')
   }
+  if(buttonDiv.classList.contains('blur')){
+    buttonDiv.classList.remove('blur')
+  }
   return
  }{
   instructionsElement.style.display = 'block'
-  
+  buttonDiv.classList.add('blur')
   recipeDiv.classList.add('blur')
   listDiv.classList.add('blur')
   
@@ -1747,6 +1750,7 @@ closeInstrtuctionsBtn.addEventListener('click', () => {
   instructionsElement.style.display = 'none'
   recipeDiv.classList.remove('blur')
   listDiv.classList.remove('blur')
+  buttonDiv.classList.remove('blur')
 })
 instructionsBtn.addEventListener('click', () => {
   displayHideInstructions()
