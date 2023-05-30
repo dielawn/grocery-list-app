@@ -12,6 +12,7 @@
 <body>
     <div class="container" id="container">
         <div id="recipeDiv" class="recipeDiv"></div>  
+        <img id="hamburgerIcon" class="hamburgerIcon" src="images/icon-hamburger.png" alt="">
         <div id="buttonDiv" class="buttonDiv">            
             <div class="addItemDiv" id="addItemDiv">
                 <input type="text" class="itemInput input" id="itemInput" placeholder="Item">
@@ -36,6 +37,7 @@
                 </select>                
             </div>
             <div class="searchDiv" id="searchDiv">
+                <p>Search for specific ingredients</p>
                 <input class="searchInput" id="searchInput" type="text" placeholder="Search">
             </div>
             
@@ -55,13 +57,26 @@
     
                 </select>                
             </div>
-            <div class="aisleOrderDiv" id="aisleOrderDiv">
-               
-               
-            </div>
+
+            <div class="aisleOrderDiv" id="aisleOrderDiv"></div>
+
          </div>
+         <div class="instructionsDiv" id="instructionDiv">
+            <ul class="instructions" id="instructions">
+                <li>Click a recipe image to download pdf directions</li>
+                <li>Click 'Add' button below any recipe to add the ingredients to your list.</li>
+                <li>Once you have added all the desired recipes Select a serving size and click 'Consolidate' to combine similar ingredients & show minimum quantity of each ingredient needed</li>
+                <li>To sort the grocery list by aisle click 'Sort by Aisle', then select the aisle you wish to change and select a number associated with the desired order and click 'Change Index'</li>
+                <li>Click 'Save List' to save the list to your browser</li>
+                <li>Click 'Clear List' to remove the list from your browser</li>
+                <li>The list automaticly saves if an ingredient is removed</li>
+                <li>Click 'Generate PDF' to download a PDF of the current grocery list and selected recipes to print or share</li>
+                <li>Click 'Add Item' and fill out the form to add custom items to your list</li>
+            </ul>
+         </div>
+         <div id="listDiv" class="listDiv"></div>
          <div class="mealListDiv" id="mealListDiv"></div>
-         <div id="listDiv" class="listDiv"></div>         
+                  
     </div>    
 </body>
 </html>

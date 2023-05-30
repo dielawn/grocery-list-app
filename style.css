@@ -28,12 +28,13 @@
 }
 .container{
     padding: 20px;
-    display: grid;
-    grid-template-columns: repeat(2, auto) repeat(2, .8fr);;
-    grid-template-rows: auto .8fr;
+    display:flex;
     width: 100vw;
 }
-
+.blur{
+    filter: blur(8px);
+  -webkit-filter: blur(8px);
+}
 .listDiv{
     width: 20vw;
     padding: 20px;
@@ -100,17 +101,26 @@ button:active{
 .addBtn{
     width: 300px;
 }
+.fullListBtn{
+    width: 125px;
+}
 .buttonDiv{
-    grid-column: 3/5;
-    grid-row: 1/2;
-    display: grid;
-    grid-template-columns: repeat( 12, minmax(200px, 1fr) );
-    grid-template-rows: auto auto auto;
-    width: 95%;
-    max-height: fit-content;
-    padding: 5px;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: space-around;
+    width: 320px;
+    height: 80vh;
+    padding: 10px;
+    margin: 10px;
+    
     align-items: center;
     background-color: rgba(0, 0, 0, .1);
+}
+.instructions{
+    
+    font-size: 1rem;
+    list-style: none;
 }
 .addItemDiv{    
     display: none;
@@ -130,7 +140,8 @@ button:active{
         height: 250px;
 }
 .addItemBtn{
-    width: 125px;
+    width: 300px;
+    
 }
 ol,
 .servingSizeDiv{
@@ -142,22 +153,26 @@ ol,
     grid-column:4/5;
     grid-row: 1/2;
 }
+.hamburgerIcon{
+    width: 25px;
+    height: 25px;
+}
 .saveListBtn{
-    width: 125px;
+    width: 300px;
     height: 30px;
     padding: 5px;
     grid-column:3/4;
     grid-row: 3/4;
 }
 .clearListBtn{
-    width: 125px;
+    width: 300px;
     height: 30px;
     padding: 5px;
     grid-column:1/2;
     grid-row: 3/4;
 }
 .consolidateBtn{
-    width: 125px;
+    width: 300px;
     height: 30px;
     padding: 5px;
     grid-column:4/5;
@@ -169,7 +184,7 @@ text-align: center;
     align-items: center;
 }
 .pdfBtn{    
-    width: 125px;
+    width: 300px;
     height: 30px;
     padding: 5px;
     grid-column:2/3;
@@ -244,15 +259,43 @@ text-align: center;
     align-items: center;
 }
 .addItemFormBtn{
-    width: 125px;
+    width: 300px;
     display: block;
     grid-column: 3/4;
     grid-row: 1/2;
 }
+.aisleOrderDiv{
+    display: none;
+}
+.showHideAisleBtn{
+    width: 300px;
+}
+.instructions{
+    display: none;
+}
+.instructionsBtn{
+    width: 300px;
+}
+.instructionsDiv{
+    
+    padding: 15px;
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    width: 400px;
+    height: 500px;
+}
 @media screen and (max-width: 800px) {
+    .instructionsDiv{
+       
+        top: 5%;
+        left: 0;
+        width: 400px;
+        height: 500px;
+    }
     .addItemFormBtn{
         display: none;
-        width: 200px;
+        
         text-align: center;
     }
     .addItemDiv{
@@ -317,13 +360,13 @@ text-align: center;
     .recipeDiv{
         width: 100%;
         overflow: scroll;
-        height: 65vh;
+        height: 80vh;
         justify-content: center;
     }
     .buttonDiv{
-        display: flex;
+        display: none;
         flex-direction: column;
-        height:32vh;
+        height:fit-content;
         margin: 15px;
         align-items: center;
         width: 100%;
@@ -333,16 +376,11 @@ text-align: center;
     }
     .viewListBtn{
         display: block;
-        width: 200px;
+        width: 300px;
     }
     .searchDiv{
        display: block;
        background-color: rgba(0, 0, 0, .1);
     }
-    .saveListBtn,
-    .clearListBtn,
-    .consolidateBtn,
-    .pdfBtn{
-        width: 200px;    
-    }   
+    
 }

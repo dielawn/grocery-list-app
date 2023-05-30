@@ -1360,8 +1360,6 @@ const aisleOrder = ['dairy', 'freezer', 'cheese', 'snack', 'butcher', 'ethnic', 
 const aisleSelectorDiv = document.getElementById('aisleOrderDiv');
 
 const renderAisleOrder = () => {
-  
-  
   for (let i = 0; i < aisleOrder.length; i++) {
     console.log(aisleOrder[i])
   let listElement = document.createElement('div');  
@@ -1382,7 +1380,6 @@ const renderAisleOrder = () => {
 
 const createAisleSelector = () => {
 
-  
   aisleSelectorDiv.innerHTML = ''
 
   const selectAisleElement = document.createElement('select');
@@ -1587,6 +1584,24 @@ let recipeDiv = document.getElementById('recipeDiv');
     }
   };
 
+  createBtn('buttonDiv', 'Sort by Aisle', 'showHideAisleBtn')
+  showHideAisleBtn.addEventListener('click', () => {
+    if (aisleSelectorDiv.style.display != 'block'){
+      aisleSelectorDiv.style.display = 'block'
+      return
+    }[
+      aisleSelectorDiv.style.display = 'none'
+    ]
+  })
+
+  createBtn('buttonDiv', 'Consolidate', 'consolidateBtn')
+const combineSaveBtn = document.getElementById('consolidateBtn')
+combineSaveBtn.addEventListener('click',() => {
+  consolidateGroceryList(groceryList)
+  
+  renderList(groceryList)
+}) 
+
   createBtn('buttonDiv', 'Save List', 'saveListBtn')
 const saveBtn = document.getElementById('saveListBtn')
 saveBtn.addEventListener('click', () => {
@@ -1599,13 +1614,7 @@ saveToLocalStorage(itemKey, itemValue, groceryList)
 } 
 })
 
-createBtn('buttonDiv', 'Consolidate', 'consolidateBtn')
-const combineSaveBtn = document.getElementById('consolidateBtn')
-combineSaveBtn.addEventListener('click',() => {
-  consolidateGroceryList(groceryList)
-  
-  renderList(groceryList)
-}) 
+
 
 createBtn('buttonDiv', 'Clear List', 'clearListBtn')
 const clearListBtn = document.getElementById('clearListBtn')
@@ -1662,6 +1671,21 @@ const displayHideForm = () => {
       itemForm.style.display = 'flex'
     }
 }
+const showHideButtonDiv = () => {
+      console.log('hamburger2')
+    let buttonDiv = document.getElementById('buttonDiv')
+   
+    if(buttonDiv.style.display != 'none'){
+      buttonDiv.style.display = 'none'
+      selectedMealListDiv.style.display = 'block'
+      
+    }else if(buttonDiv.style.display === 'none'){
+      buttonDiv.style.display = 'block'
+      selectedMealListDiv.style.display = 'none'
+    }
+   
+  }
+
 
 const displayHideButtons = () => {
   if(viewListBtn.textContent === 'View List'){
@@ -1695,6 +1719,29 @@ const displayHideList = () => {
     }
   }
 
+  createBtn('buttonDiv', 'View Instructions', 'instructionsBtn')
+const displayHideInstructions = () => {
+ const instructionsElement = document.getElementById('instructions')
+ if(instructionsElement.style.display != 'none'){
+  instructionsElement.style.display = 'none'
+  if(recipeDiv.classList.contains('blur')){
+    recipeDiv.classList.remove('blur')
+  }
+  if(recipeDiv.classList.contains('blur')){
+    recipeDiv.classList.remove('blur')
+  }
+  return
+ }{
+  instructionsElement.style.display = 'block'
+  recipeDiv.classList.add('blur')
+  listDiv.classList.add('blur')
+ }
+ 
+}
+instructionsBtn.addEventListener('click', () => {
+  displayHideInstructions()
+})
+
 const clearLocalStorage = () => {
   localStorage.clear();
 }
@@ -1720,11 +1767,14 @@ renderRecipes(recipes);
 createBtn('searchDiv', 'Search', 'searchBtn')
 searchBtn.addEventListener('click', () => { 
   let searchInput = document.getElementById('searchInput')
+  let searchBtn = document.getElementById('searchBtn')
   searchRecipesByKeyword(searchInput.value)
   createBtn('searchDiv', 'Full List', 'fullListBtn')
   searchInput.value = ''
+  searchBtn.style.display = 'none'
   document.getElementById('fullListBtn').addEventListener('click', () => {
     searchRecipesByKeyword('')
+    createBtn('searchDiv', 'Search', 'searchBtn')
     document.getElementById('fullListBtn').remove()
   })
 })
@@ -1732,6 +1782,13 @@ searchBtn.addEventListener('click', () => {
 
 
 
+document.addEventListener('DOMContentLoaded', () => {
+  let hamburgerIcon = document.getElementById('hamburgerIcon');
+  hamburgerIcon.addEventListener('click', () => {
+    console.log('hamburger1');
+    showHideButtonDiv()
+  });
+});
 
 
 loadLocalStorageList()
