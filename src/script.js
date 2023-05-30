@@ -1719,25 +1719,35 @@ const displayHideList = () => {
     }
   }
 
-  createBtn('buttonDiv', 'View Instructions', 'instructionsBtn')
+createBtn('buttonDiv', 'View Instructions', 'instructionsBtn')
+const instructionsElement = document.getElementById('instructionDiv')
 const displayHideInstructions = () => {
- const instructionsElement = document.getElementById('instructions')
+ 
  if(instructionsElement.style.display != 'none'){
   instructionsElement.style.display = 'none'
+
   if(recipeDiv.classList.contains('blur')){
     recipeDiv.classList.remove('blur')
   }
-  if(recipeDiv.classList.contains('blur')){
-    recipeDiv.classList.remove('blur')
+  if(listDiv.classList.contains('blur')){
+    listDiv.classList.remove('blur')
   }
   return
  }{
   instructionsElement.style.display = 'block'
+  
   recipeDiv.classList.add('blur')
   listDiv.classList.add('blur')
+  
  }
  
 }
+createBtn('instructionDiv', 'X', 'closeInstrtuctionsBtn')
+closeInstrtuctionsBtn.addEventListener('click', () => {
+  instructionsElement.style.display = 'none'
+  recipeDiv.classList.remove('blur')
+  listDiv.classList.remove('blur')
+})
 instructionsBtn.addEventListener('click', () => {
   displayHideInstructions()
 })

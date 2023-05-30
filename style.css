@@ -119,8 +119,8 @@ button:active{
 }
 .instructions{
     
-    font-size: 1rem;
-    list-style: none;
+    font-size: 1.15rem;
+   
 }
 .addItemDiv{    
     display: none;
@@ -271,19 +271,25 @@ text-align: center;
     width: 300px;
 }
 .instructions{
-    display: none;
+    display: block;
 }
 .instructionsBtn{
     width: 300px;
 }
 .instructionsDiv{
-    
-    padding: 15px;
+    display: none;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 50px;
     position: absolute;
-    top: 25%;
+    top: 10%;
     left: 25%;
-    width: 400px;
-    height: 500px;
+    width: 450px;
+    height: fit-content;
+}
+.closeInstrtuctionsBtn{
+    position: absolute;
+    top: 10%;
+    right: 10%;
 }
 @media screen and (max-width: 800px) {
     .instructionsDiv{
