@@ -288,6 +288,11 @@ text-align: center;
     top: 10%;
     right: 10%;
 }
+.list-header{
+    font-size: x-large;
+    text-decoration: underline;
+    
+}
 @media screen and (max-width: 800px) {
     .instructionsDiv{
        

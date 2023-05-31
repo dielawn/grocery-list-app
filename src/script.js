@@ -1472,22 +1472,40 @@ createAisleSelector();
 let selectedMealListDiv = document.getElementById('mealListDiv')
 
 const renderSelectedRecipes = (recipeName) => {
-  let listElement = document.createElement('div');  
-  listElement.classList = 'meal-list';
-  if(recipeName === 'clearList'){
-    console.log('list cleared')
-    selectedMealListDiv.innerHTML = ''
-  }else {
-    listElement.textContent += `${recipeName}`
-    selectedMealListDiv.appendChild(listElement)
-  }  
-}
+  if (selectedMealListDiv.querySelector('.list-header') === null) {
+    const textHeader = document.createElement('h1');
+    const textEmphasis = document.createElement('em');
+    textHeader.textContent = 'Selected Recipes';
+    textHeader.classList.add('list-header');
+    selectedMealListDiv.appendChild(textEmphasis);
+    textEmphasis.appendChild(textHeader);
+  }
+
+  if (recipeName === 'clearList') {
+    console.log('list cleared');
+    selectedMealListDiv.innerHTML = '';
+  } else {
+    let listElement = document.createElement('div');
+    listElement.classList = 'meal-list';
+    listElement.textContent += `${recipeName}`;
+    selectedMealListDiv.appendChild(listElement);
+  }
+};
+
 
 const renderList = (list) => {    
   listDiv.innerHTML = ''; // clear the container before adding new elements  
+
+  const textHeader = document.createElement('h1');
+  const textEmphasis = document.createElement('em')
+  textHeader.textContent = 'Grocery List';
+  textHeader.classList.add('list-header');
+  listDiv.appendChild(textEmphasis);
+  textEmphasis.appendChild(textHeader)
+
+
   let servingSize = servingSizeSelect.value;
   
-
   for (let i = 0; i < list.length; i++) {
     let listElement = document.createElement('div');
     let removeBtn = document.createElement('button');
@@ -1651,6 +1669,7 @@ viewListBtn.addEventListener('click', () => {
   console.log(viewListBtn.textContent)
   displayHideList()
   displayHideButtons()
+  showHideButtonDiv()
 })
 
 //   createBtn('buttonDiv', 'Save List', 'saveBtn')
@@ -1678,10 +1697,13 @@ const showHideButtonDiv = () => {
     if(buttonDiv.style.display != 'none'){
       buttonDiv.style.display = 'none'
       selectedMealListDiv.style.display = 'block'
-      
-    }else if(buttonDiv.style.display === 'none'){
+      buttonDiv.style.position = 'absolute';
+      buttonDiv.style.top = '20';
+      buttonDiv.style.left = '0';
+    }
+      else if(buttonDiv.style.display === 'none'){
       buttonDiv.style.display = 'flex'
-      selectedMealListDiv.style.display = 'none'
+      // selectedMealListDiv.style.display = 'none'
     }
    
   }
@@ -1721,6 +1743,7 @@ const displayHideList = () => {
 
 createBtn('buttonDiv', 'View Instructions', 'instructionsBtn')
 const instructionsElement = document.getElementById('instructionDiv')
+
 const displayHideInstructions = () => {
  
  if(instructionsElement.style.display != 'none'){
@@ -1751,9 +1774,11 @@ closeInstrtuctionsBtn.addEventListener('click', () => {
   recipeDiv.classList.remove('blur')
   listDiv.classList.remove('blur')
   buttonDiv.classList.remove('blur')
+  
 })
 instructionsBtn.addEventListener('click', () => {
   displayHideInstructions()
+  showHideButtonDiv()
 })
 
 const clearLocalStorage = () => {
@@ -1806,3 +1831,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 loadLocalStorageList()
+window.addEventListener('DOMContentLoaded', () => {
+  showHideButtonDiv(); // Call the function to set initial state
+  displayHideInstructions()
+});
