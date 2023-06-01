@@ -921,7 +921,7 @@ link: 'https://www.hellofresh.com/recipes/melty-monterey-jack-burgers-5e25f552b9
 { name: 'Ancho BBQ Sloppy Joes',
 ingredients: anchoBbqSloppyJoesIngredients,
 image: 'images/ancho-bbq-sloppy-joes.avif',
-instructions: 'instructions/ancho-bbq-sloppy-joespdf.pdf',
+instructions: 'instructions/ancho-bbq-sloppy-joes.pdf',
 link: 'https://www.hellofresh.com/recipes/ancho-bbq-sloppy-joes-6231e882e5574621ea0c8d10'
 },
 
@@ -1667,6 +1667,8 @@ createBtn('buttonDiv', 'View List', 'viewListBtn')
 const viewListBtn = document.getElementById('viewListBtn')
 viewListBtn.addEventListener('click', () => {
   console.log(viewListBtn.textContent)
+  consolidateGroceryList(groceryList)
+  renderList(groceryList)
   displayHideList()
   displayHideButtons()
   showHideButtonDiv()
@@ -1712,14 +1714,14 @@ const showHideButtonDiv = () => {
 const displayHideButtons = () => {
   if(viewListBtn.textContent === 'View List'){
     viewListBtn.textContent = 'View Recipes'
-    combineSaveBtn.style.display = 'block'
+    
     dwnldPDFBtn.style.display = 'block'
     servingSizeDiv.style.display = 'block'
     formBtn.style.display = 'block'
     
   } else {
     viewListBtn.textContent = 'View List'
-    combineSaveBtn.style.display = 'none'
+    
     dwnldPDFBtn.style.display = 'none'
     servingSizeDiv.style.display = 'none' 
     formBtn.style.display = 'none'
@@ -1758,8 +1760,10 @@ const displayHideInstructions = () => {
   if(buttonDiv.classList.contains('blur')){
     buttonDiv.classList.remove('blur')
   }
+  
   return
  }{
+  
   instructionsElement.style.display = 'block'
   buttonDiv.classList.add('blur')
   recipeDiv.classList.add('blur')
@@ -1774,7 +1778,7 @@ closeInstrtuctionsBtn.addEventListener('click', () => {
   recipeDiv.classList.remove('blur')
   listDiv.classList.remove('blur')
   buttonDiv.classList.remove('blur')
-  
+  console.log('yo')
 })
 instructionsBtn.addEventListener('click', () => {
   displayHideInstructions()
