@@ -1663,7 +1663,7 @@ addItemBtn.addEventListener('click', () => {
   
 })
 
-createBtn('buttonDiv', 'View List', 'viewListBtn')
+createBtn('container', 'Grocery List', 'viewListBtn')
 const viewListBtn = document.getElementById('viewListBtn')
 viewListBtn.addEventListener('click', () => {
   console.log(viewListBtn.textContent)
@@ -1671,7 +1671,7 @@ viewListBtn.addEventListener('click', () => {
   renderList(groceryList)
   displayHideList()
   displayHideButtons()
-  showHideButtonDiv()
+  
 })
 
 //   createBtn('buttonDiv', 'Save List', 'saveBtn')
@@ -1712,15 +1712,15 @@ const showHideButtonDiv = () => {
 
 
 const displayHideButtons = () => {
-  if(viewListBtn.textContent === 'View List'){
-    viewListBtn.textContent = 'View Recipes'
+  if(viewListBtn.textContent === 'Grocery List'){
+    viewListBtn.textContent = 'Recipes'
     
     dwnldPDFBtn.style.display = 'block'
     servingSizeDiv.style.display = 'block'
     formBtn.style.display = 'block'
     
   } else {
-    viewListBtn.textContent = 'View List'
+    viewListBtn.textContent = 'Grocery List'
     
     dwnldPDFBtn.style.display = 'none'
     servingSizeDiv.style.display = 'none' 
@@ -1763,7 +1763,7 @@ const displayHideInstructions = () => {
   
   return
  }{
-  
+  disableButtonsExcept('closeInstrtuctionsBtn')
   instructionsElement.style.display = 'block'
   buttonDiv.classList.add('blur')
   recipeDiv.classList.add('blur')
@@ -1778,7 +1778,7 @@ closeInstrtuctionsBtn.addEventListener('click', () => {
   recipeDiv.classList.remove('blur')
   listDiv.classList.remove('blur')
   buttonDiv.classList.remove('blur')
-  console.log('yo')
+  enableButtons()
 })
 instructionsBtn.addEventListener('click', () => {
   displayHideInstructions()
@@ -1803,7 +1803,21 @@ const searchRecipesByKeyword = (keyword) => {
   renderRecipes(matchingRecipes)
 }
 
-renderRecipes(recipes);
+const disableButtonsExcept = (exception) => {
+  let buttons = document.querySelectorAll('button')
+  buttons.forEach(function(button){
+    if(button.classList.value != exception){
+      button.disabled = true;
+    }
+  })
+  
+}
+const enableButtons = () => {
+  let buttons = document.querySelectorAll('button')
+  buttons.forEach(function(button){    
+      button.disabled = false;    
+  })
+}
 
 
 
@@ -1838,4 +1852,5 @@ loadLocalStorageList()
 window.addEventListener('DOMContentLoaded', () => {
   showHideButtonDiv(); // Call the function to set initial state
   displayHideInstructions()
+  renderRecipes(recipes);
 });
