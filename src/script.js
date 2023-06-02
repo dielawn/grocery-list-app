@@ -1644,18 +1644,29 @@ dwnldPDFBtn.addEventListener('click',() => {
   pdfList()
 })
 
-createBtn('buttonDiv', 'Add Item', 'addItemFormBtn')
-const formBtn = document.getElementById('addItemFormBtn')
-formBtn.addEventListener('click', () => {
-displayHideForm()
-})
+
 
 createBtn('addItemDiv', 'Add Item to List', 'addItemBtn')
 const addItemBtn = document.getElementById('addItemBtn')
 addItemBtn.addEventListener('click', () => {
   addItem(itemInput.value, qtyInput.value, unitInput.value, aisleInput.value)
-  
+  listDiv.classList.remove('blur')
+  buttonDiv.classList.remove('blur')
+  enableButtons()
+
 })
+
+
+createBtn('buttonDiv', 'Add Item', 'addItemFormBtn')
+const formBtn = document.getElementById('addItemFormBtn')
+formBtn.addEventListener('click', () => {
+listDiv.classList.add('blur')
+disableButtonSet('removeBtn')
+buttonDiv.style.display = 'none'
+displayHideForm()
+})
+
+
 
 createBtn('menuDiv', 'Grocery List', 'viewListBtn')
 const viewListBtn = document.getElementById('viewListBtn')
@@ -1665,8 +1676,19 @@ viewListBtn.addEventListener('click', () => {
   displayHideList()
   displayHideButtons()
   
+
 })
 
+
+createBtn('addItemDiv', 'X', 'closeAddItemBtn')
+const closeAddItemBtn = document.getElementById('closeAddItemBtn')
+closeAddItemBtn.addEventListener('click', () => {
+  listDiv.classList.remove('blur')
+  buttonDiv.classList.remove('blur')
+  displayHideForm()
+  enableButtons()
+  console.log('close form clicked')
+})
 
 const displayHideForm = () => {
   const itemForm = document.getElementById('addItemDiv')
@@ -1792,6 +1814,14 @@ const disableButtonsExcept = (exception) => {
     }
   })
   
+}
+const disableButtonSet = (buttonClassName) => {
+  let buttons = document.querySelectorAll('button')
+  buttons.forEach(function(button){
+if(button.classList.value === buttonClassName){
+  button.disabled = true;
+  }
+})
 }
 const enableButtons = () => {
   let buttons = document.querySelectorAll('button')
