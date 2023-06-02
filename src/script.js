@@ -1215,7 +1215,7 @@ const handleLocalStorage = () => {
   clearLocalStorage()
   for(let i = 0; i < groceryList.length; i++){
   let itemKey = 'ingredient' + i
-  console.log(groceryList[i].name)
+  // console.log(groceryList[i].name)
   let itemValue = { name: groceryList[i].name, qty: groceryList[i].qty, unit: groceryList[i].unit, aisle: groceryList[i].aisle }
   saveToLocalStorage(itemKey, itemValue, groceryList)
 } 
@@ -1227,10 +1227,10 @@ const loadLocalStorageList = () => {
     for (let i = 0; i < localStorage.length; i++) {
       const key = localStorage.key(i);
       const value = localStorage.getItem(key);
-      console.log('key:', key, 'value:', value)
+      // console.log('key:', key, 'value:', value)
       if(key.startsWith('ingredient')){
         let localStorageKey = `ingredient${i}`
-        console.log(`${localStorageKey}, ingredient${i} 1193`)
+        // console.log(`${localStorageKey}, ingredient${i} 1193`)
         const item = JSON.parse(value);
         groceryList.push(item);
       }else {
@@ -1333,7 +1333,6 @@ const addRecipeToList = (list) => {
     groceryList.push({ name: ingredient.name, qty: ingredient.qty, unit: ingredient.unit, aisle: ingredient.aisle })
 
   }
-  console.log(groceryList)
   return groceryList
 }
 
@@ -1350,9 +1349,9 @@ const consolidateGroceryList = (list) => {
     }
   }
   const consolidatedGroceryList = Object.values(consolidatedList);
-  console.log('before',groceryList)
+  // console.log('before',groceryList)
   groceryList = consolidatedGroceryList;
-  console.log('after',groceryList)
+  // console.log('after',groceryList)
   
 };
 
@@ -1361,7 +1360,7 @@ const aisleSelectorDiv = document.getElementById('aisleOrderDiv');
 
 const renderAisleOrder = () => {
   for (let i = 0; i < aisleOrder.length; i++) {
-    console.log(aisleOrder[i])
+    // console.log(aisleOrder[i])
   let listElement = document.createElement('div');  
   listElement.classList = 'aisle-order';
   let aisleName = aisleOrder[i]
@@ -1421,7 +1420,7 @@ renderAisleOrder()
 };
 
 const setAisleOrder = (array, oldIndex, newIndex) => {
-  console.log(`Before reorder: ${array}`);
+  // console.log(`Before reorder: ${array}`);
   if (newIndex >= array.length) {
     var k = newIndex - array.length;
     while ((k--) + 1) {
@@ -1429,7 +1428,7 @@ const setAisleOrder = (array, oldIndex, newIndex) => {
     }
   }
   array.splice(newIndex, 0, array.splice(oldIndex, 1)[0]);
-  console.log(`After reorder: ${array}`);
+  // console.log(`After reorder: ${array}`);
   return array;
 };
 
@@ -1439,9 +1438,7 @@ createAisleSelector();
 
 
   const sortGroceryListByAisle = (list) => {
-    // Define the order of aisles
     
-    console.log(list, groceryList)
     // Add the aisle property to each item in the list
     const listWithAisle = list.map(item => {
       return {
@@ -1482,7 +1479,6 @@ const renderSelectedRecipes = (recipeName) => {
   }
 
   if (recipeName === 'clearList') {
-    console.log('list cleared');
     selectedMealListDiv.innerHTML = '';
   } else {
     let listElement = document.createElement('div');
@@ -1534,27 +1530,27 @@ const createRemoveListener = (listElement, index) => {
     let result = -1;
 
     for (let i = 0; i < groceryList.length; i++) {
-      console.log('Checking:', groceryList[i].name);
+      // console.log('Checking:', groceryList[i].name);
       if (groceryList[i].name === text) {
         result = i;
         break;
       }
     }
 
-    console.log('text:', text, 'result:', result);
-    listElement.remove(); // remove the list element from the DOM
+    // console.log('text:', text, 'result:', result);
+    listElement.remove();
 
     if (result !== -1) {
-      console.log(result, groceryList);
+      // console.log(result, groceryList);
       groceryList.splice(result, 1); // remove the item from the list
       clearLocalStorage()
       for(let i = 0; i < groceryList.length; i++){
       let itemKey = 'ingredient' + i
-      console.log(groceryList[i].name)
+      // console.log(groceryList[i].name)
       let itemValue = { name: groceryList[i].name, qty: groceryList[i].qty, unit: groceryList[i].unit, aisle: groceryList[i].aisle }
       saveToLocalStorage(itemKey, itemValue, groceryList)
       } 
-      console.log(result, groceryList);
+      // console.log(result, groceryList);
     }
   };
 };
@@ -1623,12 +1619,11 @@ combineSaveBtn.addEventListener('click',() => {
   createBtn('buttonDiv', 'Save List', 'saveListBtn')
 const saveBtn = document.getElementById('saveListBtn')
 saveBtn.addEventListener('click', () => {
-clearLocalStorage()
-for(let i = 0; i < groceryList.length; i++){
-let itemKey = 'ingredient' + i
-console.log(groceryList[i].name)
-let itemValue = { name: groceryList[i].name, qty: groceryList[i].qty, unit: groceryList[i].unit, aisle: groceryList[i].aisle }
-saveToLocalStorage(itemKey, itemValue, groceryList)
+  clearLocalStorage()
+  for(let i = 0; i < groceryList.length; i++){
+  let itemKey = 'ingredient' + i
+  let itemValue = { name: groceryList[i].name, qty: groceryList[i].qty, unit: groceryList[i].unit, aisle: groceryList[i].aisle }
+  saveToLocalStorage(itemKey, itemValue, groceryList)
 } 
 })
 
@@ -1646,7 +1641,6 @@ clearListBtn.addEventListener('click', () => {
 createBtn('buttonDiv', 'Generate PDF', 'pdfBtn')
 const dwnldPDFBtn = document.getElementById('pdfBtn')
 dwnldPDFBtn.addEventListener('click',() => {
-  console.log('pdf1')
   pdfList()
 })
 
@@ -1663,10 +1657,9 @@ addItemBtn.addEventListener('click', () => {
   
 })
 
-createBtn('container', 'Grocery List', 'viewListBtn')
+createBtn('menuDiv', 'Grocery List', 'viewListBtn')
 const viewListBtn = document.getElementById('viewListBtn')
 viewListBtn.addEventListener('click', () => {
-  console.log(viewListBtn.textContent)
   consolidateGroceryList(groceryList)
   renderList(groceryList)
   displayHideList()
@@ -1674,15 +1667,6 @@ viewListBtn.addEventListener('click', () => {
   
 })
 
-//   createBtn('buttonDiv', 'Save List', 'saveBtn')
-//   document.getElementById('saveBtn').addEventListener('click', () => {  
-//     for(let i = 0; i < groceryList.length; i++){
-//       let itemKey = 'ingredient' + i
-//       console.log(groceryList[i].name)
-//       let itemValue = { name: groceryList[i].name, qty: groceryList[i].qty, unit: groceryList[i].unit, aisle: groceryList[i].aisle }
-//       saveToLocalStorage(itemKey, itemValue, groceryList)
-//     } 
-// })
 
 const displayHideForm = () => {
   const itemForm = document.getElementById('addItemDiv')
@@ -1693,7 +1677,6 @@ const displayHideForm = () => {
     }
 }
 const showHideButtonDiv = () => {
-      console.log('hamburger2')
     let buttonDiv = document.getElementById('buttonDiv')
    
     if(buttonDiv.style.display != 'none'){
@@ -1705,7 +1688,6 @@ const showHideButtonDiv = () => {
     }
       else if(buttonDiv.style.display === 'none'){
       buttonDiv.style.display = 'flex'
-      // selectedMealListDiv.style.display = 'none'
     }
    
   }
@@ -1713,7 +1695,7 @@ const showHideButtonDiv = () => {
 
 const displayHideButtons = () => {
   if(viewListBtn.textContent === 'Grocery List'){
-    viewListBtn.textContent = 'Recipes'
+    viewListBtn.textContent = 'View Recipes'
     
     dwnldPDFBtn.style.display = 'block'
     servingSizeDiv.style.display = 'block'
@@ -1790,7 +1772,6 @@ const clearLocalStorage = () => {
 }
 
 const searchRecipesByKeyword = (keyword) => {
-  console.log(keyword)
   const matchingRecipes = []
   for(let i = 0; i < recipes.length; i++){
     // Check if the ingredients property is an array before calling the some() method
@@ -1842,7 +1823,6 @@ searchBtn.addEventListener('click', () => {
 document.addEventListener('DOMContentLoaded', () => {
   let hamburgerIcon = document.getElementById('hamburgerIcon');
   hamburgerIcon.addEventListener('click', () => {
-    console.log('hamburger1');
     showHideButtonDiv()
   });
 });
