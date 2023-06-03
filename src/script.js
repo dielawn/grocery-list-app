@@ -1728,10 +1728,16 @@ const displayHideButtons = () => {
     
     dwnldPDFBtn.style.display = 'none'
     servingSizeDiv.style.display = 'none' 
+    // servingSizeSelect.style.display = 'none'
     formBtn.style.display = 'none'
     
   }
  }
+
+ servingSizeSelect.addEventListener('change', () => {
+  console.log('Serving size changed')
+  renderList(groceryList)
+ })
 
 const displayHideList = () => { 
     if(recipeDiv.style.display !== 'none'){
@@ -1857,10 +1863,16 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+const hideSelect = () => {
+  if(viewListBtn.textContent === 'Grocery List'){
+    servingSizeDiv.style.display = 'none' 
+  }
+}
 
 loadLocalStorageList()
 window.addEventListener('DOMContentLoaded', () => {
   showHideButtonDiv(); // Call the function to set initial state
   displayHideInstructions()
   renderRecipes(recipes);
+  hideSelect()
 });
